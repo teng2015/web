@@ -61,7 +61,9 @@ angular.module('app',[
     'ngRoute',
     'welcome',
 	'rishSearch',
-	'riskHistory'
+	'riskHistory',
+	'userInfo',
+	'changePass'
 ])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.otherwise({
@@ -113,7 +115,7 @@ angular.module('app',[
             });
 				
 		}]);
-	/*	
+	
 	angular.module('userInfo',['ngRoute'])
 		.controller('userInfoPage',function($scope){
 			
@@ -126,7 +128,21 @@ angular.module('app',[
             });
 				
 		}]);
-	*/
+		
+	angular.module('changePass',['ngRoute'])
+		.controller('changePassPage',function($scope){
+			
+			
+		})
+		.config(['$routeProvider',function($routeProvider){
+			$routeProvider.when('/changePass',{
+                templateUrl:'page/changePass.html',
+                controller:'changePassPage'
+            });
+				
+		}]);
+		
+	
 		
 	
 	
