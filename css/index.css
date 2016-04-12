@@ -62,7 +62,7 @@ position:absolute; right:0px; z-index:1001;}
 
 .welcome ul#menu li { line-height:42px; font-size:16px;/* background:url(../images/img/left_line-bk.png) no-repeat left bottom;*/
 margin-top:10px;  margin-bottom:10px;
-_margin-top:10px; *margin-bottom:-8px !important;  _margin-bottom:0px;}
+_margin-top:10px; *margin-bottom:-8px ;  _margin-bottom:0px;}
 
 .welcome ul#menu li a {
   color:#333;	
@@ -134,5 +134,9 @@ width:990px; margin:0 auto; min-width:980px; height:28px; line-height:28px; }
 .regist_btn { width:105px; height:32px; display:block; float:left;cursor:pointer; border:none; background: url(../images/img/button-red.png) no-repeat; text-align: center;line-height: 34px; color:#fff; margin-left:150px;}
 
 
-
+/*company_introduction*/
+.company_introduction {margin:0 auto;width:700px; margin-left:45px;}
+.company_introduction .about_us{ height:auto; padding:0px 20px; line-height:28px;}
+.company_introduction .about_us p{ text-indent:20px; font-size:14px; color:#333; padding-top:10px;}
+.company_introduction .about_us p.txt{text-indent:0px;padding-left:20px;}
 
