@@ -102,7 +102,7 @@ width:990px; margin:0 auto; min-width:980px; height:28px; line-height:28px; }
 
 /*home_welcome*/
 
-.home_welcome { width:570px; height:680px; background:#fff; margin:0 auto;padding-left:200px;}
+.home_welcome { width:570px; background:#fff; margin:0 auto;padding-left:200px;}
 .home_welcome .p1{ margin:10px 0px 18px 0px;}
 .home_welcome .span-org{ color:#fe6409;}
 .home_welcome .span-grey2{ color:#444;}
@@ -111,23 +111,16 @@ width:990px; margin:0 auto; min-width:980px; height:28px; line-height:28px; }
 .home_welcome .margin_top_40{ margin-top:40px;}
 
 
-/*real_time*/
-.real_time .mess_search{ width:740px; height:50px; margin:0 auto; margin-top:20px; font-size:14px; color:#444;}
-.real_time .mess_search ul li{ width:auto; display:inline; float:left; margin-right:3px; line-height:30px;}
-.real_time .mess_search ul li span{ display:block; float:left;}
-.real_time .search_btn { margin-top:-4px;}
-.real_time .mess_table{ width:720px; height:auto; margin:0 auto; margin-top:10px;}
-.real_time .login_input{outline:none; width:220px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; float:left; text-indent:8px; display:inline;}
-.real_time .yzm_input{width:110px;}
+.mess_search{ width:740px; margin-top:30px; margin-left:40px; font-size:14px;}
+.mess_search ul li{ float:left; margin-right:3px; line-height:30px;}
+.mess_search ul li span{ display:block; float:left;}
+.search_btn { margin-top:-4px;}
+.mess_table{ width:720px; margin:0 auto; margin-top:10px;}
+.mess_search .nameText,.mess_search .idText{outline:none; width:110px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; float:left; text-indent:8px;}
+.searchBtn{ width:110px; height:32px; background:rgb(30,141,220); color:#fff; float:left; border-radius:5px; font-size:14px; outline:none; border:none; cursor:pointer; margin-left:5px;}
 
-/*history_time*/
-.history_time .mess_search{ width:740px; height:50px; margin:0 auto; margin-top:20px; font-size:14px; color:#444;}
-.history_time .mess_search ul li{ width:auto; display:inline; float:left; margin-right:3px; line-height:30px;}
-.history_time .mess_search ul li span{ display:block; float:left;}
-.history_time .search_btn { margin-top:-4px;}
-.history_time .mess_table{ width:720px; height:auto; margin:0 auto; margin-top:10px;}
-.history_time .login_input{outline:none; width:220px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; float:left; text-indent:8px; display:inline;}
-.history_time .yzm_input{width:110px;}
+
+
 
 
 

@@ -13,5 +13,6 @@ a:hover{ text-decoration:none;}
 img{ border:none;}
 ul{ margin:0; padding:0;}
 li{ list-style:none;}
-.fl{float:left;}
-.fr{float:right;}
+.fl{ float:left;}
+.fr{ float:right;}
+.clearfix:after{ display:block; content:''; clear:both;}
