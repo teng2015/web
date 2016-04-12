@@ -110,7 +110,7 @@ width:990px; margin:0 auto; min-width:980px; height:28px; line-height:28px; }
 .home_welcome .span-16{ font-size:16px;}
 .home_welcome .margin_top_40{ margin-top:40px;}
 
-
+/*riskView*/
 .mess_search{ width:740px; margin-top:30px; margin-left:40px; font-size:14px;}
 .mess_search ul li{ float:left; margin-right:3px; line-height:30px;}
 .mess_search ul li span{ display:block; float:left;}
@@ -119,8 +119,19 @@ width:990px; margin:0 auto; min-width:980px; height:28px; line-height:28px; }
 .mess_search .nameText,.mess_search .idText{outline:none; width:110px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; float:left; text-indent:8px;}
 .searchBtn{ width:110px; height:32px; background:rgb(30,141,220); color:#fff; float:left; border-radius:5px; font-size:14px; outline:none; border:none; cursor:pointer; margin-left:5px;}
 
+/*userInfo*/
+.userInfo{ width:680px; min-height:480px; margin:0 20px; padding-top:50px;}
+.tab_info{ width:600px; height:auto; margin:0 auto; font-size:14px;}
+.tab_info p{ margin:15px 0px; color:#444; line-height:24px;}
+.span-org{ color:#fe6409;}
+.userInfo .title{ width:136px; height:144px; float:left; margin-right:15px; }
 
-
+/*changePass*/
+.changePass{ width:680px; min-height:480px; margin:50px auto; font-size:14px;}
+.changePass ul li{ height:32px; margin-top:20px;}
+.regist_text{ width:150px; height:32px; text-align:right; float:left; line-height:32px; color:#444;}
+.login_input{ width:220px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; text-indent:8px; float:left;}
+.regist_btn { width:105px; height:32px; display:block; float:left;cursor:pointer; border:none; background: url(../images/img/button-red.png) no-repeat; text-align: center;line-height: 34px; color:#fff; margin-left:150px;}
 
 
 
