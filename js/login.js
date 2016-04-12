@@ -162,7 +162,7 @@ function login(){
             200: function (repJson) { 
                /* $.cookie('token', repJson.token); */
                 localStorage.token = repJson.token;
-                window.location.href = "welcome.html";
+                window.location.href = "index.html";
             },
             201: function (res, stausText, xhr) {
               alert("系统错误201，请稍后重试!");
