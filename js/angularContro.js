@@ -7,7 +7,8 @@ angular.module('app',[
 	'riskHistory',
 	'userInfo',
 	'changePass',
-	'aboutUs'
+	'aboutUs',
+	'address'
 ])
     .config(['$routeProvider',function($routeProvider){
         $routeProvider.otherwise({
@@ -99,5 +100,17 @@ angular.module('app',[
 				
 		}]);
 		
+	angular.module('address',['ngRoute'])
+		.controller('addressPage',function($scope){
+			
+			
+		})
+		.config(['$routeProvider',function($routeProvider){
+			$routeProvider.when('/address',{
+                templateUrl:'address.html',
+                controller:'addressPage'
+            });
+				
+		}]);
 	
 })();
