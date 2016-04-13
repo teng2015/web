@@ -8,14 +8,12 @@ $(function (){
 
 		if($(this).next('.menu_ul')){
 
-			$(this).next('.menu_ul').css('display','block');	
+			$(this).next('.menu_ul').show();	
 
 		}else{
 
 			$('.menu_ul').hide();
-		
 		}
-
 		
 	});
 	
@@ -28,21 +26,15 @@ $(function (){
 
 			var rightParentName=$(this).parents('li').find('.menu_li').eq(0).html();
 			var rightNameTxt = $(this).html();
-
 			$('.right_name').html(rightParentName+" "+rightNameTxt);
 			$('.span-12').hide();
-
 			if(rightNameTxt=='调用历史'){
-				
 				$('.span-12').show();
 			}else{
 				$('.span-12').hide();
 				
 			}
 			$('.title-2').html(rightNameTxt);
-			
-			
-
 		}else{
 
 			$('.right_name').html('首页');
