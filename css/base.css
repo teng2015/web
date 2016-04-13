@@ -1,0 +1,18 @@
+*{margin:0; padding:0;}
+html,body{ 
+width:100%;
+font: 12px Arial,'Microsoft YaHei','微软雅黑',Geneva,sans-serif;
+margin:0 auto; 
+padding:0;
+border:none;
+background:#EEE;
+_background:none;
+}
+a{ text-decoration:none;}
+a:hover{ text-decoration:none;}
+img{ border:none;}
+ul{ margin:0; padding:0;}
+li{ list-style:none;}
+.fl{ float:left;}
+.fr{ float:right;}
+.clearfix:after{ display:block; content:''; clear:both;}
