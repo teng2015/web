@@ -1,3 +1,45 @@
+/*
+	*** angular Spa ***
+	*** wuhao 2016/4/13 ***
+*/
+
+function ngAjax(options){
+	
+	options.url = options.url;
+	options.method = options.method || 'get';
+	options.data = options.data || {};
+	options.success = options.success || function(data,status){};
+	options.errfn = options.errfn || function(status){};
+	options.ngHttp = options.ngHttp || $http;
+	
+	if(options.method.toLowerCase() == 'get')
+	{
+		options.data = {params: options.data};
+	}
+	else
+	{
+		options.data = options.data;	
+	}
+	options.ngHttp({
+		url:options.url,
+		method:options.method,
+		data:options.data	
+	}).success(options.success).error(
+		function(status)
+		{
+			if(status == 403)
+			{
+				delete localStorage.token;
+				window.location.href = "/index.html" ;
+			}
+			else
+			{
+				options.errfn();
+			}
+		}	
+	)	
+	
+};
 
 
 angular.module('app',[
@@ -10,23 +52,51 @@ angular.module('app',[
 	'aboutUs',
 	'address'
 ])
-    .config(['$routeProvider',function($routeProvider){
-        $routeProvider.otherwise({
-            redirectTo:'/welcome'
-        });
-    }]);
+	
+	.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
+		//xhr.setRequestHeader -> token
+		$httpProvider.defaults.headers.common['Authorization'] = localStorage.token
+		$routeProvider.otherwise({
+			redirectTo:'/welcome'
+		});
+
+	
+	}]);
+	
 
 
 
-
-
-(function(){
 	angular.module('welcome',['ngRoute'])
-		.controller('welcomePage',function($scope){
+		.controller('welcomePage',function($scope,$http){
+			
+			/*$http({method:'get',url:'/sec/userHis/get'}).success(function(data,status){
+				
+				$scope.loginAcc = data.currLoginNumber;
+				$scope.lastTime = data.lastLoginTime;
+				
+			}).error(function(status){
+				
+			});*/
+			
+			ngAjax({
+				url:'/sec/userHis/get',
+				method:'get',
+				ngHttp:$http,
+				success:function(data,status){
+					$scope.loginAcc = data.currLoginNumber;
+					$scope.lastTime = data.lastLoginTime;
+				},
+				
+			})
+			
+			
+			
+			
 			
 		})
 		
 		.config(['$routeProvider',function($routeProvider){
+			
 			$routeProvider.when('/welcome',{
                 templateUrl:'welcome.html',
                 controller:'welcomePage'
@@ -113,4 +183,3 @@ angular.module('app',[
 				
 		}]);
 	
-})();
