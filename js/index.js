@@ -84,7 +84,7 @@ angular.module('app',[
 		
 		.config(['$routeProvider',function($routeProvider){
 			$routeProvider.when('/welcome',{
-                templateUrl:'page/welcome.html',
+                templateUrl:'welcome.html',
                 controller:'welcomePage'
             });
 			
@@ -97,7 +97,7 @@ angular.module('app',[
 		})
 		.config(['$routeProvider',function($routeProvider){
 			$routeProvider.when('/riskSearch',{
-                templateUrl:'page/riskSearch.html',
+                templateUrl:'riskSearch.html',
                 controller:'riskSearchPage'
             });
 				
@@ -111,7 +111,7 @@ angular.module('app',[
 		})
 		.config(['$routeProvider',function($routeProvider){
 			$routeProvider.when('/riskHistory',{
-                templateUrl:'page/riskHistory.html',
+                templateUrl:'riskHistory.html',
                 controller:'riskHistoryPage'
             });
 				
@@ -124,7 +124,7 @@ angular.module('app',[
 		})
 		.config(['$routeProvider',function($routeProvider){
 			$routeProvider.when('/userInfo',{
-                templateUrl:'page/userInfo.html',
+                templateUrl:'userInfo.html',
                 controller:'userInfoPage'
             });
 				
@@ -137,7 +137,7 @@ angular.module('app',[
 		})
 		.config(['$routeProvider',function($routeProvider){
 			$routeProvider.when('/changePass',{
-                templateUrl:'page/changePass.html',
+                templateUrl:'changePass.html',
                 controller:'changePassPage'
             });
 				
@@ -150,7 +150,7 @@ angular.module('app',[
 		})
 		.config(['$routeProvider',function($routeProvider){
 			$routeProvider.when('/aboutUs',{
-                templateUrl:'page/aboutUs.html',
+                templateUrl:'aboutUs.html',
                 controller:'aboutUsPage'
             });
 				
