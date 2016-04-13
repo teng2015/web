@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>欢迎访问炼金台</title>
+	<link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/libs/jquery.js"></script>
+    <script src="../js/libs/angular.js"></script>
+    <script src="../js/libs/angular-route.js"></script>
+    <script src="../js/index.js"></script>
+</head>
+<body ng-app="app">
+	<div class="welcome">
+		<div class="head">
+			<div class="logo fl">
+            	<a href="index.html" title="炼金台客户风险视图" ><img src="../images/logo.png" alt="炼金台客户风险视图"></a>
+			</div>
+
+			<div class="login_new fr"><a href="#" id="nowUser">当前用户：华夏银行</a> | <a href="javascript:;">安全退出</a> </div>
+
+		</div>
+
+		<div class="line"></div>
+
+		<div class="center">
+
+			<div class="centerLeft fl">    
+              <ul id="menu">
+                <li> <a class="m1 margin_left_20 menu_li menu_child" href="#/welcome">首页</a> </li>
+                <li> <a class="m2 margin_left_20 menu_li" href="javascript:;">风险视图 &gt; </a>
+                  <ul class="menu_ul">
+                    <li><a href="#/riskSearch" class="menu_child">实时调用</a></li>
+                    <li><a href="#/riskHistory" class="menu_child">调用历史</a></li>
+                  </ul>
+                </li>
+                <li> <a class="m3 margin_left_20 menu_li " href="javascript:;">会员中心 &gt;</a>
+                  <ul class="menu_ul">
+                    <li><a href="#/userInfo" class="menu_child">账户信息</a></li>
+                    <li><a href="#/changePass" class="menu_child">密码修改</a></li>
+                    
+                  </ul>
+                </li>
+                <li> <a class="m5 margin_left_20 menu_li">关于我们 &gt;</a>
+                  <ul class="menu_ul">
+                    <li><a href="#/aboutUs" class="menu_child">公司介绍</a></li>
+                    <li><a href="#/address" class="menu_child">联系方式</a></li>
+                  </ul>
+                </li>
+              </ul>
+			</div>
+
+			<div class="centerRight fr">
+            
+            	<div class="right_now">&nbsp; <span>当前位置：</span><span class="right_name">首页</span> </div>
+  				<div class="title-2_left">
+  					<div class="title-2">首页</div><div class="span-12 span-normal fl">展示最近2年内查询过的个人信用记录</div>
+  				</div>
+				<div ng-view></div>
+
+			</div>
+		</div>
+
+		<div class="footer"> 
+			<span>CopyRight &copy; 2016</span><span>版权所有</span><span>北京海恩炼鑫台</span><span>京ICP备14056262号</span><span class="padding_left_20">问题反馈：service@lianjintai.com</span><span>客服电话：400-890-7756</span>
+		</div>
+	</div>
+</body>
+
+</html>
