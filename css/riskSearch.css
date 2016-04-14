@@ -9,7 +9,7 @@
 .mess_table{ width:720px; margin:0 auto; margin-top:10px;display:none;}
 .mess_search .nameText,.mess_search .idText{outline:none; width:110px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; float:left; text-indent:8px;}
 .searchBtn{ width:110px; height:32px; background:rgb(30,141,220); color:#fff; float:left; border-radius:5px; font-size:14px; outline:none; border:none; cursor:pointer; margin-left:5px;}
-.mess_table{ width:720px; height:auto; margin:0 auto; margin-top:20px;margin-left:35px;}
+.mess_table{ width:720px; height:auto; margin:0 auto; margin-top:20px;margin-left:35px;} 
 .srh_box{ width:720px; margin-top:30px; margin-left:40px;}
 /*  信息列表 主表格  */
 .history_list{ border-top:1px solid #d4d4d4; border-left:1px solid #d4d4d4; width:100%;}

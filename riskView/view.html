@@ -1,10 +1,161 @@
-<!doctype html>
+ <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>炼金台 - 信用风险视图</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/view.css">
 </head>
 
 <body>
+<div class="view"> 
+    <ul class="top clearfix">
+    	<li class="t_logo"><img src="../images/logo.gif"></li>
+    	<li class="t_date">
+        	<p>服务热线：400-890-7756</p>
+        	<p id="dtCreated"></p>
+   		</li>
+    </ul>
+    
+    <div class="view_tit">
+        <img src="../images/view_tit.png">
+    </div>
+
+    <table class="userInfo">
+    	<tbody>
+            <tr>
+              <td><strong><span id="summaryNm"></span>身份证</strong><span id="summaryIdNo"></span></td>
+              <td><strong>客户评分：</strong><span class="tab_txt_size">AAA</span></td>
+              <td><strong>居住地址</strong>：<span id="mtCityCd"></span></td>
+              <td><strong>月收入：</strong>¥<span id="summaryMonthlyIncAmt"></span></td>
+              <td><strong>固定资产：</strong>¥<span id="summaryHouseholdFixAssetAmt"></span></td>
+            </tr>
+            <tr>
+              <td><strong>信贷总额度</strong>：¥<span id="summarylmtApprAllAmt"></span></td>
+              <td><strong>账户总余额：</strong>¥<span id="summaryOutstdAmtAll"></span></td>
+              <td><strong>担保连接总金额</strong>：¥<span id="summaryChargeValue"></span></td>
+              <td><strong>担保品总价值：</strong>¥<span id="summaryCollValue"></span></td>
+              <td><strong>担保品可用总价值：</strong>¥<span id="summaryRemainValue"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="riskPic">
+    	<img src="../images/riskPic.png">
+    </div>
+    <div class="cusInfo">
+        <h1 class="clearfix"> 
+             <p class="title">客户信息</p>
+             <a href="infoAccount.html" class="more">更多</a>
+        </h1>
+
+        <table class="cusMes">
+        	<tbody>
+                <tr>
+                    <td class="grey">姓名</td>
+                    <td id="nm">Mark</td>
+                    <td class="grey">年龄</td>
+                    <td id="age">18</td>
+                    <td class="grey">婚姻状况</td>
+                    <td id="mtMaritalStsCd">未婚</td>
+                    <td class="grey">月收入</td>
+                    <td id="monthlyIncAmt">50K</td>
+                    <td class="grey">家庭月收入</td>
+                    <td id="householdMonthlyIncAmt">10K</td>
+                    <td class="grey">固定资产</td>
+                    <td id="householdFixAssetAmt">2K</td>
+                </tr>
+                <tr>
+                    <td class="grey">性别</td>
+                    <td id="mtGenderCd">男</td>
+                    <td class="grey">教育程度</td>
+                    <td id="mtEduLvlCd">大学</td>
+                    <td class="grey">户籍</td>
+                    <td id="mtResidenceStsCd">北京</td>
+                    <td class="grey">职位</td>
+                    <td id="mtPosHeldCd">Fe</td>
+                    <td class="grey">工作单位</td>
+                    <td id="employerCifNm">炼金台</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    
+    
+    <div class="busInfo">
+        <h1 class="clearfix"> 
+         <p class="title">业务信息</p>
+         <a href="infoBusiness.html" class="more">更多</a>
+        </h1>
+        <table>
+        	<tbody>
+            	<tr>
+                    <th>授信编号</th>
+                    <th>业务</th>
+                    <th>授信到期日</th>
+                    <th>利率</th>
+                    <th>罚息利率</th>
+                    <th>信贷额度</th>
+                    <th>担保连接金额</th>
+                    <th>账户余额</th>
+                    <th>状态</th>
+                </tr>
+                <tr>
+                	<td>001</td>
+                    <td>个人在线委托贷款</td>
+                    <td>1年</td>
+                    <td>8%</td>
+                    <td>1%</td>
+                    <td>¥100,000.00</td>
+                    <td>
+                    	<div class="col">
+                        	¥100,000.00
+                        </div>
+                    </td>
+                    <td>
+                    	<div class="acc">
+                        	¥100,000.00
+                        </div>
+                    </td>
+                    <td>已批准</td>
+                </tr>
+            </tbody>
+        </table>    
+    </div>
+    <div class="colInfo">
+    	<h1 class="clearfix"> 
+        	<p class="title">业务信息</p>
+        	<a href="infoGuarantee.html" class="more">更多</a>
+        </h1>
+        <table>
+        	<tbody>
+            	<tr>
+                    <th>担保编号</th>
+                    <th>担保类型</th>
+                    <th>担保品种类</th>
+                    <th>唯一编号</th>
+                    <th>担保品价值</th>
+                    <th>担保品可用价值</th>
+                    <th>所有者</th>
+                </tr>
+                <tr>
+                    <td>PR/2019/000189</td>
+                    <td>房产</td>
+                    <td>住宅用房</td>
+                    <td>0000000000000</td>
+                    <td>70%</td>
+                    <td>¥33,333,333.00</td>
+                    <td>¥3,010,000.00</td>
+                   
+                </tr>
+            </tbody>
+        </table>    
+    </div>
+    
+    
+    
+    
+</div>
 </body>
 </html>

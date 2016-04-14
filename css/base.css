@@ -16,6 +16,6 @@ li{ list-style:none;}
 .fl{ float:left;}
 .fr{ float:right;}
 table{border-collapse:collapse;}
-th,td{padding:0; text-align:center;}
+th,td{padding:0; text-align:center; line-height:150%;}
 input{ border:none;outline:none}
 .clearfix:after{ display:block; content:''; clear:both;}
