@@ -1,5 +1,6 @@
 /*
 	*** angular Spa ***
+	
 	*** wuhao 2016/4/13 ***
 */
 var ngCom = {
@@ -95,8 +96,23 @@ angular.module('rishSearch',['ngRoute'])
 	
 	
 angular.module('riskHistory',['ngRoute'])
-	.controller('riskHistoryPage',function($scope){
-		
+	.controller('riskHistoryPage',function($scope,$http){
+		$scope.srhHistory = function(){
+			if($scope.nm || $scope.idNo)
+			{
+				ngCom.ngAjax({
+					url:"/cif/customer/getCifHistoryByNameOrIdNo?nm="+$.trim(encodeURI($scope.nm))+"&idNo="+$.trim($scope.idNo)+"&mtTenantId=1",
+					method:'get',
+					ngHttp:$http,
+					success:function(data,status){
+						
+					}
+				
+				});	
+			}
+			
+			
+		}
 		
 	})
 	.config(['$routeProvider',function($routeProvider){
