@@ -1,0 +1,6 @@
+/*page/changePass.html changePass.css*/
+.changePass{ width:680px; min-height:480px; margin:50px auto; font-size:14px;}
+.changePass ul li{ height:32px; margin-top:20px;}
+.regist_text{ width:150px; height:32px; text-align:right; float:left; line-height:32px; color:#444;}
+.login_input{ width:220px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; text-indent:8px; float:left;}
+.regist_btn { width:105px; height:32px; display:block; float:left;cursor:pointer; border:none; background: url(../images/img/button-red.png) no-repeat; text-align: center;line-height: 34px; color:#fff; margin-left:150px;}
