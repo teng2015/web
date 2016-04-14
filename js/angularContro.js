@@ -82,8 +82,31 @@ angular.module('welcome',['ngRoute'])
 	}]);
 	
 angular.module('rishSearch',['ngRoute'])
-	.controller('riskSearchPage',function($scope){
-		
+	.controller('riskSearchPage',function($scope,$http){
+
+		$scope.riskSearch=function (){
+			ngCom.ngAjax({
+			url:"/cif/customer/getCifByNameOrIdNo?nm="+encodeURI($.trim($scope.nm))+"&idNo="+$.trim($scope.idNo)+"&mtTenantId=1",
+			method:'get',
+			ngHttp:$http,
+			success:function(response){
+				
+				if(response.code==1){
+					$('.mess_table').show();
+					
+					$scope.riskdata = response.data.list;
+				
+				}else{
+					$('.mess_table').hide();
+				}
+				
+			},
+			error:function (error_data){
+				console.log(error_data);
+			}
+			
+			});
+		}	
 		
 	})
 	.config(['$routeProvider',function($routeProvider){
