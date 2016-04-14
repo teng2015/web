@@ -14,7 +14,7 @@
 .mod_title { width:1178px;  height:35px; border-bottom:4px solid #fc9846/*fe6409*/; margin-top:20px;}
 .mod_title a {line-height:30px; height:30px; margin-top:5px; display:block;  }
 
-.mod_title strong{ width:100px; background:url(../images/title_bg.jpg); float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
+.mod_title strong{ width:100px; background-color:#fc9846;height:35px; border-radius:5px 5px 0px 0px; float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
 .mod_title strong a{ width:100px; color:#fff; }
 .mod_title strong a:visited{ color:#fff; }
 .mod_title strong a:hover{ color:#fff; }
