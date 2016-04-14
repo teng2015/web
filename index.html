@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>炼金台客户风险视图</title>
-    <link rel="stylesheet" type="text/css" href="css/base.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/base.css">
 </head>
 <body>
 
@@ -54,17 +54,15 @@
             	<!-- yzm -->
             	<div class="form-group">
             		<div class="lable lable1 fl">验证码：</div>
-            		<!-- <div class="inputBox fl"> -->
+            		
             			<input class="inputText text3 fl" maxlength="4" type="text" id="yzmimg" name="_@IMGRC@_" autocomplete="off" ng-model='yzm' ng-blur="checkImageCode()">
                               <input type="hidden" id="ssid" name="ssid" />
             			<a class="yzm_a fl" href="#"  ng-click="loadImageCode();"><span class="span-grey" id="imageCode">
 			            </span>看不清，换一个</a>
-                              <div class="yzmPosition fl">
-                                    <div class="span-grey" id="imageCodeInfo"></div>
-                              </div>
-        			<!-- </div>	 -->
+                          <div class="yzmPosition fl">
+                                <div class="span-grey" id="imageCodeInfo"></div>
+                          </div>
             	</div>	
-                  
             	<div class="form-group login" ng-click="login()">登录</div>
 
 			</form>
