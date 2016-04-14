@@ -111,7 +111,7 @@ width:990px; margin:0 auto; min-width:980px; height:28px; line-height:28px; }
 .home_welcome .margin_top_40{ margin-top:40px;}
 
 /*riskView*/
-.mess_search{ width:740px; margin-top:30px; margin-left:40px; font-size:14px;}
+.mess_search{ width:720px; margin-top:30px; margin-left:40px; font-size:14px;}
 .mess_search ul li{ float:left; margin-right:3px; line-height:30px;}
 .mess_search ul li span{ display:block; float:left;}
 .search_btn { margin-top:-4px;}
@@ -119,6 +119,12 @@ width:990px; margin:0 auto; min-width:980px; height:28px; line-height:28px; }
 .mess_search .nameText,.mess_search .idText{outline:none; width:110px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; float:left; text-indent:8px;}
 .searchBtn{ width:110px; height:32px; background:rgb(30,141,220); color:#fff; float:left; border-radius:5px; font-size:14px; outline:none; border:none; cursor:pointer; margin-left:5px;}
 
+.srh_box{ width:720px; margin-top:30px; margin-left:40px; font-size:14px;}
+.history_list{ border-top: 1px solid #d4d4d4; border-left: 1px solid #d4d4d4; width:100%;}
+.history_list th{ background:#d5e2eb;}
+.history_list th,.history_list td{ padding: 4px; border-right: 1px solid #d4d4d4; border-bottom: 1px solid #d4d4d4; font-size:12px;}
+
+ 
 /*userInfo*/
 .userInfo{ width:680px; min-height:480px; margin:0 20px; padding-top:50px;}
 .tab_info{ width:600px; height:auto; margin:0 auto; font-size:14px;}
