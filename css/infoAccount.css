@@ -1,0 +1,44 @@
+/*riskView/infoAccount.html infoAccount.css*/
+.layOut{ width:1178px; height:auto; margin:10px auto; overflow:hidden; background:#ffffff; padding:10px; border:1px solid #eeeeee; }
+.shadow {
+    box-shadow: 3px 3px 4px #bbb;
+   
+}
+/*  顶部的信息  */
+.top{ width:1178px; height:50px; background:#ffffff; clear:both; border-bottom:1px #ffb112 solid; }
+.top li{float:left; height:50px;line-height:50px; color:#ffffff; }
+.top li.t_logo{  width:178px; }
+.top li.t_title{ width:700px; font-size:28px; font-weight:bold;text-align:center; color:#333333;}
+.top li.t_date{ font-size:12px; width:300px; text-align:right; color:#666; line-height:18px; padding-top:5px;}
+/*  各大模块的TITLE   客户/业务/担保/   */
+.mod_title { width:1178px;  height:35px; border-bottom:4px solid #fc9846/*fe6409*/; margin-top:20px;}
+.mod_title a {line-height:30px; height:30px; margin-top:5px; display:block;  }
+
+.mod_title strong{ width:100px; background:url(../images/title_bg.jpg); float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
+.mod_title strong a{ width:100px; color:#fff; }
+.mod_title strong a:visited{ color:#fff; }
+.mod_title strong a:hover{ color:#fff; }
+.mod_title i a{ float:right; color:#2081c4; font-size:14px; display:block;  width:50px; text-align:center; padding:3px; height:22px; line-height:22px; margin-top:5px; }
+.mod_title i a:visited{ color:#2081c4;}
+.mod_title i a:hover{ color:#ffffff; background:#fd9846; }
+
+/*  客户信息 */
+.info_account{ width:1178px;clear:both; height:auto; overflow:hidden; background:#fafafa; border-bottom:1px solid #dddddd; margin-top:10px;}
+.acc_color_blue{ background:#e4f2f9;}
+.acc_color_blue2{ background:#ecf3f7;}
+
+
+.info_account li{float:left;height:auto; overflow:hidden; padding-top:30px; padding-bottom:30px;   }
+.info_account li.name{ width:130px; font-size:16px; font-weight:bold;text-align:center;color:#333333; text-align:right; padding-right:30px; }
+.info_account li.content{ font-size:12px; width:1010px; text-align:right; }
+
+/*  客户信息页  单个表格  */
+.info_account_con{  width:98%; text-align:left; border-top:1px solid #d4d4d4;  border-left:1px solid #d4d4d4; background:#fefefe; color:#666666; }
+.info_account_con th{ padding:4px; border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4;}
+.info_account_con td{ padding:4px; border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4;}
+.info_account_con td{ padding:8px; }
+.jobwidth{width:120px;}
+.tab_gray{ background:#eeeeee; font-size:12px; font-weight:bold; font-family:Arial, Helvetica, sans-serif;}
+.jobtd{border-bottom:0px; border-top:0px;}
+.fz_14{font-size:14px;}
+.fw_bold{font-weight:bold; }
