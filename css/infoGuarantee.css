@@ -1,0 +1,55 @@
+body{ background:#eeeeee;}
+
+.layOut{ width:1178px; height:auto; margin:10px auto; overflow:hidden; background:#ffffff; padding:10px; border:1px solid #eeeeee; }
+.shadow {
+    box-shadow: 3px 3px 4px #bbb;
+   
+}
+/*  顶部的信息  */
+.top{ width:1178px; height:50px; background:#ffffff; clear:both; border-bottom:1px #ffb112 solid; }
+.top li{float:left; height:50px;line-height:50px; color:#ffffff; }
+.top li.t_logo{  width:178px; }
+.top li.t_title{ width:700px; font-size:28px; font-weight:bold;text-align:center; color:#333333;}
+.top li.t_date{ font-size:12px; width:300px; text-align:right; color:#666; line-height:18px; padding-top:5px;}
+
+/*  INDEX视图页  */
+/*  各大模块的TITLE   客户/业务/担保/   */
+.mod_title { width:1178px;  height:35px; border-bottom:4px solid #fc9846; margin-top:30px;}
+.mod_title a {line-height:30px; height:30px; margin-top:5px; display:block;  }
+
+.mod_title strong{ width:100px; background:url(../images/title_bg.jpg); float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
+.mod_title strong a{ width:100px; color:#fff; }
+.mod_title strong a:visited{ color:#fff; }
+.mod_title strong a:hover{ color:#fff; }
+.mod_title i a{ float:right; color:#2081c4; font-size:14px; display:block;  width:50px; text-align:center; padding:3px; height:22px; line-height:22px; margin-top:5px; }
+.mod_title i a:visited{ color:#2081c4;}
+.mod_title i a:hover{ color:#ffffff; background:#fd9846; }
+
+/*  信息列表 主表格  */
+.info_list{ border-bottom:1px solid #d4d4d4; width:100%; }
+.info_list th{ background:#f6f6f6;}
+/*.info_list th{ background:#bfd9e9;}
+.info_list th{ background:#d5e2eb;}
+*/
+.info_list th{ padding:4px; border-right:1px solid #ffffff; border-left:1px solid #ffffff;border-bottom:1px solid #d4d4d4; text-align:left;}
+.info_list td{ padding:4px; border-right:1px solid #ffffff;border-left:1px solid #ffffff; text-align:left;}
+
+.info_list td a{ float:right; color:#2081c4; font-size:12px; display:block; width:99%; text-align:center;border:dashed 1px #8ac9f5; font-weight:bold; }
+.info_list td a:visited{ color:#2081c4;}
+.info_list td a:hover{ color:#ffffff; background:#fd9846; border:dashed 1px #fd9846;}
+
+
+/*  所有业务模块的  TITLE  */
+.guarantee_detail { width:1178px; margin-top:30px;}
+
+#col_detail{ width:1178px;}
+
+.guarantee_detail a {line-height:30px; height:30px; display:block;  }
+.guarantee_detail .title { border-bottom:2px solid #fc9846; height:30px; margin-top:5px;}
+.guarantee_detail strong{ background-color:#fc9846; border-radius:5px 5px 0px 0px;float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
+.title strong a{ width:100px; color:#fff; }
+.guarantee_detail strong a:visited{ color:#fff; }
+.guarantee_detail strong a:hover{ color:#fff; }
+.guarantee_detail i a{ float:right; color:#2081c4; font-size:14px; display:block; padding-right:15px; width:50px; text-align:center; }
+.guarantee_detail i a:visited{ color:#2081c4;}
+.guarantee_detail i a:hover{ color:#fe6409;}
