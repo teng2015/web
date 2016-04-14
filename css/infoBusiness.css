@@ -1,0 +1,13 @@
+body{ background:#eeeeee;}
+
+.layOut{ width:1178px; height:auto; margin:10px auto; overflow:hidden; background:#ffffff; padding:10px; border:1px solid #eeeeee; }
+.shadow {
+    box-shadow: 3px 3px 4px #bbb;
+   
+}
+/*  顶部的信息  */
+.top{ width:1178px; height:50px; background:#ffffff; clear:both; border-bottom:1px #ffb112 solid; }
+.top li{float:left; height:50px;line-height:50px; color:#ffffff; }
+.top li.t_logo{  width:178px; }
+.top li.t_title{ width:700px; font-size:28px; font-weight:bold;text-align:center; color:#333333;}
+.top li.t_date{ font-size:12px; width:300px; text-align:right; color:#666; line-height:18px; padding-top:5px;}
