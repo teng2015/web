@@ -1,0 +1,35 @@
+/*登录页index.html login.css*/
+.container{ width:100%;background:#EEE; }
+.container .head{ width:990px; height:96px; margin:0px auto; padding-top:8px; position:relative; background:#EEE;}
+.container .line{ width:100%; height:3px; background-color:#1d8ddb;}
+.container .center{width:790px; min-height:660px; position:relative; background:#fff;margin:0 auto; margin-top:30px; padding:0px 100px; overflow:hidden;}
+.container .userLogin{height:50px; line-height:50px; color:#202020; border-bottom:1px #1d8ddb solid; font-size:16px; font-weight: bold;}
+.container .formContent{margin-top:50px;  margin-left:150px;}
+.container .form-group { margin-bottom:30px; overflow:hidden; }
+.container .lable { padding-top: 8px; margin-bottom: 0; text-align: right; float:left; font-size:16px;}
+.container .lable1 { width:120px;}
+.container .inputText {outline:none; height:28px; line-height:28px; padding:3px 8px; border:1px #7f7f7f solid; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; }
+.container .notice{position:relative;width:220px; height:16px;}
+.container .notice1{ width:220px; height:16px;position:absolute; margin:10px 10px; float:left; display:none; 
+background:url(../images/img/notice.png) no-repeat; padding-left:20px; padding-top:1px; line-height:15px;}
+.container .span-grey{ color:#686868;}
+.container .yzmPosition{width:110px;}
+.container .notice2{ width:150px; height:16px; position:absolute; margin:8px 10px; display:none; float:left; 
+background:url(../images/img/notice.png) no-repeat; padding-left:20px; padding-top:1px; line-height:15px;}
+.container .notice3{ width:220px; height:16px; position:absolute; margin:10px 10px; float:left; display:none;  padding-left:20px; padding-top:1px; line-height:15px;}
+.container .yes{ width:220px; height:19px; background:url(../images/img/right.png) no-repeat left top; position:absolute; margin:8px 10px; 
+ padding-top:3px; padding-left:22px;}
+.container .no{ width:220px; height:20px; background:url(../images/img/erro.png) no-repeat left top; position:absolute; margin:8px 10px; 
+padding-top:3px; padding-left:22px;}
+
+.container .text3 { width:100px; }
+.container .yzm_a{ padding-left:10px; color:#1234B5; text-decoration:none;line-height:32px;}
+.container .yzm_a:hover{ color:#1234B5; text-decoration:underline;}
+.container .login { margin-left:80px;margin-top:50px;width:218px;height:36px; line-height:36px; padding:3px 8px; display:block; text-align:center; font-size:14px; font-weight:bold; color:#fff; border:none; background-color:#1d8ddb; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; cursor:pointer; }
+.container .login:hover{background-color:#2181c4; }
+.container .padding_left_20{padding-left:20px;}
+.container .footer{ font-size:12px; font-family:Arial,Microsoft YaHei,Geneva,sans-serif; clear:both; background:#1d8ddb; color:#fff; text-align:center; 
+width:990px; margin:0 auto; min-width:980px; height:28px; line-height:28px; }
+.container .footer span{ padding-right:12px;}
+.container .footer img{ vertical-align:middle;}
+.container .bottomNav {background:#fff; width:990px; height:28px;margin:0 auto;}
