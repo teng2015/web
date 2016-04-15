@@ -1,9 +1,7 @@
 /*page/welcome.html welcome.css*/
 
-.home_welcome { width:570px; background:#fff; margin:0 auto;padding-left:200px;}
-.home_welcome .p1{ margin:10px 0px 18px 0px;}
+.home_welcome { width:570px; background:#fff; margin:0 auto;padding-left:200px; font-size:16px; color:#444;}
+.home_welcome p{ margin:10px 0px 18px 0px;}
 .home_welcome .span-org{ color:#fe6409;}
-.home_welcome .span-grey2{ color:#444;}
 .home_welcome .span-24{ font-size:24px;}
-.home_welcome .span-16{ font-size:16px;}
 .home_welcome .margin_top_40{ margin-top:40px;}
