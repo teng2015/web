@@ -24,11 +24,11 @@
             <th>操作</th>
           </tr>
           <tr ng-repeat="x in riskdata">
-            <td>{{x.id}}</td>
+            <td>{{x.mtCifIdTypCd}}</td>
             <td>{{x.nm}}</td>
             <td>{{x.mtCifIdTypCdDscp}}</td>
             <td>{{x.idNo}}</td>
-            <td><a href="view.htm" target="_blank">查看视图</a></td>
+            <td><a href="../riskView/view.html?id={{x.id}}" target="_blank">查看视图</a></td>
           </tr>
           
         </tbody>

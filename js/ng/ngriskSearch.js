@@ -9,19 +9,13 @@ angular.module('riskSearch',['ngRoute'])
 
 		$scope.riskSearch=function (){
 			ngCom.ngAjax({
-			url:"/cif/customer/getCifByNameOrIdNo?nm="+encodeURI($.trim($scope.nm))+"&idNo="+$.trim($scope.idNo)+"&mtTenantId=1",
+			url:"/cif/cifs/?nm="+encodeURI($.trim($scope.nm))+"&idNo="+$.trim($scope.idNo)+"&mtTenantId=1",
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
+				$('.mess_table').show();
 				
-				if(response.code==1){
-					$('.mess_table').show();
-					
-					$scope.riskdata = response.data.list;
-				
-				}else{
-					$('.mess_table').hide();
-				}
+				$scope.riskdata = response.list;
 				
 			},
 			error:function (error_data){

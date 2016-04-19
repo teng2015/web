@@ -5,10 +5,16 @@
 <title>炼金台 - 信用风险视图</title>
 <link rel="stylesheet" href="../css/base.css">
 <link rel="stylesheet" href="../css/view.css">
+
+<script src="../js/libs/jquery.js"></script>
+<script src="../js/libs/angular.js"></script>
+<script src="../js/libs/angular-route.js"></script>
+<script src="../js/ng/ngAjax.js"></script>
+<script src="../js/ng/ngview.js"></script>
 </head>
 
 <body>
-<div class="view"> 
+<div class="view" ng-app="viewApp" ng-controller="viewController"> 
     <ul class="top clearfix">
     	<li class="t_logo"><img src="../images/logo.gif"></li>
     	<li class="t_date">
@@ -24,11 +30,11 @@
     <table class="userInfo">
     	<tbody>
             <tr>
-              <td><strong><span id="summaryNm"></span>身份证</strong><span id="summaryIdNo"></span></td>
+              <td><strong><span id="summaryNm">{{nm}}</span>身份证</strong><span id="summaryIdNo">{{idNo}}</span></td>
               <td><strong>客户评分：</strong><span class="tab_txt_size">AAA</span></td>
-              <td><strong>居住地址</strong>：<span id="mtCityCd"></span></td>
-              <td><strong>月收入：</strong>¥<span id="summaryMonthlyIncAmt"></span></td>
-              <td><strong>固定资产：</strong>¥<span id="summaryHouseholdFixAssetAmt"></span></td>
+              <td><strong>居住地址</strong>：<span id="mtCityCd">{{mtStateCdDscp}}{{mtCountyCdDscp}}</span></td>
+              <td><strong>月收入：</strong>¥<span id="summaryMonthlyIncAmt">{{monthlyIncAmt}}</span></td>
+              <td><strong>固定资产：</strong>¥<span id="summaryHouseholdFixAssetAmt">{{householdFixAssetAmt}}</span></td>
             </tr>
             <tr>
               <td><strong>信贷总额度</strong>：¥<span id="summarylmtApprAllAmt"></span></td>
@@ -53,25 +59,25 @@
         	<tbody>
                 <tr>
                     <td class="grey">姓名</td>
-                    <td id="nm">Mark</td>
+                    <td id="nm">{{nm}}</td>
                     <td class="grey">年龄</td>
-                    <td id="age">18</td>
+                    <td id="age">{{age}}</td>
                     <td class="grey">婚姻状况</td>
-                    <td id="mtMaritalStsCd">未婚</td>
+                    <td id="mtMaritalStsCd">{{mtMaritalStsCdDscp}}</td>
                     <td class="grey">月收入</td>
-                    <td id="monthlyIncAmt">50K</td>
+                    <td id="monthlyIncAmt">{{monthlyIncAmt}}</td>
                     <td class="grey">家庭月收入</td>
                     <td id="householdMonthlyIncAmt">10K</td>
                     <td class="grey">固定资产</td>
-                    <td id="householdFixAssetAmt">2K</td>
+                    <td id="householdFixAssetAmt">{{householdFixAssetAmt}}</td>
                 </tr>
                 <tr>
                     <td class="grey">性别</td>
-                    <td id="mtGenderCd">男</td>
+                    <td id="mtGenderCd">{{mtGenderCdDscp}}</td>
                     <td class="grey">教育程度</td>
-                    <td id="mtEduLvlCd">大学</td>
+                    <td id="mtEduLvlCd">{{mtEduLvlCdDscp}}</td>
                     <td class="grey">户籍</td>
-                    <td id="mtResidenceStsCd">北京</td>
+                    <td id="mtResidenceStsCd">{{mtStateCdDscp}}</td>
                     <td class="grey">职位</td>
                     <td id="mtPosHeldCd">Fe</td>
                     <td class="grey">工作单位</td>
@@ -101,11 +107,11 @@
                     <th>账户余额</th>
                     <th>状态</th>
                 </tr>
-                <tr>
-                	<td>001</td>
-                    <td>个人在线委托贷款</td>
-                    <td>1年</td>
-                    <td>8%</td>
+                <tr ng-repeat="item in resJson">
+                	<td>{{item.mtFacTermTypeCd}}</td>
+                    <td>{{item.mtFacCdDscp}}</td>
+                    <td>{{item.tenureMtTimeCdDscp}}</td>
+                    <td>{{item.mtFacCdDscp}}</td>
                     <td>1%</td>
                     <td>¥100,000.00</td>
                     <td>
@@ -118,7 +124,8 @@
                         	¥100,000.00
                         </div>
                     </td>
-                    <td>已批准</td>
+                    <td>{{item.mtFacStsCdDscp}}</td>
+                    
                 </tr>
             </tbody>
         </table>    
