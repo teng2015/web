@@ -23,7 +23,7 @@ var ngCom = {
 		options.ngHttp({
 			url:options.url,
 			method:options.method,
-			data:options.data	
+			data:options.data
 		}).success(options.success).error(
 			// 状态码403做特殊处理
 			function(status)

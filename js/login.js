@@ -1,6 +1,6 @@
 
 	var app = angular.module('myApp', []);
-	app.controller('formCtrl', function($scope) {
+	app.controller('formCtrl', function($scope,$http) {
     
 	/*username*/	
     $scope.userfocus=function (){
@@ -75,17 +75,36 @@
        loadImageCode(); 
     }
 
-    /*$scope.checkImageCode=function (){
-        
-       checkImageCode(); 
-    }*/
-
     $scope.login=function (){
         
        login(); 
     }
+
+    function loadImageCode(){
+        var ssid = $("#ssid").val();
+        
+        $.post("/sec/captcha/",{id:ssid},function (repJson,status) { 
+            $("#imageCode").html('<img src="data:image/png;base64,' + repJson + '" />');
+        });
+
+        /*ngCom.ngAjax({
+            url:"/sec/captcha/?id="+ssid,
+            data:{id:ssid},
+            method:'post',
+            ngHttp:$http,
+            success:function(response){
+                console.log(response);
+                $("#imageCode").html('<img src="data:image/png;base64,' + response + '" />');
+               
+            },
+            error:function (error_data){
+                console.log(获取验证码失败);
+            }
+            
+        });*/
+    }
     
-});
+
 
 function guid() {
     function S4() {
@@ -101,66 +120,44 @@ function init(){
 
 init();
 
-function loadImageCode(){
-    var ssid = $("#ssid").val();
-    /*var captchaURL = '/sec/captcha/';
-    var captchaData={id:ssid};
-    $http.post(captchaURL,captchaData).success(function (repJson,status){
-        $("#imageCode").html('<img src="data:image/png;base64,' + repJson + '" />');
-    });*/
-    
-    $.post("/sec/captcha/",{id:ssid},function (repJson,status) { 
-        $("#imageCode").html('<img src="data:image/png;base64,' + repJson + '" />');
-    });
-}
-
-//页面元素 图形验证码检验 
-function checkImageCode(){
-
-    var ssid = $("#ssid").val();
-    if (document.getElementById('yzmimg').value == '') {
-        $("#imageCodeInfo").text("验证码不能为空或空格");
-        $("#imageCodeInfo").removeClass("yes").addClass("no");
-        return false;
-    }
-    $("#imageCodeInfo").text("");
-    $("#imageCodeInfo").removeClass("no").addClass("yes");
-    var code = document.getElementById('yzmimg').value;
-    
-    $.ajax({
-        url: '/sec/captcha/'+ssid+'?code='+code,
-        type: 'DELETE',
-        data: {id:ssid,code:code},
-        statusCode: { 
-            200: function (repJson) { 
-                $("#imageCodeInfo").text("");
-                $("#imageCodeInfo").removeClass("no").addClass("yes");
-                return true;
-            }
-        },
-        error: function (xhr, statusText, err) {
-            document.getElementById('yzmimg').value ='';
-            $("#imageCodeInfo").text("验证码错误，请重新输入");
-            $("#imageCodeInfo").removeClass("yes").addClass("no");
-            init();
-
-            return false;
-        }
-    });
-
-}
-
 //login
 function login(){
-    $.ajax({
+
+    var json = {
+        userName:$('#loginname').attr("value"),
+        passwd:$('#loginPassWord').attr("value"),
+        "_@IMGRC@_":$('#yzmimg').attr("value"),
+        ssid:$('#ssid').attr("value")
+
+    }
+
+    /*ngCom.ngAjax({
+        url:"/sec/login",
+        data:json,
+        method:'get',
+        ngHttp:$http,
+        success:function(response){
+            localStorage.token = response.token;
+            window.location.href = "page/index.html";
+           
+        },
+        errfn:function (error_data){
+            console.log('获取验证码失败');
+        }
+        
+    });*/
+    
+
+   $.ajax({
         url: "/sec/login",
-        data:$('#myForm').serialize(),
-        type: "GET",
+        data:json,
+        type: "get",
         contentType: "application/json; charset=UTF-8",
         async:false,
         statusCode: { 
             200: function (repJson) { 
-               /* $.cookie('token', repJson.token); */
+             /*$.cookie('token', repJson.token);
+               console.log($('#myForm').serialize());*/
                 localStorage.token = repJson.token;
                 window.location.href = "page/index.html";
             },
@@ -186,5 +183,5 @@ function login(){
   });
 }
 
-
+});
 
