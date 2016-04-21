@@ -15,15 +15,18 @@
 <body>
 <div class="view" ng-app="viewApp" ng-controller="viewController"> 
     <ul class="top clearfix">
-    	<li class="t_logo"><img src="../images/logo.gif"></li>
-    	<li class="t_date">
+    	<li><span class="score">评分:983</span><span class="slash">/</span><span class="lossRate">&nbsp; &nbsp;当前信息缺失率 <span class="lossRateNum">32% </span>(补充信息后将会更准确)</span></li>
+        <li class="viewTitle">风险视图</li>
+    	<li class="tel">
         	<p>服务热线：400-890-7756</p>
-        	<p id="dtCreated"></p>
+            <p>2016年4月14日 09时00分00秒</p>
    		</li>
+        <li class="viewImg"><img src="../images/logo.gif" width="120" height="40"></li>
     </ul>
     
-    <div class="view_tit">
-        <img src="../images/view_tit.png">
+    <div class="progressBar">
+        
+        <span class="bar"></span>
     </div>
 
     <table class="userInfo">
@@ -163,10 +166,10 @@
    <div class="explainRight">
        <ul class="explainUl">
 
-           <li class="clearFix"><span class="explainFirst">名词字典</span>
+           <li class="clearFix"><span class="explainFirst"  ng-click="explainFirst()">名词字典</span>
                 <div class="explainCon">
                     <ul class="explainList clearFix">
-                        <li>
+                        <li ng-mouseover="explainListLi()" ng-mouseout="explainListLiOut()">
                             <span class="explainSec">信贷额度</span>
                             <div class="explainListCon">
                                 <div  class="rightdirection"></div>  
@@ -284,7 +287,10 @@
                            <span class="time">2016.3.12 12:25</span>
                            <span class="show">查看</span>
                         </li>
-                        
+                        <li>
+                           <input type="checkbox" class="explainListBtn allChoice">全选
+                           <span class="export">导出</span>
+                        </li>
 
                         
                     </ul>
@@ -293,9 +299,9 @@
                 </div>
            </li>
 
-           <li class="clearFix"><span  class="explainFirst">顶部</span></li>
+           
        </ul>
-       
+       <div  class="explainFirst scrollTop">顶部</div>
    </div> 
     
 </div>

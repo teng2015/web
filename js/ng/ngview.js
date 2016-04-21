@@ -95,13 +95,79 @@ angular.module('viewApp',['ngRoute'])
 			}
 			
 		});
+
+		/*$scope.explainFirst=function (){
+			console.log(2);
+			$('.explainCon').hide();
+			target.next('.explainCon').show();
+			console.log(3);
+		}
+
+		$scope.explainListLi=function (){
+			$('.explainListCon').hide();
+			$(this).find('.explainListCon').show();
+				
+		}
+
+		$scope.explainListLiOut=function (){
+			$('.explainListCon').hide();
+				
+		}*/
+
+		/*名词字典*/
+		var $explainLi =  $('.explainUl').find('.explainFirst');
+
+		$explainLi.click(function (){
+			$('.explainCon').hide();
+			$(this).next('.explainCon').show();
+			
+		});
+
+		/*查看导出*/
+		var $explainSec = $('.explainList').find('li');
+
+		$explainSec.mouseover(function (){
+
+			$('.explainListCon').hide();
+			$(this).find('.explainListCon').show();
+		});
+
+		$explainSec.mouseout(function (){
+
+			$('.explainListCon').hide();
+			
+		});
+
+		/*回到顶部*/
+
+		$('.scrollTop').click(function (){
+			var sc=$(window).scrollTop();
+   			$('body,html').animate({scrollTop:0},500);
+		});
+
+		/*进度条*/
+
+		var barSumWidth = $('.progressBar').width();
+		
+		var barWidth = barSumWidth*0.7;
+		var interval = setInterval(increment,10);
+		var current = 0;
+		
+		function increment(){
+		    current++;
+		    if(current<=barWidth){
+		    	$('.bar').width(current);
+		    }
+		  
+		}
+
 	})
 	.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
 		$httpProvider.defaults.headers.common['Authorization'] = localStorage.token; //注入 httpProvider 设置请求头token
 		
 	}]);
 
-$(function (){
+/*$(function (){
 
 	var $explainLi =  $('.explainUl').find('.explainFirst');
 
@@ -123,4 +189,4 @@ $(function (){
 		$('.explainListCon').hide();
 		
 	});
-});
+});*/
