@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://localhost/riskView/view.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+
+<title>炼金台 - 信用风险视图</title>
+<link rel="stylesheet" href="./炼金台 - 信用风险视图_files/base.css">
+<link rel="stylesheet" href="./炼金台 - 信用风险视图_files/view.css">
+<script src="./炼金台 - 信用风险视图_files/jquery.js"></script>
+<script src="./炼金台 - 信用风险视图_files/angular.js"></script>
+<script src="./炼金台 - 信用风险视图_files/angular-route.js"></script>
+<script src="./炼金台 - 信用风险视图_files/ngAjax.js"></script>
+<script src="./炼金台 - 信用风险视图_files/ngview.js"></script>
+</head>
+
+<body>
+<div class="view ng-scope" ng-app="viewApp" ng-controller="viewController"> 
+    <ul class="top clearfix">
+    	<li class="t_logo"><img src="./炼金台 - 信用风险视图_files/logo.gif"></li>
+    	<li class="t_date">
+        	<p>服务热线：400-890-7756</p>
+        	<p id="dtCreated"></p>
+   		</li>
+    </ul>
+    
+    <div class="view_tit">
+        <img src="./炼金台 - 信用风险视图_files/view_tit.png">
+    </div>
+
+    <table class="userInfo">
+    	<tbody>
+            <tr>
+              <td><strong><span id="summaryNm" class="ng-binding"></span>身份证</strong><span id="summaryIdNo" class="ng-binding"></span></td>
+              <td><strong>客户评分：</strong><span class="tab_txt_size">AAA</span></td>
+              <td><strong>居住地址</strong>：<span id="mtCityCd" class="ng-binding"></span></td>
+              <td><strong>月收入：</strong>¥<span id="summaryMonthlyIncAmt" class="ng-binding"></span></td>
+              <td><strong>固定资产：</strong>¥<span id="summaryHouseholdFixAssetAmt" class="ng-binding"></span></td>
+            </tr>
+            <tr>
+              <td><strong>信贷总额度</strong>：¥<span id="summarylmtApprAllAmt"></span></td>
+              <td><strong>账户总余额：</strong>¥<span id="summaryOutstdAmtAll"></span></td>
+              <td><strong>担保连接总金额</strong>：¥<span id="summaryChargeValue"></span></td>
+              <td><strong>担保品总价值：</strong>¥<span id="summaryCollValue"></span></td>
+              <td><strong>担保品可用总价值：</strong>¥<span id="summaryRemainValue"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="riskPic">
+    	<img src="./炼金台 - 信用风险视图_files/riskPic.png">
+    </div>
+    <div class="cusInfo">
+        <h1 class="clearfix"> 
+             <p class="title">客户信息</p>
+             <a href="http://localhost/riskView/infoAccount.html" class="more">更多</a>
+        </h1>
+
+        <table class="cusMes">
+        	<tbody>
+                <tr>
+                    <td class="grey">姓名</td>
+                    <td id="nm" class="ng-binding"></td>
+                    <td class="grey">年龄</td>
+                    <td id="age" class="ng-binding"></td>
+                    <td class="grey">婚姻状况</td>
+                    <td id="mtMaritalStsCd" class="ng-binding"></td>
+                    <td class="grey">月收入</td>
+                    <td id="monthlyIncAmt" class="ng-binding"></td>
+                    <td class="grey">家庭月收入</td>
+                    <td id="householdMonthlyIncAmt">10K</td>
+                    <td class="grey">固定资产</td>
+                    <td id="householdFixAssetAmt" class="ng-binding"></td>
+                </tr>
+                <tr>
+                    <td class="grey">性别</td>
+                    <td id="mtGenderCd" class="ng-binding"></td>
+                    <td class="grey">教育程度</td>
+                    <td id="mtEduLvlCd" class="ng-binding"></td>
+                    <td class="grey">户籍</td>
+                    <td id="mtResidenceStsCd" class="ng-binding"></td>
+                    <td class="grey">职位</td>
+                    <td id="mtPosHeldCd">Fe</td>
+                    <td class="grey">工作单位</td>
+                    <td id="employerCifNm">炼金台</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    
+    
+    <div class="busInfo">
+        <h1 class="clearfix"> 
+         <p class="title">业务信息</p>
+         <a href="http://localhost/riskView/infoBusiness.html" class="more">更多</a>
+        </h1>
+        <table>
+        	<tbody>
+            	<tr>
+                    <th>授信编号</th>
+                    <th>业务</th>
+                    <th>授信到期日</th>
+                    <th>利率</th>
+                    <th>罚息利率</th>
+                    <th>信贷额度</th>
+                    <th>担保连接金额</th>
+                    <th>账户余额</th>
+                    <th>状态</th>
+                </tr>
+                <!-- ngRepeat: item in resJson -->
+            </tbody>
+        </table>    
+    </div>
+    <div class="colInfo">
+    	<h1 class="clearfix"> 
+        	<p class="title">业务信息</p>
+        	<a href="http://localhost/riskView/infoGuarantee.html" class="more">更多</a>
+        </h1>
+        <table>
+        	<tbody>
+            	<tr>
+                    <th>担保编号</th>
+                    <th>担保类型</th>
+                    <th>担保品种类</th>
+                    <th>唯一编号</th>
+                    <th>担保品价值</th>
+                    <th>担保品可用价值</th>
+                    <th>所有者</th>
+                </tr>
+                <tr>
+                    <td>PR/2019/000189</td>
+                    <td>房产</td>
+                    <td>住宅用房</td>
+                    <td>0000000000000</td>
+                    <td>70%</td>
+                    <td>¥33,333,333.00</td>
+                    <td>¥3,010,000.00</td>
+                   
+                </tr>
+            </tbody>
+        </table>    
+    </div>
+    
+    
+   <div class="explainRight">
+       <ul class="explainUl">
+
+           <li class="clearFix"><span class="explainFirst">名词字典</span>
+                <div class="explainCon" style="display: block;">
+                    <ul class="explainList clearFix">
+                        <li>
+                            <span class="explainSec">信贷额度</span>
+                            <div class="explainListCon" style="display: none;">
+                                
+
+                            </div>
+
+                        </li>
+
+                        <li><span class="explainSec">信贷额度</span>
+                            <div class="explainListCon" style="display: block;">
+                                
+
+                            </div>
+                        </li>
+
+                        <li><span class="explainSec">信贷额度</span>
+                            <div class="explainListCon" style="display: none;">
+                                
+
+                            </div>
+                        </li>
+
+                        <li><span class="explainSec">信贷额度</span>
+                            <div class="explainListCon" style="display: none;">
+                                
+
+                            </div>
+                        </li>
+
+                        <li><span class="explainSec">信贷额度</span>
+                            <div class="explainListCon" style="display: none;">
+                                
+
+                            </div>
+                        </li>
+
+                        
+                    </ul>
+
+                </div>
+           </li>
+
+           <li class="clearFix"><span class="explainFirst">查看导出</span>
+                <div class="explainCon" style="display: none;">
+                    <ul class="explainList">
+                        <li>信贷额度</li>
+                        <li>信贷额度</li>
+                        <li>信贷额度</li>
+                        <li>信贷额度</li>
+                        <li>信贷额度</li>
+                        <li>信贷额度</li>
+                        <li>信贷额度</li>
+                        <li>信贷额度</li>
+                        <li>信贷额度</li>
+                        <li>信贷额度</li>
+                    </ul>
+
+
+                </div>
+           </li>
+
+           <li class="clearFix"><span class="explainFirst">顶部</span></li>
+       </ul>
+       
+   </div> 
+    
+</div>
+
+
+</body></html>
