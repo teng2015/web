@@ -1,0 +1,43 @@
+.view { width:1178px; margin:10px auto; background:#fff; padding:10px; border:1px solid #eeeeee; box-shadow: 3px 3px 4px #bbb;position:relative;top:0; left:0;}
+.clearFix{zoom:1}
+.clearFix:after{content: '';clear: both; display: block}
+/*名词字典*/
+.explainRight{position:absolute;bottom:0;right:-100px; }
+.explainUl li{width:50px;/*clear:both;*/}
+.explainUl li span.explainFirst{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:blue;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
+.explainCon {width:200px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
+
+/*信贷额度*/
+.explainCon .explainList{}
+.explainCon .explainList li{position:relative;top:0;left:0;width:70px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block;}
+
+.explainListCon{width:200px;height:200px;position:absolute; right:100px;top:0; background:red;display:none;}
+
+.top{ width:1178px; height:50px; background:#ffffff; border-bottom:1px #ffb112 solid; }
+.top li{float:left; height:50px;line-height:50px; color:#fff; }
+.top li.t_date{ font-size:12px; text-align:right; color:#666; line-height:18px; padding-top:5px; float:right;}
+
+.view_tit{ width:1178px; background:url(../images/ljt_best.gif) no-repeat; background-position:940px 0px; height:145px; overflow:hidden;}
+.view_tit img{ display:block; margin:30px auto;}
+
+.userInfo{ border:1px solid #fff; width:100%;}
+.userInfo td{ padding:6px; border-right:4px solid #fff;  border-bottom:6px solid #ffffff; height:25px; background:#e0f0fa; font-family:Arial, Helvetica, sans-serif; }
+
+.riskPic{ margin-top:10px; width: 1178px; overflow:hidden; }
+.riskPic img{ display:block; margin:15px auto;}
+
+.cusInfo h1,.busInfo h1,.colInfo h1{ border-bottom: 4px solid #fc9846; margin-top:30px;}
+.cusInfo .title,.busInfo .title,.colInfo .title { width: 100px; background:#fc9846; float: left; font-size: 16px; margin-left: 20px; text-align: center; line-height:35px; color:#fff; border-radius:5px 5px 0 0; height:35px;}
+.cusInfo .more,.busInfo .more,.colInfo .more{ float: right; font-size: 14px; width: 50px; text-align:center; padding:3px; line-height:22px; margin-top:5px; color:#2081c4;}
+.cusInfo .more:hover,.busInfo .more:hover,.colInfo .more:hover{ background:#fc9846; color:#fff;}
+.cusMes{ width:100%;}
+.cusMes td{ padding: 4px; border-right: 1px solid #fefefe; border-bottom: 1px solid #fefefe; background:#fcfcfc;}
+.cusMes .grey{ background:#eee;}
+.busInfo table,.colInfo table{ width:100%;}
+.busInfo th,td{ padding:4px; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff; border-bottom: 1px solid #d4d4d4; background:#f6f6f6;}
+.busInfo td{ background:#f6fcff;}
+.busInfo td:hover{ background:#fff4dd;}
+.busInfo .col,.acc{ border: dashed 1px #8ac9f5; font-weight:bold; text-align:center; color:#2081c4;}
+.busInfo .col:hover,.busInfo .acc:hover{ background:#fc9846; color:#fff; border:1px solid #fc9846;} 
+.colInfo th,td{ padding:4px; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff; border-bottom: 1px solid #d4d4d4; background:#f6f6f6;}
+.colInfo td{ background:#fff;}
