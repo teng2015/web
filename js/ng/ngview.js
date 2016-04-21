@@ -100,3 +100,27 @@ angular.module('viewApp',['ngRoute'])
 		$httpProvider.defaults.headers.common['Authorization'] = localStorage.token; //注入 httpProvider 设置请求头token
 		
 	}]);
+
+$(function (){
+
+	var $explainLi =  $('.explainUl').find('.explainFirst');
+
+	$explainLi.click(function (){
+		$('.explainCon').hide();
+		$(this).next('.explainCon').show();
+		
+	});
+	var $explainSec = $('.explainList').find('li');
+
+	$explainSec.mouseover(function (){
+
+		$('.explainListCon').hide();
+		$(this).find('.explainListCon').show();
+	});
+
+	$explainSec.mouseout(function (){
+
+		$('.explainListCon').hide();
+		
+	});
+});
