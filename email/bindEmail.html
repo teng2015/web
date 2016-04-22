@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>邮箱绑定</title>
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/bindEmail.css">
+	<script src="../js/libs/jquery.js"></script>
+	<script src="../js/libs/angular.js"></script>
+	<script src="../js/libs/angular-route.js"></script>
+	<script src="../js/ng/ngAjax.js"></script>
+	<script src="../js/ng/ngbindEmail.js"></script>
+	
+</head>
+<body>
+	<div class="bindEmail">
+		<div class="bindEmailTxt">请输入你想要设置的邮箱地址</div>
+
+		<div class="emailTxt">
+			<div class="emailAlign fl">邮箱：</div>
+    		<!-- <div class="inputBox fl"> -->
+			<input type="text" class="inputText fl"   name="emailName" id="emailName"  autocomplete="off" >
+			<span class="showTxt"></span>
+		</div>
+
+		<!-- yzm -->
+    	<div class="emailTxt">
+    		<div class="emailAlign fl">验证码：</div>
+    		
+    			<input class="inputText text3 fl" maxlength="4" type="text" id="yzmimg" name="_@IMGRC@_" autocomplete="off" ng-model='yzm' ng-blur="checkImageCode()">
+                      <input type="hidden" id="ssid" name="ssid" />
+    			<a class="yzm_a fl" href="javascript:;"><span class="span-grey" id="imageCode">
+	            </span>看不清，换一个</a>
+                  <div class="yzmPosition fl">
+                        <div class="span-grey" id="imageCodeInfo"></div>
+                  </div>
+    	</div>	
+    	<div class="sub">提交</div>
+	</div>
+	<div class="secShow">
+		<div class="secShowTxt">以向你邮箱<span class="secEmailTxt"></span>发送验证链接。请登录邮箱验证。</div>
+		<div class="btn">
+			<input type="submit" class="button fl" value="重新发送">
+			<div class="timeTxt fl">(<span class="times">50s</span>后才可重新发送验证邮件)</div>
+		</div>
+		<div class="tel fl">客服电话：666666</div>
+		<div class="back fl"><a href="#">返回首页</a></div>
+	</div>
+
+</body>
+</html>
