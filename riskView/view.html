@@ -96,42 +96,111 @@
          <p class="title">业务信息</p>
          <a href="infoBusiness.html" class="more">更多</a>
         </h1>
-        <table>
-        	<tbody>
-            	<tr>
-                    <th>授信编号</th>
-                    <th>业务</th>
-                    <th>授信到期日</th>
-                    <th>利率</th>
-                    <th>罚息利率</th>
-                    <th>信贷额度</th>
-                    <th>担保连接金额</th>
-                    <th>账户余额</th>
-                    <th>状态</th>
+       
+    	<div class="business_title">
+            <span>授信编号</span>
+            <span>业务</span>
+            <span>授信到期日</span>
+            <span>利率</span>
+            <span>罚息利率</span>
+            <span>信贷额度</span>
+            <span>担保连接金额</span>
+            <span>账户余额</span>
+            <span>状态</span>
+        </div>
+        <div  class="line_a">
+
+            <div class="business_line">
+           
+            	<!-- <span>{{item.mtFacTermTypeCd}}</span>
+                <span>{{item.mtFacCdDscp}}</span>
+                <span>{{item.tenureMtTimeCdDscp}}</span>
+                <span>{{item.mtFacCdDscp}}</span>
+                <span>1%</span>
+                <span>¥100,000.00</span>
+                <span>
+                	<div class="col">
+                    	¥100,000.00
+                    </div>
+                </span>
+                <span>
+                	<div class="acc">
+                    	¥100,000.00
+                    </div>
+                </span>
+                <span>{{item.mtFacStsCdDscp}}</span> -->
+                <span>1</span>
+                <span>233</span>
+                <span>werer</span>
+                <span>4444</span>
+                <span>1%</span>
+                <span>¥100,000.00</span>
+                <span>
+                    <div class="col">
+                        ¥100,000.00
+                    </div>
+                </span>
+                <span>
+                    <div class="acc">
+                        ¥100,000.00
+                    </div>
+                </span>
+                <span>5555</span>
+            </div>
+            
+      
+          <div class="this_div">
+              <table  class="info_list_son mb_10 mt_10" >
+                <tr>
+                  <th>担保编号</th>
+                  <th>担保种类</th>
+                  <th>担保品价值</th>
+                  <th>担保品剩余价值</th>
+                  <th>担保链接金额</th>
+                  <th>所有者</th>
                 </tr>
-                <tr ng-repeat="item in resJson">
-                	<td>{{item.mtFacTermTypeCd}}</td>
-                    <td>{{item.mtFacCdDscp}}</td>
-                    <td>{{item.tenureMtTimeCdDscp}}</td>
-                    <td>{{item.mtFacCdDscp}}</td>
-                    <td>1%</td>
-                    <td>¥100,000.00</td>
-                    <td>
-                    	<div class="col">
-                        	¥100,000.00
-                        </div>
-                    </td>
-                    <td>
-                    	<div class="acc">
-                        	¥100,000.00
-                        </div>
-                    </td>
-                    <td>{{item.mtFacStsCdDscp}}</td>
-                    
+                <tr>
+                  <td>PR/2018/001785 </td>
+                  <td>商业用房</td>
+                  <td>¥10,000,000.00</td>
+                  <td>¥140,000.00</td>
+                  <td>200,000.00</td>
+                  <td>李双</td>
                 </tr>
-            </tbody>
-        </table>    
-    </div>
+              </table>
+            </div>
+            <div class="this_div">
+              <table class="info_list_son mb_10" >
+                <tr class="font_w">
+                  <th>账号</th>
+                  <th>还款周期</th>
+                  <th>还款方式</th>
+                  <th>到期日</th>
+                  <th>利率</th>
+                  <th>罚息利率</th>
+                  <th>账户余额（含拖欠）</th>
+                  <th>拖欠本金</th>
+                  <th>拖欠利息</th>
+                  <th>用途</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>一个月（按月）</td>
+                  <td>到期一次性归还（按期还息，到期还本）</td>
+                  <td>2015/10/01-2016/10/01</td>
+                  <td>8%</td>
+                  <td>12%</td>
+                  <td>0</td>
+                  <td>¥100,000.00</td>
+                  <td>¥12,000.00</td>
+                  <td>其他</td>
+                </tr>
+              </table>
+            </div>
+
+            
+            
+        </div>
     <div class="colInfo">
     	<h1 class="clearfix"> 
         	<p class="title">担保信息</p>
