@@ -88,6 +88,7 @@ angular.module('viewApp',['ngRoute'])
 			success:function(response){
 				
 				$scope.resJson = response;
+
 				
 			},
 			error:function (error_data){
@@ -114,12 +115,53 @@ angular.module('viewApp',['ngRoute'])
 				
 		}*/
 
+		/*点击担保链接金额弹出div*/
+		$('.col').toggle(function (){
+			
+			$('.this_div').hide();
+			$(this).parents('.business_line').next('.this_div').show();
+		},function (){
+			$('.this_div').hide();
+			$(this).parents('.business_line').next('.this_div').hide();
+		});
+		/*$('.col').click(function (){
+			$('.this_div').hide();
+			$(this).parents('.business_line').next('.this_div').show();
+			
+		});*/
+
+		/*点击账户余额*/
+		$('.acc').toggle(function (){
+			$('.this_div').hide();
+			$(this).parents('.business_line').next('.this_div').next('.this_div').show();
+		},function (){
+			$('.this_div').hide();
+			$(this).parents('.business_line').next('.this_div').next('.this_div').hide();
+		});
+
 		/*名词字典*/
 		var $explainLi =  $('.explainUl').find('.explainFirst');
 
 		$explainLi.click(function (){
 			$('.explainCon').hide();
 			$(this).next('.explainCon').show();
+			ngCom.ngAjax({
+			url:"/maint/mtni/",
+			method:'get',
+			ngHttp:$http,
+			success:function(response){
+				console.log(response);
+				
+				/*$scope.idNo = response.idNo;
+				$scope.nm= response.nm;
+				$scope.age= response.age;*/
+				
+			},
+			error:function (error_data){
+				console.log(error_data);
+			}
+		
+		});
 			
 		});
 

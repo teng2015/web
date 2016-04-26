@@ -3790,7 +3790,7 @@ function annotate(fn, strictDi, name) {
  *      expect(eventTracker.event('login')).toEqual(2);
  *    }));
  *
- *    it('saves to the tracking url', inject(function(eventTracker, $http) {
+ *    it('saves to the tracking url', inject(function(eventTracker, $http) {b
  *      postSpy = spyOn($http, 'post');
  *      eventTracker.event('login');
  *      eventTracker.save();
