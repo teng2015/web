@@ -7,7 +7,7 @@
 angular.module('welcome',['ngRoute'])
 	.controller('welcomePage',function($scope,$http){		
 		ngCom.ngAjax({
-			url:'/sec/userHis/get',
+			url:'/sec/loginhis/',
 			method:'get',
 			ngHttp:$http,
 			success:function(data,status){
