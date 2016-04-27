@@ -145,23 +145,24 @@ angular.module('viewApp',['ngRoute'])
 		$explainLi.click(function (){
 			$('.explainCon').hide();
 			$(this).next('.explainCon').show();
+			
 			ngCom.ngAjax({
-			url:"/maint/mtni/",
-			method:'get',
-			ngHttp:$http,
-			success:function(response){
-				console.log(response);
-				
-				/*$scope.idNo = response.idNo;
-				$scope.nm= response.nm;
-				$scope.age= response.age;*/
-				
-			},
-			error:function (error_data){
-				console.log(error_data);
-			}
-		
-		});
+				url:"/maint/mtni/",
+				method:'get',
+				ngHttp:$http,
+				success:function(response){
+					console.log(response);
+					
+					/*$scope.idNo = response.idNo;
+					$scope.nm= response.nm;
+					$scope.age= response.age;*/
+					
+				},
+				error:function (error_data){
+					console.log(error_data);
+				}
+			
+			});
 			
 		});
 
