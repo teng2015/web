@@ -53,3 +53,19 @@ body{ background:#eeeeee;}
 .guarantee_detail i a{ float:right; color:#2081c4; font-size:14px; display:block; padding-right:15px; width:50px; text-align:center; }
 .guarantee_detail i a:visited{ color:#2081c4;}
 .guarantee_detail i a:hover{ color:#fe6409;}
+/*  长标题子表头  */
+.detail_son_long { width:1178px;  height:27px;}
+.detail_son_long a {line-height:22px; height:22px; margin-top:5px; display:block;  }
+
+.detail_son_long strong{   background:#ffffff; url(../../images/title_bg_son_long.jpg); float:left; font-size:14px;   margin-left:1px;  text-align:center; text-align:left; text-indent:10px; }
+.detail_son_long strong a{   color:#888888; }
+.detail_son_long strong a:visited{ color:#888; }
+.detail_son_long strong a:hover{ color:#888; }
+.detail_son_long i a{ float:right; color:#888; font-size:14px; display:block; padding-right:15px; width:50px; text-align:center; }
+.detail_son_long i a:visited{ color:#2081c4;}
+.detail_son_long i a:hover{ color:#fe6409;}
+/*  无缩进的子表格  */
+.yewu_list_son_long{ border:1px solid #d4d4d4; color:#666666; text-align:left; width:100%; background:#fefefe; }
+.yewu_list_son_long th{ background:#ecf3f7; font-weight:normal;}
+.yewu_list_son_long th{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4;}
+.yewu_list_son_long td{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4; }

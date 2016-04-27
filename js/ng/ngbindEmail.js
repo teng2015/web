@@ -1,4 +1,5 @@
-$(function (){
+angular.module('emailApp',['ngRoute'])
+.controller('emailController',function($scope,$http){
 	function guid() {
 	    function S4() {
 	       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
@@ -53,26 +54,49 @@ $(function (){
 	$('.sub').click(function (){
 		//console.log(2);
 		var json = {
-			emailadd:$('#emailName').val()
-			/*authCode: $('#yzmimg').val()*/
+			emailAddr:$('#emailName').val(),
+			authCode: $('#yzmimg').val()
 		};
-		var token = localStorage.token;
+		//var token = localStorage.token;
 		console.log(json);
-		$.ajax({
+		/*$.ajax({
 			
 	        url: "/sec/email/link/",
 	        data:json,
 	        type: "POST",
 	        contentType: "application/json; charset=UTF-8",
 	        async:false,
-	        Authorization:token,
+	        //Authorization:localStorage.token,
 	        success:function (res){
-
+	        	console.log(res);
 	        },
 	      	error: function (data) {
 	              alert("系统错误，请稍后重试!");
 	      	}
-  		});
+  		});*/
+
+  		ngCom.ngAjax({
+			url:"/sec/email/link/",
+			data:json,
+			method:'post',
+			ngHttp:$http,
+			success:function(response){
+				console.log(response);
+				
+				/*$scope.idNo = response.idNo;
+				$scope.nm= response.nm;
+				$scope.age= response.age;*/
+				
+			},
+			error:function (error_data){
+				console.log(error_data);
+			}
+		
+		});
 
 	});
 })
+.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
+	$httpProvider.defaults.headers.common['Authorization'] = localStorage.token; //注入 httpProvider 设置请求头token
+	
+}]);

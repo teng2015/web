@@ -123,13 +123,13 @@ init();
 //login
 function login(){
 
-    var json = {
+    var json =  JSON.stringify({
         userName:$('#loginname').attr("value"),
         passwd:$('#loginPassWord').attr("value"),
-        "_@IMGRC@_":$('#yzmimg').attr("value"),
+        "ssidValue":$('#yzmimg').attr("value"),
         ssid:$('#ssid').attr("value")
 
-    }
+    });
 
     /*ngCom.ngAjax({
         url:"/sec/login",
@@ -146,12 +146,11 @@ function login(){
         }
         
     });*/
-    
 
    $.ajax({
         url: "/sec/login",
         data:json,
-        type: "get",
+        type: "POST",
         contentType: "application/json; charset=UTF-8",
         async:false,
         statusCode: { 
@@ -163,22 +162,28 @@ function login(){
             },
             201: function (res, stausText, xhr) {
               alert("系统错误201，请稍后重试!");
+              init();
           },
           401: function (repJson) {
               alert("认证失败!");
+              init();
           },
           403: function (repJson) {
               alert("没有权限,或未登录!");
+              init();
           },
           404: function () {
               alert("系统错误404，请稍后重试!");
+              init();
           },
           500: function (xhr, statusText, err) {
               alert("系统错误500，请稍后重试!");
+              init();
           }
       },
       error: function (xhr, statusText, err) {
               alert("系统错误，请稍后重试!");
+              init();
       }
   });
 }
