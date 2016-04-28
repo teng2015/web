@@ -1,4 +1,4 @@
-.bindEmail{width:720px; margin:100px auto;height:500px;}
+.bindEmail{width:720px; margin:100px auto;height:500px;display:block;}
 .bindEmailTxt{width:600px;height:50px;line-height:50px;font-size:20px; margin:0 auto;}
 .inputText {outline:none; height:28px; line-height:28px; padding:3px 8px; border:1px #7f7f7f solid; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; }
 .emailTxt{ width:600px; height:36px; line-height:36px; font-size:16px;margin-top:20px;}
