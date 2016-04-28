@@ -26,6 +26,25 @@ angular.module('viewApp',['ngRoute'])
 		
 		});
 
+		/*信息成功率*/
+
+		ngCom.ngAjax({
+			
+			url:"/col/facChrgs/list?cifId="+id+"&mtTenantId=1",
+			method:'get',
+			ngHttp:$http,
+			success:function(response){	
+				$scope.resJson = response.facList;;
+				$scope.resColl = response.collList;
+				$scope.resAcct = response.acctList;
+
+			},
+			error:function (error_data){
+				console.log(error_data);
+			}
+			
+		});
+
 		/*获取客户地址信息*/
 		ngCom.ngAjax({
 			url:"/cif/addrs/detail/"+id+"?mtTenantId=1",
@@ -98,15 +117,56 @@ angular.module('viewApp',['ngRoute'])
 			
 		});
 
-		$scope.aa = true;
+		/*$scope.aa = true;
 
 		$scope.colToggle=function (index){
 
 			$scope.aa=!$scope.aa;
 		
 
+		}*/
+
+		/*名词解释2*/
+		//$scope._index=0;
+
+		$scope.isActivemc=function(index){
+			return $scope._index==index;
+			console.log($scope._index);
 		}
-			
+		$scope.showPhotomc=function(index){
+			return $scope._index=index;
+			console.log($scope._index);
+		}	
+		$scope.showPhotomcout=function(index){
+			return $scope._index=null;
+			console.log($scope._index);
+		}	
+		/*业务信息acc*/
+		//$scope._index2=0;
+
+		$scope.isActive2=function(index){
+			return $scope._index2==index
+		}
+		$scope.showPhoto2=function(index){
+			var fac_col = 'fac_col_'+index;
+			//alert(index)
+			//alert($('#'+fac_col));
+			return $scope._index2=index
+
+		}
+
+		$scope.isActive=function(index){
+			return $scope._index3==index
+		}
+		$scope.showPhoto=function(index){
+			var fac2_col = 'fac2_col_'+index;
+			//alert(index)
+			//alert($('#'+fac2_col));
+			return $scope._index3=index
+
+		}
+		
+
 
 		/*点击担保链接金额弹出div*/
 		$('.col').toggle(function (){
@@ -132,6 +192,7 @@ angular.module('viewApp',['ngRoute'])
 		var $explainLi =  $('.explainUl').find('.explainFirst');
 
 		$explainLi.click(function (){
+
 			$('.explainCon').hide();
 			$(this).next('.explainCon').show();
 			
@@ -140,8 +201,6 @@ angular.module('viewApp',['ngRoute'])
 				method:'get',
 				ngHttp:$http,
 				success:function(data){
-					console.log(data);
-					
 					
 					$scope.resList = data;
 					
@@ -155,20 +214,26 @@ angular.module('viewApp',['ngRoute'])
 		});
 
 
-		/*查看导出*/
-		var $explainSec = $('.explainList').find('li');
+		
 
-		$explainSec.click(function (){
+		/*名词解释2级*/
+		/*var $explainSec = $('.explainList').find('.explainListLi');
 
+		console.log($explainSec);
+
+		$explainSec.on('click',function (){
+			console.log(1);
 			$('.explainListCon').hide();
 			$(this).find('.explainListCon').show();
+			console.log(2);
 		});
 
 		$explainSec.mouseout(function (){
 
 			$('.explainListCon').hide();
 			
-		});
+		});*/
+
 
 		/*回到顶部*/
 

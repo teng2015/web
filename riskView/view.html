@@ -13,9 +13,9 @@
 </head>
 
 <body>
-<div class="view" ng-app="viewApp" ng-controller="viewController"> 
+<div class="view" ng-app="viewApp" ng-controller="viewController" > 
     <ul class="top clearfix">
-    	<li><span class="score">评分:983</span><span class="slash">/</span><span class="lossRate">&nbsp; &nbsp;当前信息缺失率 <span class="lossRateNum">32% </span>(补充信息后将会更准确)</span></li>
+    	<li><span class="score">评分:983</span><span class="slash">/</span><span class="lossRate">&nbsp; &nbsp;当前信息完整率 <span class="lossRateNum">32% </span>(补充信息后将会更准确)</span></li>
         <li class="viewTitle">风险视图</li>
     	<li class="tel">
         	<p>服务热线：400-890-7756</p>
@@ -208,12 +208,12 @@
                 <span>{{item.intRateInSuspense}}%</span>
                 <span>{{item.lmtAppr}}</span>
                 <span>
-                  <div class="col" ng-click="colToggle($index)" ng-model="aa">
+                  <div class="col" ng-click="showPhoto($index)">
                         {{item.chargeValue}}
                     </div>
                 </span>
                 <span>
-                  <div class="acc">
+                  <div class="acc" ng-click="showPhoto2($index)">
                       {{item.balance}}
                     </div>
                 </span>
@@ -222,7 +222,7 @@
                 </span>
             </div>
             
-            <div class="this_div" ng-hide="aa">
+            <div class="this_div" ng-show="isActive($index)"  id="fac_coll_{{$index}}" ng-hide="isActive2($index)">
               <table  class="info_list_son mb_10 mt_10" >
                 <tr>
                   <th>担保编号</th>
@@ -243,7 +243,7 @@
               </table>
         
             </div>
-            <div class="this_div" >
+            <div class="this_div2" ng-show="isActive2($index)"  id="fac2_coll_{{$index}}" ng-hide="isActive($index)">
               <table class="info_list_son mb_10" >
                 <tr class="font_w">
                   <th>账号</th>
@@ -258,16 +258,16 @@
                   <th>用途</th>
                 </tr>
                 <tr  ng-repeat="acct in resAcct" ng-show="acct.facId==item.id">
-                  <td>{{acct.acctNo}}</td>
+                 <td>{{acct.acctNo}}</td>
                   <td>{{acct.mtPymtTermCdDscp}}</td>
                   <td>{{acct.mtRepymtTypCdDscp}}</td>
-                  <td>2015/10/01-2016/10/01</td>
-                  <td>8%</td>
-                  <td>12%</td>
+                  <td>{{acct.dtMaturity}}</td>
+                  <td>{{acct.mtRateTypRate}}%</td>
+                  <td>{{acct.intRateInSuspense}}%</td>
                   <td>{{acct.outstdAmt}}</td>
                   <td>{{acct.tardyCapitalAmt}}</td>
                   <td>{{acct.tardyInterestAmt}}</td>
-                  <td>其他</td>
+                  <td>{{acct.purpose}}</td>
                 </tr>
               </table>
             </div>
@@ -313,28 +313,17 @@
            <li class="clearFix"><span class="explainFirst"  ng-click="explainFirst()">名词字典</span>
                 <div class="explainCon">
                     <ul class="explainList clearFix">
-                        <li ng-repeat="resli in resList" class="explainListLi" ng-click="one()" ng-model="aa">
+                        <li ng-repeat="resli in resList" class="explainListLi" ng-mouseout="showPhotomcout($index)" ng-mouseover="showPhotomc($index)" ng-class="{'active':isActivemc($index)}">
                             <span class="explainSec">{{resli.niName}}</span>
-                            <div class="explainListCon" ng-show="true">
+                            <div class="explainListCon" ng-show="isActivemc($index)">
                                 <div  class="rightdirection"></div>  
 
                                 <div class="explainDescribe">
-                                    <h3 class="explainTitle">信贷额度</h3>
+                                    <h3 class="explainTitle">{{resli.niName}}</h3>
                                     <h4 class="line"></h4>
                                     <div class="explainDesc">
                                         
-                                        <p class="explainDescP">科技开发及是打开就发了多少福克斯的减肥阿里山的风景地方历史的减肥是的发生对法拉上来的附近地方类似的开发技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="explainDescribe">
-                                    <h3 class="explainTitle">信贷额度</h3>
-                                    <h4 class="line"></h4>
-                                    <div class="explainDesc">
-                                        
-                                        <p class="explainDescP">科技开发及是打开就发了多少福克斯的减肥阿里山的风景地方历史的减肥是的发生对法拉上来的附近地方类似的开发技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的
-                                        </p>
+                                        <p class="explainDescP">{{resli.niDesc}}</p>
                                     </div>
                                 </div>
 

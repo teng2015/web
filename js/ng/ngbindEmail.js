@@ -54,6 +54,7 @@ angular.module('emailApp',['ngRoute'])
 	/*$('.secEmailTxt').html($('#emailName').val());*/
 
 	/*点击提交*/
+	//$scope.aa = true;
 
 	$('.sub').click(function (){
 		//console.log(2);
@@ -79,6 +80,7 @@ angular.module('emailApp',['ngRoute'])
 	              alert("系统错误，请稍后重试!");
 	      	}
   		});*/
+		
 
   		ngCom.ngAjax({
 			url:"/sec/email/link/",
@@ -86,11 +88,27 @@ angular.module('emailApp',['ngRoute'])
 			method:'post',
 			ngHttp:$http,
 			success:function(response){
-				console.log(response);
 				
-				/*$scope.idNo = response.idNo;
-				$scope.nm= response.nm;
-				$scope.age= response.age;*/
+				if(response.result=='success'){
+					$('.bindEmail').hide();
+					$('.secShow').show();
+					//$scope.aa = !$scope.aa;
+					var count=50;
+
+					setInterval(function (){
+						count--;
+						if(count>=0){
+							$('.times').html(count+'s');
+							$('.button').attr('disabled','disabled');
+
+						}else{
+							$('.times').html(50+'s');
+							$('.button').attr('disabled',false);
+						}
+					},1000);
+					
+
+				}
 				
 			},
 			error:function (error_data){
@@ -99,6 +117,13 @@ angular.module('emailApp',['ngRoute'])
 		
 		});
 
+	});
+	$('.button').click(function (){
+		
+		$('.secShow').hide();
+		$('.bindEmail').show();
+		
+		
 	});
 })
 .config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
