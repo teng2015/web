@@ -6,11 +6,11 @@
 .explainRight{position:absolute;bottom:0;right:-100px; }
 .explainUl li{width:50px;/*clear:both;*/}
 .explainFirst{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:blue;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
-.explainCon {width:200px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
+.explainCon {width:340px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
 
 /*信贷额度*/
 .explainCon .explainList{}
-.explainCon .explainList li{position:relative;top:0;left:0;width:70px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block;}
+.explainCon .explainList li{position:relative;top:0;left:0;width:140px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block;}
 
 .explainListCon{width:300px;position:absolute; right:110px;top:-20px; background:#009fcc;display:none;z-index:3;padding:15px 15px;}
 
@@ -79,7 +79,7 @@
 .font_w td { background:#eee; font-weight:bold;}
 /*  信息列表 包含子表格外层TD  */
 .this_cor_fe { background:#fefefe;}
-.this_div { width:100%; overflow:hidden; height:auto; display:none;margin-top:20px; }
+.this_div { width:100%; overflow:hidden; height:auto;margin-top:20px; }
 .info_list .hide{ display:none;}
 .info_list .show{ display:block;}
 /*  表格隔行换色  */

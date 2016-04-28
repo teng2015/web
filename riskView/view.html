@@ -108,14 +108,14 @@
             <span>账户余额</span>
             <span>状态</span>
         </div>
-        <div  class="line_a">
+        <!--<div  class="line_a" ng-repeat="acct in resJson">
 
-            <div class="business_line">
+            <div class="business_line" >
            
-            	<!-- <span>{{item.mtFacTermTypeCd}}</span>
-                <span>{{item.mtFacCdDscp}}</span>
-                <span>{{item.tenureMtTimeCdDscp}}</span>
-                <span>{{item.mtFacCdDscp}}</span>
+            	<span>{{acct.mtFacTermTypeCd}}</span>
+                <span>{{acct.mtFacCdDscp}}</span>
+                <span>{{acct.tenureMtTimeCdDscp}}</span>
+                <span>{{acct.mtFacCdDscp}}</span>
                 <span>1%</span>
                 <span>¥100,000.00</span>
                 <span>
@@ -128,8 +128,8 @@
                     	¥100,000.00
                     </div>
                 </span>
-                <span>{{item.mtFacStsCdDscp}}</span> -->
-                <span>1</span>
+                <span>{{acct.mtFacStsCdDscp}}</span>
+                 <span>1</span>
                 <span>233</span>
                 <span>werer</span>
                 <span>4444</span>
@@ -196,7 +196,82 @@
                   <td>其他</td>
                 </tr>
               </table>
+            </div> -->
+
+            
+          <div  class="line_a" ng-repeat="item in resJson">
+            <div class="business_line" >
+               <span>{{item.no}}</span>
+                <span>{{item.mtFacCdDscp}}</span>
+                <span>{{item.dtMaturity}}</span>
+                <span>{{item.mtRateTypRate}}%</span>
+                <span>{{item.intRateInSuspense}}%</span>
+                <span>{{item.lmtAppr}}</span>
+                <span>
+                  <div class="col" ng-click="colToggle($index)" ng-model="aa">
+                        {{item.chargeValue}}
+                    </div>
+                </span>
+                <span>
+                  <div class="acc">
+                      {{item.balance}}
+                    </div>
+                </span>
+                <span>     
+                      {{item.mtFacStsCdDscp}}
+                </span>
             </div>
+            
+            <div class="this_div" ng-hide="aa">
+              <table  class="info_list_son mb_10 mt_10" >
+                <tr>
+                  <th>担保编号</th>
+                  <th>担保种类</th>
+                  <th>担保品价值</th>
+                  <th>担保品剩余价值</th>
+                  <th>担保链接金额</th>
+                  <th>所有者</th>
+                </tr>
+                <tr ng-repeat="coll in resColl" ng-show="coll.facId==item.id">
+                  <td>{{coll.colIdNo}}</td>
+                  <td>{{coll.mtCollCatDscp}}</td>
+                  <td>{{coll.collValue}}</td>
+                  <td>{{coll.remainValue}}</td>
+                  <td>{{coll.chargeValue}}</td>
+                  <td>{{coll.ownerCifNm}}</td>
+                </tr>
+              </table>
+        
+            </div>
+            <div class="this_div" >
+              <table class="info_list_son mb_10" >
+                <tr class="font_w">
+                  <th>账号</th>
+                  <th>还款周期</th>
+                  <th>还款方式</th>
+                  <th>到期日</th>
+                  <th>利率</th>
+                  <th>罚息利率</th>
+                  <th>账户余额（含拖欠）</th>
+                  <th>拖欠本金</th>
+                  <th>拖欠利息</th>
+                  <th>用途</th>
+                </tr>
+                <tr  ng-repeat="acct in resAcct" ng-show="acct.facId==item.id">
+                  <td>{{acct.acctNo}}</td>
+                  <td>{{acct.mtPymtTermCdDscp}}</td>
+                  <td>{{acct.mtRepymtTypCdDscp}}</td>
+                  <td>2015/10/01-2016/10/01</td>
+                  <td>8%</td>
+                  <td>12%</td>
+                  <td>{{acct.outstdAmt}}</td>
+                  <td>{{acct.tardyCapitalAmt}}</td>
+                  <td>{{acct.tardyInterestAmt}}</td>
+                  <td>其他</td>
+                </tr>
+              </table>
+            </div>
+        </div>
 
             
             
@@ -238,9 +313,9 @@
            <li class="clearFix"><span class="explainFirst"  ng-click="explainFirst()">名词字典</span>
                 <div class="explainCon">
                     <ul class="explainList clearFix">
-                        <li ng-mouseover="explainListLi()" ng-mouseout="explainListLiOut()">
-                            <span class="explainSec">信贷额度</span>
-                            <div class="explainListCon">
+                        <li ng-repeat="resli in resList" class="explainListLi" ng-click="one()" ng-model="aa">
+                            <span class="explainSec">{{resli.niName}}</span>
+                            <div class="explainListCon" ng-show="true">
                                 <div  class="rightdirection"></div>  
 
                                 <div class="explainDescribe">
@@ -267,7 +342,7 @@
 
                         </li>
 
-                        <li><span class="explainSec">信贷额度</span>
+                        <!-- <li><span class="explainSec">信贷额度</span>
                             <div class="explainListCon">
                                 <div  class="rightdirection"></div>  
                                 <div class="explainDescribe">
@@ -326,7 +401,7 @@
                                 </div>
                             </div>
                         </li>
-
+ -->
                         
                     </ul>
 

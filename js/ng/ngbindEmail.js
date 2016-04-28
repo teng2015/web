@@ -17,7 +17,7 @@ angular.module('emailApp',['ngRoute'])
 	function loadImageCode(){
 	    var ssid = $("#ssid").val();
 	    
-	    $.post("/sec/captcha/",{id:ssid},function (repJson,status) { 
+	    $.post("/sec/secode/",{id:ssid},function (repJson,status) { 
 	        $("#imageCode").html('<img src="data:image/png;base64,' + repJson + '" />');
 	    });
 	   
@@ -36,8 +36,12 @@ angular.module('emailApp',['ngRoute'])
 	$('#emailName').blur(function (){
 		var sText = $('#emailName').val();
 		
-		var reMail =/^(?:[a-zA-Z0-9]+[_\-\+\.]?)*[a-zA-Z0-9]+@(?:([a-zA-Z0-9]+[_\-]?)*[a-zA-Z0-9]+\.)+([a-zA-Z]{2,})+$/;
-		
+		//var reMail =/^(?:[a-zA-Z0-9_]+[_\-\_\.]?)*[a-zA-Z0-9]+@(?:([a-zA-Z0-9]+[_\-]?)*[a-zA-Z0-9]+\.)+([a-zA-Z]{2,})+$/;
+		//var reMail =/^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$/;
+		//var reMail =/^(\w+((-\w+)|(\.\w+))*)\+\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+
+		var reMail =/^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
+
 		if(!reMail.test(sText)){
 
 			$('.showTxt').html("请正确填写邮箱");
@@ -55,7 +59,8 @@ angular.module('emailApp',['ngRoute'])
 		//console.log(2);
 		var json = {
 			emailAddr:$('#emailName').val(),
-			authCode: $('#yzmimg').val()
+			authCode: $('#yzmimg').val(),
+			ssid:$('#ssid').attr("value")
 		};
 		//var token = localStorage.token;
 		console.log(json);
@@ -66,7 +71,7 @@ angular.module('emailApp',['ngRoute'])
 	        type: "POST",
 	        contentType: "application/json; charset=UTF-8",
 	        async:false,
-	        //Authorization:localStorage.token,
+	        Authorization:localStorage.token,
 	        success:function (res){
 	        	console.log(res);
 	        },

@@ -82,14 +82,15 @@ angular.module('viewApp',['ngRoute'])
 		/*业务信息*/
 
 		ngCom.ngAjax({
-			url:"/cif/facs/?cif_id="+id+"&mtTenantId=1",
+			
+			url:"/col/facChrgs/list?cifId="+id+"&mtTenantId=1",
 			method:'get',
 			ngHttp:$http,
-			success:function(response){
-				
-				$scope.resJson = response;
+			success:function(response){	
+				$scope.resJson = response.facList;;
+				$scope.resColl = response.collList;
+				$scope.resAcct = response.acctList;
 
-				
 			},
 			error:function (error_data){
 				console.log(error_data);
@@ -97,23 +98,15 @@ angular.module('viewApp',['ngRoute'])
 			
 		});
 
-		/*$scope.explainFirst=function (){
-			console.log(2);
-			$('.explainCon').hide();
-			target.next('.explainCon').show();
-			console.log(3);
-		}
+		$scope.aa = true;
 
-		$scope.explainListLi=function (){
-			$('.explainListCon').hide();
-			$(this).find('.explainListCon').show();
-				
-		}
+		$scope.colToggle=function (index){
 
-		$scope.explainListLiOut=function (){
-			$('.explainListCon').hide();
-				
-		}*/
+			$scope.aa=!$scope.aa;
+		
+
+		}
+			
 
 		/*点击担保链接金额弹出div*/
 		$('.col').toggle(function (){
@@ -124,11 +117,7 @@ angular.module('viewApp',['ngRoute'])
 			$('.this_div').hide();
 			$(this).parents('.business_line').next('.this_div').hide();
 		});
-		/*$('.col').click(function (){
-			$('.this_div').hide();
-			$(this).parents('.business_line').next('.this_div').show();
-			
-		});*/
+		
 
 		/*点击账户余额*/
 		$('.acc').toggle(function (){
@@ -150,12 +139,11 @@ angular.module('viewApp',['ngRoute'])
 				url:"/maint/mtni/",
 				method:'get',
 				ngHttp:$http,
-				success:function(response){
-					console.log(response);
+				success:function(data){
+					console.log(data);
 					
-					/*$scope.idNo = response.idNo;
-					$scope.nm= response.nm;
-					$scope.age= response.age;*/
+					
+					$scope.resList = data;
 					
 				},
 				error:function (error_data){
@@ -166,10 +154,11 @@ angular.module('viewApp',['ngRoute'])
 			
 		});
 
+
 		/*查看导出*/
 		var $explainSec = $('.explainList').find('li');
 
-		$explainSec.mouseover(function (){
+		$explainSec.click(function (){
 
 			$('.explainListCon').hide();
 			$(this).find('.explainListCon').show();
