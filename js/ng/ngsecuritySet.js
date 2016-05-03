@@ -6,6 +6,32 @@
 	
 angular.module('securitySet',['ngRoute'])
 	.controller('securitySetPage',function($scope,$http){
+		var eKey = localStorage.ekey;
+		var eValue= localStorage.evalue;
+
+		if(eKey && eValue){
+
+			/*ngCom.ngAjax({
+				url:"/sec/email/link/",
+				data:json,
+				method:'post',
+				ngHttp:$http,
+				success:function(response){},
+				error:function (){}
+			});*/
+
+		}else if(eKey){
+			
+			/*ngCom.ngAjax({
+				url:"/sec/email/link/",
+				data:json,
+				method:'post',
+				ngHttp:$http,
+				success:function(response){},
+				error:function (){}
+			});*/
+
+		}
 		function guid() {
 	    function S4() {
 	       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
@@ -73,25 +99,7 @@ angular.module('securitySet',['ngRoute'])
 			authCode: $('#yzmimg').val(),
 			ssid:$('#ssid').attr("value")
 		};
-		//var token = localStorage.token;
-		console.log(json);
-		/*$.ajax({
-			
-	        url: "/sec/email/link/",
-	        data:json,
-	        type: "POST",
-	        contentType: "application/json; charset=UTF-8",
-	        async:false,
-	        Authorization:localStorage.token,
-	        success:function (res){
-	        	console.log(res);
-	        },
-	      	error: function (data) {
-	              alert("系统错误，请稍后重试!");
-	      	}
-  		});*/
 		
-
   		ngCom.ngAjax({
 			url:"/sec/email/link/",
 			data:json,

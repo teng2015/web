@@ -44,9 +44,9 @@
         </div>
         
     	<table class="history_list_son">
-        	<tbody>
-            	<tr>
-                	<th>选择</th>
+            <tbody>
+                <tr>
+                    <th>选择</th>
                     <th>序号</th>
                     <th>姓名</th>
                     <th>证件类型</th>
@@ -57,14 +57,21 @@
                     <th>管理员</th>
                     <th>操作</th>
                 </tr>
-               	<tr>
-                	<td><input type="checkbox" class="isChecked"></td>
-                    
+                <tr ng-repeat="data in hisList">
+                    <td><input type="checkbox" class="isChecked"></td>
+                    <td>{{$index+1}}</td>
+                    <td>{{data.nm}}</td>
+                    <td>{{data.mtCifIdTypCdDscp}}</td>
+                    <td>{{data.idNo}}</td>
+                    <td>{{data.dtCreated}}</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{data.createdBy}}
+                    <td align="center">
+                        <a href="/riskView/view.html?csCifId={{data.cifId}}&mtTenantId=1&appId={{data.id}}&isHistory=Y" target="_blank">查看视图</a></td>
                 </tr>
-                
-                
             </tbody>
-        	
+            
         </table>
     	
     </div>
