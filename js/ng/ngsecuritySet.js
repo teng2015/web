@@ -8,11 +8,12 @@ angular.module('securitySet',['ngRoute'])
 	.controller('securitySetPage',function($scope,$http){
 		var eKey = localStorage.ekey;
 		var eValue= localStorage.evalue;
-
+		console.log(eKey);
+		console.log(eValue);
 		if(eKey && eValue){
 			
 			ngCom.ngAjax({
-				url:"/sec/email/site/eKey"+eKey+"/eValue"+eValue,
+				url:"/sec/email/site/"+eKey+"/"+eValue,
 				method:'get',
 				ngHttp:$http,
 				success:function(response){
