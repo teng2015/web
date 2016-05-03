@@ -110,16 +110,19 @@ angular.module('securitySet',['ngRoute'])
 						
 						if(count<=0){
 							
-							$('.times').html(50+'s');
+							$('.times').html(50);
 							$('.button').attr('disabled',false);
 							clearInterval(timer);
 						}else{
-							$('.times').html(count+'s');
+							$('.times').html(count);
 							$('.button').attr('disabled','disabled');
 						}
 
 
 					},1000);
+					var emailInputVal=$('#emailName').val();
+
+					$('.secEmailTxt').html(emailInputVal);
 					
 
 				}
@@ -132,6 +135,8 @@ angular.module('securitySet',['ngRoute'])
 		});
 
 	});
+
+	
 	$('.button').click(function (){
 		
 		$('.secShow').hide();
