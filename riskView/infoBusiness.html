@@ -58,9 +58,9 @@
 			 <td  ng-show="{{item.acctMarker}}== false">
 							{{item.balance}}
 			 </td>	
-		      <td>是</td>
-		      <td>一般</td>
-		      <td>其它</td>
+		      <td>{{item.isRevolvingAllowed}}</td>
+		      <td>{{item.lgdGradeCdDscp}}</td>
+		      <td>{{item.mtFacPurCdDscp}}</td>
 		      <td>{{item.mtFacStsCdDscp}} </td>
 		    </tr>
 		  </table>
@@ -84,7 +84,7 @@
 	      <td>{{coll.collValue}}</td>
 	      <td>{{coll.remainValue}}</td>
 	      <td>{{coll.chargeValue}}</td>
-	      <td>70%</td>
+	      <td>{{coll.safetyFactor}}%</td>
 	      <td>¥140,000.000</td>
 	      <td>¥200,000.00</td>
 	      <td>{{coll.ownerCifNm}}</td>
