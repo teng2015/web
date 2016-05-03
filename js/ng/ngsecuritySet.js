@@ -10,15 +10,18 @@ angular.module('securitySet',['ngRoute'])
 		var eValue= localStorage.evalue;
 
 		if(eKey && eValue){
-
-			/*ngCom.ngAjax({
-				url:"/sec/email/link/",
-				data:json,
-				method:'post',
+			
+			ngCom.ngAjax({
+				url:"/sec/email/site/eKey"+eKey+"/eValue"+eValue,
+				method:'get',
 				ngHttp:$http,
-				success:function(response){},
-				error:function (){}
-			});*/
+				success:function(response){
+					console.log(response);
+				},
+				error:function (data){
+					console.log(data);
+				}
+			});
 
 		}else if(eKey){
 			

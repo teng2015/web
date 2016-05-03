@@ -12,6 +12,15 @@ angular.module('businessApp',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){	
+				var facList =response.facList;
+				for(var i =0; i< facList.length; i++){
+						var isRevolvingAllowed = "否";
+						if(facList[i]["isRevolvingAllowed"] == 'Y')
+						{
+								isRevolvingAllowed = "是";
+						}
+						facList[i]["isRevolvingAllowed"] =isRevolvingAllowed;
+				}
 				$scope.resJson = response.facList;;
 				$scope.resColl = response.collList;
 				$scope.resAcct = response.acctList;
