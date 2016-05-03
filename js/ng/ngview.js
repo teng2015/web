@@ -8,6 +8,7 @@ angular.module('viewApp',['ngRoute'])
 			if (r!=null) return unescape(r[2]); return null; //返回参数值
 			} 
 		var id = getUrlParam('id');
+		$scope.id =id;
 		/*姓名 身份证*/
 		ngCom.ngAjax({
 			url:"/cif/cifs/"+id+"?mtTenantId=1",
@@ -116,7 +117,13 @@ angular.module('viewApp',['ngRoute'])
 			}
 			
 		});
-
+		$scope.toggle = function(dis) {
+			  if ($scope.display!=dis) {
+				  $scope.display=dis;
+			  }else{
+				$scope.display=-1;
+			  }
+			};
 		/*$scope.aa = true;
 
 		$scope.colToggle=function (index){
