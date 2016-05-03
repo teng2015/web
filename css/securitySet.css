@@ -1,0 +1,39 @@
+.security_auth{margin-top: 50px;margin-left:20px;}     
+.security_auth li{overflow:hidden;border-bottom: 1px solid #e5e5e5;height:50px;line-height: 50px;}
+.se_level{width: 200px;}
+.se_grade{overflow:hidden;margin-top: 15px;}
+.se_grade span{width:90px;height:20px;line-height: 20px; float: left; text-align: center; display:block;background-color: #f3f3f3; border:1px solid #e5e5e5;}
+.se_grade .se_curr{background-color: #fe640a;}
+.se_grade .se_low ,.se_height{ border-radius:10%;}
+
+.pw_state{width: 90px;}
+.pw_font{width: 200px;}
+.pw_ct{width: 432px;}
+.em_state{width: 90px;}
+.em_font{width: 200px;}
+.em_ct{width: 432px;}
+
+.bindEmail{width:420px; margin:100px auto;display:none;border:1px solid #e6e6e6;border-radius:5px 5px 0px 0px; }
+.bindEmailTxt{width:411px;height:30px;line-height:30px;font-size:16px; margin:0 auto; color:white; background-color: #49a3e1;border-radius: 5px 5px 0px 0px; padding-left:10px;}
+.inputText {width:200px;outline:none; height:28px; line-height:28px; padding:3px 8px; border:1px #cfcfcf solid; }
+.emailTxt{ width:420px; height:36px; line-height:36px; font-size:16px;margin-top:20px;}
+.emailAlign{text-align: right; width:80px;}
+.text3 { width:100px; }
+.yzm_a{ padding-left:10px; color:#1234B5; text-decoration:none;line-height:32px;}
+.yzm_a:hover{ color:#1234B5; text-decoration:underline;}
+.span-grey{ color:#686868;}
+.yzmPosition{width:110px;}
+.sub { margin-left:80px;margin-top:30px;margin-bottom:40px;width:202px;height:30px;font-size:18px; line-height:30px; padding:3px 8px; display:block; text-align:center; color:#fff; border:none; background-color:#1d8ddb; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; cursor:pointer; }
+.sub:hover{background-color:#2181c4; }
+.showTxt{ height:36px;line-height:36px;margin-left:20px;color:red;font-size:12px;}
+
+.secShow{width:420px; margin:100px auto;height:500px;display:none;}
+.secShowTxt{width:420px;height:36px;line-height:36px;font-size:18px; text-align: left;}
+.secEmailTxt{color:blue;}
+.btn{overflow:hidden;margin:30px auto;}
+.button{width:110px; height:30px; line-height:30px;font-size:14px;border:1px solid #ccc;}
+.times{color:red;}
+.timeTxt{ height:30px; line-height:30px;font-size:14px;margin-left:10px;}
+.tel,.back{font-size:13px;}
+.back{margin-left:30px;}
+.back a:hover{color:red;}
