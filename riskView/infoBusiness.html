@@ -5,9 +5,15 @@
 	<title>业务信息</title>
 	<link rel="stylesheet" href="../css/base.css">
 	<link rel="stylesheet" href="../css/infoBusiness.css">
+	<script src="../js/libs/jquery.js"></script>
+	<script src="../js/libs/angular.js"></script>
+	<script src="../js/libs/angular-route.js"></script>
+	<script src="../js/ng/ngBusiness.js"></script>
+	<script src="../js/ng/ngAjax.js"></script>
+	<script src="../js/ng/ngview.js"></script>
 </head>
 <body>
-	<div id="headDiv" class="layOut shadow"> 
+	<div id="headDiv" class="layOut shadow" ng-app="businessApp" ng-controller="businessController"> 
 	  <!--  头  -->
 	  <ul class="top">
 	    <li class="t_logo"><img src="../images/logo.gif" width="138" height="52"></li>
@@ -15,13 +21,13 @@
 	    <li class="t_date">服务热线：400-890-7756<br>
 	2016年03月11日 16时38分06秒</li>  </ul>
 	  <!--  业务信息 1  -->
-	  <div class="mod_title mt_30"> <strong><a href="#">业务信息 <span class="font_title_sn">1</span></a></strong><i></i> </div>
+	  <div ng-repeat="item in resJson ">
+	  <div class="mod_title mt_30" > <strong><a href="#">业务信息 <span class="font_title_sn">{{item.no}}</span></a></strong><i></i> </div>
 	   <div>
 		  <table class="info_list">
 		    <tr>
 		      <th>授信编号</th>
 		      <th>业务</th>
-		      <th>业务期限</th>
 		      <th>授信有效到期日</th>
 		      <th>利率</th>
 		      <th>罚息利率</th>
@@ -34,19 +40,28 @@
 		      <th>状态</th>
 		    </tr>
 		    <tr>
-		      <td>001</td>
-		      <td>个人在线委托贷款</td>
-		      <td>1年</td>
-		      <td>2016/10/01</td>
-		      <td>8%</td>
-		      <td>12%</td>
-		      <td>¥100,000.00</td>
-		      <td>¥140,000.00</td>
-		      <td>0</td>
+		      <td>{{item.no}}</td>
+		      <td>{{item.mtFacCdDscp}}</td>
+		      <td>{{item.dtMaturity}}</td>
+			  <td>{{item.mtRateTypRate}}%</td>
+              <td>{{item.intRateInSuspense}}%</td>
+              <td>{{item.lmtAppr}}</td>
+			  <td ng-show="{{item.marker}}== true" style="color:red;">
+				{{item.chargeValue}}
+			  </td>
+			 <td  ng-show="{{item.marker}}== false">
+							{{item.chargeValue}}
+			 </td>
+			<td ng-show="{{item.acctMarker}}== true" style="color:red;">
+				{{item.balance}}
+			  </td>
+			 <td  ng-show="{{item.acctMarker}}== false">
+							{{item.balance}}
+			 </td>	
 		      <td>是</td>
 		      <td>一般</td>
 		      <td>其它</td>
-		      <td>已批准</td>
+		      <td>{{item.mtFacStsCdDscp}} </td>
 		    </tr>
 		  </table>
 	  </div>
@@ -63,16 +78,16 @@
 	      <th>担保连接余额</th>
 	      <th>所有者</th>
 	    </tr>
-	    <tr>
-	      <td>PR/2019/000189</td>
-	      <td>商业用房</td>
-	      <td>¥10,000,000.00</td>
-	      <td>¥9,800,000.00</td>
-	      <td>¥200,000.00</td>
+	    <tr  ng-repeat="coll in resColl" ng-show="coll.facId==item.id">
+	      <td>{{coll.colIdNo}}</td>
+	      <td>{{coll.mtCollCatDscp}}</td>
+	      <td>{{coll.collValue}}</td>
+	      <td>{{coll.remainValue}}</td>
+	      <td>{{coll.chargeValue}}</td>
 	      <td>70%</td>
 	      <td>¥140,000.000</td>
 	      <td>¥200,000.00</td>
-	      <td>李双</td>
+	      <td>{{coll.ownerCifNm}}</td>
 	    </tr>
 	  </table></div>
 	  <div class=" detail_title_son mt_10"> <strong><a href="#">账户</a></strong><i></i> </div>
@@ -89,21 +104,21 @@
 	      <th>拖欠本金</th>
 	      <th>用途</th>
 	    </tr>
-	    <tr>
-	      <td>6217002710000684874</td>
-	      <td>一个月（按月）</td>
-	      <td>到期一次性归还（按期还息，到期还本）</td>
-	      <td>2015/10/01-2016/10/01</td>
-	      <td>8%</td>
-	      <td>12%</td>
-	      <td>0</td>
-	      <td>¥8,000.00</td>
-	      <td>¥100,000.00</td>
-	      <td>其它</td>
+	    <tr ng-repeat="acct in resAcct" ng-show="acct.facId==item.id">
+	      <td>{{acct.acctNo}}</td>
+	      <td>{{acct.mtPymtTermCdDscp}}</td>
+	      <td>{{acct.mtRepymtTypCdDscp}}</td>
+	      <td>{{acct.dtMaturity}}</td>
+	      <td>{{acct.mtRateTypRate}}%</td>
+	      <td>{{acct.intRateInSuspense}}%</td>
+	      <td>{{acct.outstdAmt}}</td>
+		  <td>{{acct.tardyCapitalAmt}}</td>
+          <td>{{acct.tardyInterestAmt}}</td>
+          <td>{{acct.purpose}}</td>
 	    </tr>
 	  </table></div>
 	  
 	</div>
-
+	</div>
 </body>
 </html>

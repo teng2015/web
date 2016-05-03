@@ -94,7 +94,7 @@
     <div class="busInfo">
         <h1 class="clearfix"> 
          <p class="title">业务信息</p>
-         <a href="infoBusiness.html" class="more">更多</a>
+         <a href="infoBusiness.html?id={{id}}" class="more">更多</a>
         </h1>
        
       <div class="business_title">
@@ -199,7 +199,7 @@
             </div> -->
 
             
-          <div  class="line_a" ng-repeat="item in resJson">
+          <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display">
             <div class="business_line" >
                <span>{{item.no}}</span>
                 <span>{{item.mtFacCdDscp}}</span>
@@ -208,21 +208,35 @@
                 <span>{{item.intRateInSuspense}}%</span>
                 <span>{{item.lmtAppr}}</span>
                 <span>
-                  <div class="col" ng-click="showPhoto($index)">
-                        {{item.chargeValue}}
-                    </div>
+					<div ng-show="{{item.marker}}== true">
+						<div class="col"  ng-click="toggle(1*($index+1))" style="color:red;">
+								{{item.chargeValue}}
+						</div>
+					</div>
+					<div ng-show="{{item.marker}}== false">
+						<div class="col"  ng-click="toggle(1*($index+1))">
+								{{item.chargeValue}}
+						</div>
+					</div>
                 </span>
                 <span>
-                  <div class="acc" ng-click="showPhoto2($index)">
-                      {{item.balance}}
-                    </div>
+					<div ng-show="{{item.acctMarker}}== true">
+						<div class="acc" ng-click="toggle(2*($index+2))"  style="color:red;">
+							{{item.balance}}
+						</div>
+					</div>
+					<div ng-show="{{item.acctMarker}}== false">
+						<div class="acc" ng-click="toggle(2*($index+2))">
+							{{item.balance}}
+						</div>
+					</div>
                 </span>
                 <span>     
                       {{item.mtFacStsCdDscp}}
                 </span>
             </div>
             
-            <div class="this_div" ng-show="isActive($index)"  id="fac_coll_{{$index}}" ng-hide="isActive2($index)">
+            <div class="this_div" ng-show="display==1*($index+1)" >
               <table  class="info_list_son mb_10 mt_10" >
                 <tr>
                   <th>担保编号</th>
@@ -243,7 +257,7 @@
               </table>
         
             </div>
-            <div class="this_div2" ng-show="isActive2($index)"  id="fac2_coll_{{$index}}" ng-hide="isActive($index)">
+            <div class="this_div2" ng-show="display==2*($index+2)">
               <table class="info_list_son mb_10" >
                 <tr class="font_w">
                   <th>账号</th>
