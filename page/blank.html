@@ -13,10 +13,9 @@
 			var r = window.location.search.substr(1).match(reg);  //匹配目标参数
 			if (r!=null) return unescape(r[2]); return null; //返回参数值
 			} 
-		var ekey=getUrlParam('eKey');
-		var evalue=getUrlParam('eValue');
-		console.log(ekey);
-		console.log(evalue);
+		localStorage.ekey=getUrlParam('eKey');
+		localStorage.evalue=getUrlParam('eValue');
+		
 	});
 	</script>
 </head>
