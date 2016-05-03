@@ -5,12 +5,14 @@
 .explainRight{position:absolute;bottom:0;right:-100px; }
 .explainUl li{width:50px;/*clear:both;*/}
 .explainFirst{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:#1e8ddc;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
-.explainCon {width:340px; background:#89a9c0;display:none;margin-bottom:2px;  float:right;}
+.explainCon {width:342px; background:#8aaac2;display:none;margin-bottom:2px;  float:right;}
+
+.explainUl li:hover{background-color: #f2a139;}
 .explainFirstLiTwo{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:#1e8ddc;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
-.explainConTwo {width:340px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
+.explainConTwo {width:342px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
 /*信贷额度*/
 .explainCon .explainList{}
-.explainCon .explainList li{position:relative;top:0;left:0;width:140px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block;}
+.explainCon .explainList li{position:relative;top:0;left:0;width:140px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block; border-left:1px solid white;}
 
 .explainListCon{width:300px;position:absolute; right:180px;top:-20px; background:white;z-index:3;padding:15px 15px; box-shadow: 0 0 20px #c9c9c9; }
 
