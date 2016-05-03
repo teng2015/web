@@ -93,7 +93,7 @@ _margin-top:10px; *margin-bottom:-8px ;  _margin-bottom:0px;}
 .welcome  .title-2{ width:750px; height:30px; background:url(../images/img/title_bk.png) no-repeat; margin-left:20px;}
 .welcome .title-2_left{position:relative;}
 .welcome .span-normal{ font-weight:normal;}
-.welcome .span-12{ font-size:12px; margin-left:10px; display:none;position:absolute;top:0px; left:85px; height:30px;line-height:30px;}
+.welcome .span-12{ font-size:12px; margin-left:10px; position:absolute;top:0px; left:85px; height:30px;line-height:30px;}
 .welcome .footer{ font-size:12px; font-family:Arial,Microsoft YaHei,Geneva,sans-serif; clear:both; background:#1d8ddb; color:#fff; text-align:center; 
 width:990px; margin:0 auto; min-width:980px; height:28px; line-height:28px; }
 .welcome .footer span{ padding-right:12px;}
