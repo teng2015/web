@@ -38,3 +38,4 @@
 .tel,.back{font-size:13px;}
 .tel{width:120px; margin:20px auto; margin-bottom:20px;}
 .back a:hover{color:red;}
+.layer{margin:0 auto;margin-top:50px; width:150px; height:30px; line-height:30px; background:#4d4d4d; border-radius:5px; display:none;color:white;font-weight: bold; text-align: center;}
