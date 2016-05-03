@@ -9,6 +9,23 @@ angular.module('viewApp',['ngRoute'])
 			} 
 		var id = getUrlParam('id');
 		$scope.id =id;
+
+		var csCifId = getUrlParam('csCifId');
+		var isHistory = getUrlParam('isHistory');
+		var nextCsCifId = getUrlParam('nextCsCifId');
+	    var cifUrl,indvUrl,emplymtUrl,addrUrl;
+		if (isHistory == 'Y') {
+			cifUrl = "/cif/cs_cifs/"+csCifId+"&mtTenantId=1";
+			indvUrl = "/cif/cs_cif_addrs?cs_cif_id="+csCifId+"&mtTenantId=1";
+			emplymtUrl = "/cif/cs_cif_emps?cs_cif_id="+csCifId+"&mtTenantId=1";
+			addrUrl = "/cif/cs_cif_emps?cs_cif_id="+csCifId+"&mtTenantId=1";
+		} else {
+			cifUrl = "/cif/cifs/"+id+"?mtTenantId=1";
+			indvUrl = "/cif/indvs/?cif_id="+id+"&mtTenantId=1";
+			emplymtUrl = "/cif/emps/?cif_id="+id+"&mtTenantId=1";
+			addrUrl = "/cif/addrs/detail/"+id+"?mtTenantId=1";
+		}
+
 		/*姓名 身份证*/
 		ngCom.ngAjax({
 			url:"/cif/cifs/"+id+"?mtTenantId=1",
@@ -48,13 +65,31 @@ angular.module('viewApp',['ngRoute'])
 
 		/*获取客户地址信息*/
 		ngCom.ngAjax({
-			url:"/cif/addrs/detail/"+id+"?mtTenantId=1",
+			url:addrUrl,
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
 				$scope.mtStateCdDscp = response[0].mtStateCdDscp;
 				$scope.mtCountyCdDscp= response[0].mtCountyCdDscp;
 			
+				
+			},
+			error:function (error_data){
+				console.log(error_data);
+			}
+		
+		});
+		
+		
+		/*客户职业信息资源*/
+		ngCom.ngAjax({
+			url:emplymtUrl,
+			method:'get',
+			ngHttp:$http,
+			success:function(response){
+				  
+				$scope.mtPosHeldCd = response.mtPosHeldCdDscp;
+				$scope.employerCifNm= response.employerCifNm;
 				
 			},
 			error:function (error_data){
@@ -82,7 +117,7 @@ angular.module('viewApp',['ngRoute'])
 		/*客户信息*/
 
 		ngCom.ngAjax({
-			url:"/cif/indvs/?cif_id="+id+"&mtTenantId=1",
+			url:indvUrl,
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
@@ -124,54 +159,114 @@ angular.module('viewApp',['ngRoute'])
 				$scope.display=-1;
 			  }
 			};
-		/*$scope.aa = true;
-
-		$scope.colToggle=function (index){
-
-			$scope.aa=!$scope.aa;
 		
 
-		}*/
+		if (isHistory == 'Y') {
+		
+		
+		//获取风险冲突提示
+					ngCom.ngAjax({
+							url:"/cif/conflict/cs_cif_summary?current_cs_cif_id="+csCifId+"&next_cs_cif_id="+nextCsCifId+"&mtTenantId=1",
+							method:'get',
+							ngHttp:$http,
+							success:function(response){
+				
+							/*姓名 身份证*/
+									$scope.idNoStatus = response.idNo;
+									$scope.nmStatus= response.nm;
+									$scope.ageStatus= response.age;
 
-		/*名词解释2*/
-		//$scope._index=0;
+							/*获取客户地址信息*/
+									$scope.mtStateCdDscpStatus = response.mtStateCdDscp;
+									$scope.mtCountyCdDscpStatus= response.mtCountyCdDscp;
+				
+							/*客户信息*/
+									$scope.mtMaritalStsCdDscpStatus = response.mtMaritalStsCdDscp;
+									$scope.monthlyIncAmtStatus = response.monthlyIncAmt;
+									$scope.mtGenderCdDscpStatus = response.mtGenderCdDscp;
+									$scope.mtEduLvlCdDscpStatus = response.mtEduLvlCdDscp;
+									$scope.householdFixAssetAmtStatus = response.householdFixAssetAmt;
+									
+									/*客户职业信息资源*/
+									$scope.mtPosHeldCdStatus = response.mtPosHeldCdDscp;
+									$scope.employerCifNmStatus = response.employerCifNm;
+				
+									},
+									error:function (error_data){
+										console.log(error_data);
+									}
+									
+								});
+	}else{
+		//保存快照
 
-		$scope.isActivemc=function(index){
-			return $scope._index==index;
-			console.log($scope._index);
-		}
-		$scope.showPhotomc=function(index){
-			return $scope._index=index;
-			console.log($scope._index);
-		}	
-		$scope.showPhotomcout=function(index){
-			return $scope._index=null;
-			console.log($scope._index);
-		}	
-		/*业务信息acc*/
-		//$scope._index2=0;
+		
+		ngCom.ngAjax({
+			url:"/cif/cs_cifs/csCifs/",
+			data:{cifId:id,mtTenantId:"1",appId:"1"},
+			method:'POST',
+			ngHttp:$http,
+			success:function(response){
+			
+			ngCom.ngAjax({
+					url:"/col/cs_colls/csColls",
+					data:{cifId:response.cifId,mtTenantId:"1",appId:response.appId},
+					method:'POST',
+					ngHttp:$http,
+					success:function(response){
+				
+					//获取风险冲突提示
+					ngCom.ngAjax({
+							url:"/cif/conflict/cif_summary?cifId="+id+"&mtTenantId=1",
+							method:'get',
+							ngHttp:$http,
+							success:function(response){
+				
+							/*姓名 身份证*/
+									$scope.idNoStatus = response.idNo;
+									$scope.nmStatus= response.nm;
+									$scope.ageStatus= response.age;
 
-		$scope.isActive2=function(index){
-			return $scope._index2==index
-		}
-		$scope.showPhoto2=function(index){
-			var fac_col = 'fac_col_'+index;
-			//alert(index)
-			//alert($('#'+fac_col));
-			return $scope._index2=index
-
-		}
-
-		$scope.isActive=function(index){
-			return $scope._index3==index
-		}
-		$scope.showPhoto=function(index){
-			var fac2_col = 'fac2_col_'+index;
-			//alert(index)
-			//alert($('#'+fac2_col));
-			return $scope._index3=index
-
-		}
+							/*获取客户地址信息*/
+									$scope.mtStateCdDscpStatus = response.mtStateCdDscp;
+									$scope.mtCountyCdDscpStatus= response.mtCountyCdDscp;
+				
+							/*客户信息*/
+									$scope.mtMaritalStsCdDscpStatus = response.mtMaritalStsCdDscp;
+									$scope.monthlyIncAmtStatus = response.monthlyIncAmt;
+									$scope.mtGenderCdDscpStatus = response.mtGenderCdDscp;
+									$scope.mtEduLvlCdDscpStatus = response.mtEduLvlCdDscp;
+									$scope.householdFixAssetAmtStatus = response.householdFixAssetAmt;
+									
+									/*客户职业信息资源*/
+									$scope.mtPosHeldCdStatus = response.mtPosHeldCdDscp;
+									$scope.employerCifNmStatus = response.employerCifNm;
+				
+									},
+									error:function (error_data){
+										console.log(error_data);
+									}
+									
+								});
+					
+				
+				
+					},
+					error:function (error_data){
+						console.log(error_data);
+					}
+			
+					});
+				
+				
+			},
+			error:function (error_data){
+				console.log(error_data);
+			}
+			
+		});
+				
+	}
 		
 
 
