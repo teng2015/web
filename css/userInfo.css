@@ -1,0 +1,6 @@
+/*page/userInfo.html userInfo.css*/
+.userInfo{ width:680px; min-height:480px; margin:0 20px; padding-top:50px;}
+.tab_info{ width:600px; height:auto; margin:0 auto; font-size:14px;}
+.tab_info p{ margin:15px 0px; color:#444; line-height:24px;}
+.span-org{ color:#fe6409;}
+.userInfo .title{ width:136px; height:144px; float:left; margin-right:15px; }

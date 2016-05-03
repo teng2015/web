@@ -1,0 +1,39 @@
+/*page/riskSearch.html riskSearch.css*/
+.history{ position:relative;}
+.mess_search{ width:720px; margin-top:30px; margin-left:40px; font-size:14px;}
+.mess_search ul li{ float:left; margin-right:3px; line-height:30px;}
+.mess_search ul li span{ display:block; float:left;}
+.search_btn { margin-top:-4px;}
+.mess_table{ width:720px; margin:0 auto; margin-top:10px;}
+.mess_search .nameText,.mess_search .idText{outline:none; width:110px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; float:left; text-indent:8px;}
+.searchBtn{ width:110px; height:32px; background:rgb(30,141,220); color:#fff; float:left; border-radius:5px; font-size:14px; outline:none; border:none; cursor:pointer; margin-left:5px;}
+.mess_table{ width:720px; margin:0 auto; margin-top:10px;display:none;}
+.mess_search .nameText,.mess_search .idText{outline:none; width:110px; height:30px; line-height:30px; border:1px solid #D1D1D1; color:#686868; float:left; text-indent:8px;}
+.searchBtn{ width:110px; height:32px; background:rgb(30,141,220); color:#fff; float:left; border-radius:5px; font-size:14px; outline:none; border:none; cursor:pointer; margin-left:5px;}
+.mess_table{ width:720px; height:auto; margin:0 auto; margin-top:20px;margin-left:35px;} 
+.srhHistory{ width:720px; margin-top:30px; margin-left:40px;}
+/*  信息列表 主表格  */
+.history_list{ border-top:1px solid #d4d4d4; border-left:1px solid #d4d4d4; width:100%;}
+.history_list th{ background:#d5e2eb;}
+.history_list th{ padding:4px; border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4;}
+.history_list td{ padding:4px; border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4;}
+
+.history_list td a{ float:right; color:#2081c4; font-size:14px; display:block; width:100%; text-align:center; }
+.history_list td a:visited{ color:#2081c4;}
+.history_list td a:hover{ color:#fe6409;}
+
+.history_tool td a{ color:#ffffff; font-size:14px; display:inline-block; width:50px; margin-left:15px; text-align:center; background:#1d8ddb; border:1px solid #eeeeee; margin:5px; padding:3px; }
+.history_tool td a:visited{ color:#ffffff;}
+.history_tool td a:hover{ color:#fe6409;background:#dceffb;}
+
+/*  子表格  */
+.history_list_son{ border-top:1px solid #d4d4d4; border-left:1px solid #d4d4d4; color:#666666; text-align:left; width:100%; }
+.history_list_son th{ background:#f5f5f5; font-weight:normal;}
+.history_list_son th{ padding:4px; border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4;}
+.history_list_son td{ padding:4px; border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4;}
+
+/*  调用历史 */
+.seeView{ position:absolute; width:700px; left:50%; top:0px; margin-left:-360px; padding:30px 20px 34px; border-radius:5px; background:#fff; box-shadow:0 0 10px rgba(0, 0, 0, .4); height:300px; }
+.goBack{ font-size: 22px; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; font-weight: bold; cursor: pointer;}
+.allBtn{ height:36px;}
+.allBtn div{ color:#fff; font-size:14px; margin-left:15px; text-align:center; background:#1d8ddb; border:1px solid #eee; margin:5px; padding:3px; width:50px;}

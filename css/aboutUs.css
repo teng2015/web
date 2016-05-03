@@ -1,0 +1,5 @@
+/*page/aboutUs.html aboutUs.css*/
+.company_introduction {margin:0 auto;width:700px; margin-left:45px;}
+.company_introduction .about_us{ height:auto; padding:0px 20px; line-height:28px;}
+.company_introduction .about_us p{ text-indent:20px; font-size:14px; color:#333; padding-top:10px;}
+.company_introduction .about_us p.txt{text-indent:0px;padding-left:20px;}

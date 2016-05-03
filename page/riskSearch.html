@@ -1,0 +1,37 @@
+<div>		
+   <div class="mess_search">
+        <ul class="clearfix">
+           <li> <span>姓名：</span>
+               <input type="text" class="nameText" name="startTime" ng-model="nm"/>
+           </li>
+           <li> <span>证件号：</span>
+               <input type="text" class="idText" name="endTime" ng-model="idNo"/>
+           </li>
+           <li>
+               <input type="button" value="调 用" class="searchBtn" ng-click="riskSearch();" >
+           </li>
+        </ul>
+    </div>
+
+    <div id="cifDiv" class="mess_table">
+      <table id="cifTable" class="history_list">
+        <tbody>
+          <tr>
+            <th class="font_width_id">序号</th>
+            <th class="font_width_name">姓名</th>
+            <th>证件类型</th>
+            <th>证件号</th>
+            <th>操作</th>
+          </tr>
+          <tr ng-repeat="x in riskdata">
+            <td>{{x.mtCifIdTypCd}}</td>
+            <td>{{x.nm}}</td>
+            <td>{{x.mtCifIdTypCdDscp}}</td>
+            <td>{{x.idNo}}</td>
+            <td><a href="../riskView/view.html?id={{x.id}}" target="_blank">查看视图</a></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>

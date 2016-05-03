@@ -1,0 +1,378 @@
+ <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>炼金台 - 信用风险视图</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/view.css">
+<script src="../js/libs/jquery.js"></script>
+<script src="../js/libs/angular.js"></script>
+<script src="../js/libs/angular-route.js"></script>
+<script src="../js/ng/ngAjax.js"></script>
+<script src="../js/ng/ngview.js"></script>
+</head>
+
+<body>
+<div class="view" ng-app="viewApp" ng-controller="viewController"> 
+    <ul class="top clearfix">
+    	<li><span class="score">评分:983</span><span class="slash">/</span><span class="lossRate">&nbsp; &nbsp;当前信息缺失率 <span class="lossRateNum">32% </span>(补充信息后将会更准确)</span></li>
+        <li class="viewTitle">风险视图</li>
+    	<li class="tel">
+        	<p>服务热线：400-890-7756</p>
+            <p>2016年4月14日 09时00分00秒</p>
+   		</li>
+        <li class="viewImg"><img src="../images/logo.gif" width="120" height="40"></li>
+    </ul>
+    
+    <div class="progressBar">
+        
+        <span class="bar"></span>
+    </div>
+
+    <table class="userInfo">
+    	<tbody>
+            <tr>
+              <td><strong><span id="summaryNm">{{nm}}<img style="vertical-align:middle" src="../images/{{nmStatus}}.png" /></span>身份证</strong><span id="summaryIdNo">{{idNo}}<img style="vertical-align:middle" src="../images/{{idNoStatus}}.png"/></span></td>
+              <td><strong>客户评分：</strong><span class="tab_txt_size">AAA</span></td>
+              <td><strong>居住地址</strong>：<span id="mtCityCd">{{mtStateCdDscp}}{{mtCountyCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></span></td>
+              <td><strong>月收入：</strong>¥<span id="summaryMonthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle"  src="../images/{{monthlyIncAmtStatus}}.png"/></span></td>
+              <td><strong>固定资产：</strong>¥<span id="summaryHouseholdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></span></td>
+            </tr>
+            <tr>
+              <td><strong>信贷总额度</strong>：¥<span id="summarylmtApprAllAmt"></span></td>
+              <td><strong>账户总余额：</strong>¥<span id="summaryOutstdAmtAll"></span></td>
+              <td><strong>担保连接总金额</strong>：¥<span id="summaryChargeValue"></span></td>
+              <td><strong>担保品总价值：</strong>¥<span id="summaryCollValue"></span></td>
+              <td><strong>担保品可用总价值：</strong>¥<span id="summaryRemainValue"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="riskPic">
+    	<img src="../images/riskPic.png">
+    </div>
+    <div class="cusInfo">
+        <h1 class="clearfix"> 
+             <p class="title">客户信息</p>
+             <a href="infoAccount.html" class="more">更多</a>
+        </h1>
+
+        <table class="cusMes">
+        	<tbody>
+                <tr>
+                    <td class="grey">姓名</td>
+                    <td id="nm">{{nm}}<img style="vertical-align:middle" src="../images/{{nmStatus}}.png" /></td>
+                    <td class="grey">年龄</td>
+                    <td id="age">{{age}}<img style="vertical-align:middle" src="../images/{{ageStatus}}.png" /></td>
+                    <td class="grey">婚姻状况</td>
+                    <td id="mtMaritalStsCd">{{mtMaritalStsCdDscp}}<img style="vertical-align:middle" src="../images/{{mtMaritalStsCdDscpStatus}}.png"/></td>
+                    <td class="grey">月收入</td>
+                    <td id="monthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle" src="../images/{{monthlyIncAmtStatus}}.png"/></td>
+                    <td class="grey">家庭月收入</td>
+                    <td id="householdMonthlyIncAmt">10K</td>
+                    <td class="grey">固定资产</td>
+                    <td id="householdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></td>
+                </tr>
+                <tr>
+                    <td class="grey">性别</td>
+                    <td id="mtGenderCd">{{mtGenderCdDscp}}<img style="vertical-align:middle" src="../images/{{mtGenderCdDscpStatus}}.png"/></td>
+                    <td class="grey">教育程度</td>
+                    <td id="mtEduLvlCd">{{mtEduLvlCdDscp}}<img style="vertical-align:middle" src="../images/{{mtEduLvlCdDscpStatus}}.png"/></td>
+                    <td class="grey">户籍</td>
+                    <td id="mtResidenceStsCd">{{mtStateCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></td>
+                    <td class="grey">职位</td>
+                    <td id="mtPosHeldCd">{{mtPosHeldCd}}<img style="vertical-align:middle" src="../images/{{mtPosHeldCdStatus}}.png"/></td>
+                    <td class="grey">工作单位</td>
+                    <td id="employerCifNm">{{employerCifNm}}<img style="vertical-align:middle" src="../images/{{employerCifNmStatus}}.png"/></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    
+    
+    <div class="busInfo">
+        <h1 class="clearfix"> 
+         <p class="title">业务信息</p>
+         <a href="infoBusiness.html" class="more">更多</a>
+        </h1>
+       
+    	<div class="business_title">
+            <span>授信编号</span>
+            <span>业务</span>
+            <span>授信到期日</span>
+            <span>利率</span>
+            <span>罚息利率</span>
+            <span>信贷额度</span>
+            <span>担保连接金额</span>
+            <span>账户余额</span>
+            <span>状态</span>
+        </div>
+        <div  class="line_a">
+
+            <div class="business_line">
+           
+            	<!-- <span>{{item.mtFacTermTypeCd}}</span>
+                <span>{{item.mtFacCdDscp}}</span>
+                <span>{{item.tenureMtTimeCdDscp}}</span>
+                <span>{{item.mtFacCdDscp}}</span>
+                <span>1%</span>
+                <span>¥100,000.00</span>
+                <span>
+                	<div class="col">
+                    	¥100,000.00
+                    </div>
+                </span>
+                <span>
+                	<div class="acc">
+                    	¥100,000.00
+                    </div>
+                </span>
+                <span>{{item.mtFacStsCdDscp}}</span> -->
+                <span>1</span>
+                <span>233</span>
+                <span>werer</span>
+                <span>4444</span>
+                <span>1%</span>
+                <span>¥100,000.00</span>
+                <span>
+                    <div class="col">
+                        ¥100,000.00
+                    </div>
+                </span>
+                <span>
+                    <div class="acc">
+                        ¥100,000.00
+                    </div>
+                </span>
+                <span>5555</span>
+            </div>
+            
+      
+          <div class="this_div">
+              <table  class="info_list_son mb_10 mt_10" >
+                <tr>
+                  <th>担保编号</th>
+                  <th>担保种类</th>
+                  <th>担保品价值</th>
+                  <th>担保品剩余价值</th>
+                  <th>担保链接金额</th>
+                  <th>所有者</th>
+                </tr>
+                <tr>
+                  <td>PR/2018/001785 </td>
+                  <td>商业用房</td>
+                  <td>¥10,000,000.00</td>
+                  <td>¥140,000.00</td>
+                  <td>200,000.00</td>
+                  <td>李双</td>
+                </tr>
+              </table>
+            </div>
+            <div class="this_div">
+              <table class="info_list_son mb_10" >
+                <tr class="font_w">
+                  <th>账号</th>
+                  <th>还款周期</th>
+                  <th>还款方式</th>
+                  <th>到期日</th>
+                  <th>利率</th>
+                  <th>罚息利率</th>
+                  <th>账户余额（含拖欠）</th>
+                  <th>拖欠本金</th>
+                  <th>拖欠利息</th>
+                  <th>用途</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>一个月（按月）</td>
+                  <td>到期一次性归还（按期还息，到期还本）</td>
+                  <td>2015/10/01-2016/10/01</td>
+                  <td>8%</td>
+                  <td>12%</td>
+                  <td>0</td>
+                  <td>¥100,000.00</td>
+                  <td>¥12,000.00</td>
+                  <td>其他</td>
+                </tr>
+              </table>
+            </div>
+
+            
+            
+        </div>
+    <div class="colInfo">
+    	<h1 class="clearfix"> 
+        	<p class="title">担保信息</p>
+        	<a href="infoGuarantee.html" class="more">更多</a>
+        </h1>
+        <table>
+        	<tbody>
+            	<tr>
+                    <th>担保编号</th>
+                    <th>担保类型</th>
+                    <th>担保品种类</th>
+                    <th>唯一编号</th>
+                    <th>担保品价值</th>
+                    <th>担保品可用价值</th>
+                    <th>所有者</th>
+                </tr>
+                <tr>
+                    <td>PR/2019/000189</td>
+                    <td>房产</td>
+                    <td>住宅用房</td>
+                    <td>0000000000000</td>
+                    <td>70%</td>
+                    <td>¥33,333,333.00</td>
+                    <td>¥3,010,000.00</td>
+                   
+                </tr>
+            </tbody>
+        </table>    
+    </div>
+    
+    
+   <div class="explainRight">
+       <ul class="explainUl">
+
+           <li class="clearFix"><span class="explainFirst"  ng-click="explainFirst()">名词字典</span>
+                <div class="explainCon">
+                    <ul class="explainList clearFix">
+                        <li ng-mouseover="explainListLi()" ng-mouseout="explainListLiOut()">
+                            <span class="explainSec">信贷额度</span>
+                            <div class="explainListCon">
+                                <div  class="rightdirection"></div>  
+
+                                <div class="explainDescribe">
+                                    <h3 class="explainTitle">信贷额度</h3>
+                                    <h4 class="line"></h4>
+                                    <div class="explainDesc">
+                                        
+                                        <p class="explainDescP">科技开发及是打开就发了多少福克斯的减肥阿里山的风景地方历史的减肥是的发生对法拉上来的附近地方类似的开发技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="explainDescribe">
+                                    <h3 class="explainTitle">信贷额度</h3>
+                                    <h4 class="line"></h4>
+                                    <div class="explainDesc">
+                                        
+                                        <p class="explainDescP">科技开发及是打开就发了多少福克斯的减肥阿里山的风景地方历史的减肥是的发生对法拉上来的附近地方类似的开发技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </li>
+
+                        <li><span class="explainSec">信贷额度</span>
+                            <div class="explainListCon">
+                                <div  class="rightdirection"></div>  
+                                <div class="explainDescribe">
+                                    <h3 class="explainTitle">信贷额度</h3>
+                                    <h4 class="line"></h4>
+                                    <div class="explainDesc">
+                                        
+                                        <p class="explainDescP">科技开发及是打开就发了多少福克斯的减肥阿里山的风景地方历史的减肥是的发生对法拉上来的附近地方类似的开发技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li><span class="explainSec">信贷额度</span>
+                            <div class="explainListCon">
+                                <div  class="rightdirection"></div>  
+                                <div class="explainDescribe">
+                                    <h3 class="explainTitle">信贷额度</h3>
+                                    <h4 class="line"></h4>
+                                    <div class="explainDesc">
+                                        
+                                        <p class="explainDescP">科技开发及是打开就发了多少福克斯的减肥阿里山的风景地方历史的减肥是的发生对法拉上来的附近地方类似的开发技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li><span class="explainSec">信贷额度</span>
+                            <div class="explainListCon">
+                                <div  class="rightdirection"></div>  
+                                <div class="explainDescribe">
+                                    <h3 class="explainTitle">信贷额度</h3>
+                                    <h4 class="line"></h4>
+                                    <div class="explainDesc">
+                                        
+                                        <p class="explainDescP">科技开发及是打开就发了多少福克斯的减肥阿里山的风景地方历史的减肥是的发生对法拉上来的附近地方类似的开发技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li><span class="explainSec">信贷额度</span>
+                            <div class="explainListCon">
+                                <div  class="rightdirection"></div>  
+                                <div class="explainDescribe">
+                                    <h3 class="explainTitle">信贷额度</h3>
+                                    <h4 class="line"></h4>
+                                    <div class="explainDesc">
+                                        
+                                        <p class="explainDescP">科技开发及是打开就发了多少福克斯的减肥阿里山的风景地方历史的减是的发生对法拉上来的附近地方类似的开发技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的技开发及是打开就发了多少福克斯的减肥阿里山的
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        
+                    </ul>
+
+                </div>
+           </li>
+
+           <li class="clearFix"><span  class="explainFirst">查看导出</span>
+                <div class="explainCon">
+                    <ul class="explainSeeList clearFix">
+                        <li>
+                           <input type="checkbox" class="explainListBtn"> 
+                           <span class="time">2016.3.12 12:25</span>
+                           <span class="show">查看</span>
+                        </li>
+                        <li>
+                           <input type="checkbox" class="explainListBtn"> 
+                           <span class="time">2016.3.12 12:25</span>
+                           <span class="show">查看</span>
+                        </li>
+                        <li>
+                           <input type="checkbox" class="explainListBtn"> 
+                           <span class="time">2016.3.12 12:25</span>
+                           <span class="show">查看</span>
+                        </li>
+                        <li>
+                           <input type="checkbox" class="explainListBtn"> 
+                           <span class="time">2016.3.12 12:25</span>
+                           <span class="show">查看</span>
+                        </li>
+                        <li>
+                           <input type="checkbox" class="explainListBtn allChoice">全选
+                           <span class="export">导出</span>
+                        </li>
+
+                        
+                    </ul>
+
+
+                </div>
+           </li>
+
+           
+       </ul>
+       <div  class="explainFirst scrollTop">顶部</div>
+   </div> 
+    
+</div>
+</body>
+</html>
