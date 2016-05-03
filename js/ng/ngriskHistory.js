@@ -31,7 +31,7 @@ angular.module('riskHistory',['ngRoute'])
 			$scope.viewList=true;
 			var cifId=$('.seeReBtn').attr('data-id');
 			ngCom.ngAjax({
-				url:'/cif/cs_cifs/getCsCifListByCifId?cifId='+cifId+'&mtTenantId=1',
+				url:'/cif/cs_cifs/list?cifId='+cifId+'&mtTenantId=1',
 				method:'get',
 				ngHttp:$http,
 				success:function(data,status){
