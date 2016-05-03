@@ -16,7 +16,7 @@ $(function (){
 		}
 		
 	});
-	$menuLiChild.click(function (){
+	/*$menuLiChild.click(function (){
 		
 		
 		if($(this).parents('.menu_ul').html()){
@@ -38,7 +38,7 @@ $(function (){
 			$('.title-2').html('首页');
 		}
 
-	});
+	});*/
 	
 	
 	
