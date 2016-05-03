@@ -6,7 +6,8 @@
 .explainUl li{width:50px;/*clear:both;*/}
 .explainFirst{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:blue;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
 .explainCon {width:340px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
-
+.explainFirstLiTwo{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:blue;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
+.explainConTwo {width:340px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
 /*信贷额度*/
 .explainCon .explainList{}
 .explainCon .explainList li{position:relative;top:0;left:0;width:140px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block;}
@@ -88,3 +89,4 @@
 .business_line span{width:130px;display:block; float:left; height:30px; line-height:30px;  text-align: center;}
 .business_title{border-bottom:1px solid #ccc;height:30px;}
 .business_title span{width:130px;display:block; float:left; height:30px; line-height:30px; font-weight: bold; text-align: center;}
+.layer{width:120%; height:120%; background:blue;}

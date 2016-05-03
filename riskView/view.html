@@ -12,7 +12,7 @@
 <script src="../js/ng/ngview.js"></script>
 </head>
 
-<body>
+<body class="body">
 <div class="view" ng-app="viewApp" ng-controller="viewController" > 
     <ul class="top clearfix">
     	<li><span class="score">评分:983</span><span class="slash">/</span><span class="lossRate">&nbsp; &nbsp;当前信息完整率 <span class="lossRateNum">32% </span>(补充信息后将会更准确)</span></li>
@@ -310,8 +310,8 @@
    <div class="explainRight">
        <ul class="explainUl">
 
-           <li class="clearFix"><span class="explainFirst"  ng-click="explainFirst()">名词字典</span>
-                <div class="explainCon">
+           <li class="clearFix"><span class="explainFirst" id="explainFirst" ng-click="explainFirst()">名词字典</span>
+                <div class="explainCon" id="explainCon">
                     <ul class="explainList clearFix">
                         <li ng-repeat="resli in resList" class="explainListLi" ng-mouseout="showPhotomcout($index)" ng-mouseover="showPhotomc($index)" ng-class="{'active':isActivemc($index)}">
                             <span class="explainSec">{{resli.niName}}</span>
@@ -397,8 +397,8 @@
                 </div>
            </li>
 
-           <li class="clearFix"><span  class="explainFirst">查看导出</span>
-                <div class="explainCon">
+           <li class="clearFix"><span  class="explainFirstLiTwo" id="explainFirstLiTwo">查看导出</span>
+                <div class="explainConTwo">
                     <ul class="explainSeeList clearFix">
                         <li>
                            <input type="checkbox" class="explainListBtn"> 
@@ -436,7 +436,8 @@
        </ul>
        <div  class="explainFirst scrollTop">顶部</div>
    </div> 
-    
+    <div class="layer"></div>
 </div>
+
 </body>
 </html>

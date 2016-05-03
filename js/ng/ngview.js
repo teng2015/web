@@ -190,12 +190,25 @@ angular.module('viewApp',['ngRoute'])
 
 		/*名词字典*/
 		var $explainLi =  $('.explainUl').find('.explainFirst');
+		var $explainCon=document.getElementById('explainCon');
 
-		$explainLi.click(function (){
+		var $explainConTwo=document.getElementById('explainConTwo');
 
-			$('.explainCon').hide();
-			$(this).next('.explainCon').show();
-			
+		var $explainFirstLiTwo=document.getElementById('explainFirstLiTwo');
+		
+
+		$scope.explainFirst=function (){
+
+			if($explainCon.style.display=='block'){
+				
+				$explainCon.style.display='none';
+
+			}else{
+				$explainCon.style.display='block';
+
+				
+			}
+
 			ngCom.ngAjax({
 				url:"/maint/mtni/",
 				method:'get',
@@ -210,29 +223,9 @@ angular.module('viewApp',['ngRoute'])
 				}
 			
 			});
-			
-		});
-
-
+		}
 		
-
-		/*名词解释2级*/
-		/*var $explainSec = $('.explainList').find('.explainListLi');
-
-		console.log($explainSec);
-
-		$explainSec.on('click',function (){
-			console.log(1);
-			$('.explainListCon').hide();
-			$(this).find('.explainListCon').show();
-			console.log(2);
-		});
-
-		$explainSec.mouseout(function (){
-
-			$('.explainListCon').hide();
-			
-		});*/
+	
 
 
 		/*回到顶部*/
@@ -264,26 +257,3 @@ angular.module('viewApp',['ngRoute'])
 		
 	}]);
 
-/*$(function (){
-
-	var $explainLi =  $('.explainUl').find('.explainFirst');
-
-	$explainLi.click(function (){
-		$('.explainCon').hide();
-		$(this).next('.explainCon').show();
-		
-	});
-	var $explainSec = $('.explainList').find('li');
-
-	$explainSec.mouseover(function (){
-
-		$('.explainListCon').hide();
-		$(this).find('.explainListCon').show();
-	});
-
-	$explainSec.mouseout(function (){
-
-		$('.explainListCon').hide();
-		
-	});
-});*/

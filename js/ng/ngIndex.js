@@ -12,7 +12,8 @@ angular.module('app',[
 	'userInfo',
 	'changePass',
 	'aboutUs',
-	'address'
+	'address',
+	'securitySet'
 ])
 	.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
 		$httpProvider.defaults.headers.common['Authorization'] = localStorage.token; //注入 httpProvider 设置请求头token
