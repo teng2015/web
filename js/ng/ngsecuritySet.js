@@ -8,8 +8,7 @@ angular.module('securitySet',['ngRoute'])
 	.controller('securitySetPage',function($scope,$http){
 		var eKey = localStorage.ekey;
 		var eValue= localStorage.evalue;
-		console.log(eKey);
-		console.log(eValue);
+		
 		if(eKey && eValue){
 			
 			ngCom.ngAjax({
@@ -17,6 +16,12 @@ angular.module('securitySet',['ngRoute'])
 				method:'get',
 				ngHttp:$http,
 				success:function(response){
+					if(response.result=='success'){
+						$('.layer').show();
+						setTimeout(function (){
+							$('.layer').hide();
+						},3000);
+					}
 					console.log(response);
 				},
 				error:function (data){
