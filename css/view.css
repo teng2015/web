@@ -4,25 +4,23 @@
 /*名词字典*/
 .explainRight{position:absolute;bottom:0;right:-100px; }
 .explainUl li{width:50px;/*clear:both;*/}
-.explainFirst{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:#1e8ddc;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
-.explainCon {width:340px; background:#89a9c0;display:none;margin-bottom:2px;  float:right;}
-.explainFirstLiTwo{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:#1e8ddc;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
+.explainFirst{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:blue;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
+.explainCon {width:340px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
+.explainFirstLiTwo{width: 30px;color:white;text-align:center;margin:0 auto;display: block;background:blue;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
 .explainConTwo {width:340px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
 /*信贷额度*/
 .explainCon .explainList{}
 .explainCon .explainList li{position:relative;top:0;left:0;width:140px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block;}
 
-.explainListCon{width:300px;position:absolute; right:180px;top:-20px; background:white;z-index:3;padding:15px 15px; box-shadow: 0 0 20px #c9c9c9; }
+.explainListCon{width:300px;position:absolute; right:180px;top:-20px; background:#009fcc;z-index:3;padding:15px 15px;}
 
 /*右三角*/
 
-.rightdirection {width:0;height:0;line-height:0;border-width: 10px;border-style:solid;border-color: transparent transparent transparent white;  position: absolute;right: -20px;top: 25px;}  
-
-.explainTitle{ text-align: left; color:black;}
-
+.rightdirection {width:0;height:0;line-height:0;border-width: 10px;border-style:solid;border-color: transparent transparent transparent #009fcc;position: absolute;right: -20px;top: 20px;}  
+.explainTitle{ text-align: left;}
 .line{width:100%; height:2px; background-color: orange;margin-top:4px;}
 .explainDesc{width:100%; text-indent: 20px;padding:10px 0px;text-align:left;}
-.explainDescP{ line-height:20px; color:black;}
+.explainDescP{ line-height:20px;}
 
 /*查看导出*/
 .explainSeeList{}
