@@ -17,13 +17,13 @@ angular.module('securitySet',['ngRoute'])
 				ngHttp:$http,
 				success:function(response){
 					if(response.result=='success'){
-						$('.security').show();
+
 						$('.layer').show();
 						setTimeout(function (){
 							$('.layer').hide();
 						},3000);
 					}
-					console.log(response);
+					
 				},
 				error:function (data){
 					console.log(data);
