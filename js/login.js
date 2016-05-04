@@ -177,15 +177,48 @@ function login(){
               init();
           },
           500: function (xhr, statusText, err) {
-              alert("系统错误500，请稍后重试!");
+        	  exceptionHandler(xhr.responseText);
               init();
           }
       },
       error: function (xhr, statusText, err) {
-              alert("系统错误，请稍后重试!");
-              init();
+    	  var result = parseErrorJson(xhr.responseText);
+    	  if(result && result.code && result.message)
+    		  return;
+    	  alert("系统错误，请稍后重试!");
+          init();
       }
   });
+}
+
+/**
+ * 解析异常json数据
+ * @param value
+ * @returns 返回解析后的http status and message
+ */
+parseErrorJson = function(value){
+	var result = {};
+    $.each(eval( "(" + value + ")" ), function (i, n) {
+  	  if(i == "code")
+  		  result.code = n;
+  	  if(i == "message")
+  		  result.message = n;
+    });
+    return result;
+}
+
+/**
+ * 处理异常
+ * @param value				待解析消息体
+ * @param defaultMessage	默认消息
+ */
+exceptionHandler = function(value,defaultMessage){
+	var result = parseErrorJson(value);
+    if(result.code && result.message){
+    	alert(result.message);
+    } else {
+    	alert(defaultMessage);
+    }
 }
 
 });
