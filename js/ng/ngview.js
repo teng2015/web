@@ -14,6 +14,7 @@ angular.module('viewApp',['ngRoute'])
 		var isHistory = getUrlParam('isHistory');
 		var nextCsCifId = getUrlParam('nextCsCifId');
 	    var cifUrl,indvUrl,emplymtUrl,addrUrl;
+	    
 		if (isHistory == 'Y') {
 			cifUrl = "/cif/cs_cifs/"+csCifId+"&mtTenantId=1";
 			indvUrl = "/cif/cs_cif_addrs?cs_cif_id="+csCifId+"&mtTenantId=1";
