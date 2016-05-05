@@ -29,6 +29,7 @@ angular.module('securitySet',['ngRoute'])
 					if(response.result=='success'){
 
 						$('.layer').show();
+						$('.bind').html('重新绑定');
 						setTimeout(function (){
 							$('.layer').hide();
 						},3000);
