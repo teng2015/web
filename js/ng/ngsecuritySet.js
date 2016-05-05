@@ -9,6 +9,7 @@ angular.module('securitySet',['ngRoute'])
 		var eKey = localStorage.ekey;
 		var eValue= localStorage.evalue;
 		var eToken = localStorage.token;
+		console.log(eToken);
 		var bindJson = {
 			eKey:eKey,
 			eValue:eValue
@@ -51,6 +52,7 @@ angular.module('securitySet',['ngRoute'])
 
 		}
 		}else{
+			console.log(111);
 			window.location.href="/index.html";
 		}
 		
