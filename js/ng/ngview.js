@@ -269,7 +269,21 @@ angular.module('viewApp',['ngRoute'])
 				
 	}
 		
+	/*名词解释2*/
+		//$scope._index=0;
 
+		$scope.isActivemc=function(index){
+			return $scope._index==index;
+			console.log($scope._index);
+		}
+		$scope.showPhotomc=function(index){
+			return $scope._index=index;
+			console.log($scope._index);
+		}	
+		$scope.showPhotomcout=function(index){
+			return $scope._index=null;
+			console.log($scope._index);
+		}
 
 		/*点击担保链接金额弹出div*/
 		$('.col').toggle(function (){
