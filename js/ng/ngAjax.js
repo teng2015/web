@@ -33,8 +33,7 @@ var ngCom = {
 					delete localStorage.token;
 					window.location.href = "/index.html" ;
 				}
-				else
-				{
+				else{
 					options.errfn();
 				}
 			}	

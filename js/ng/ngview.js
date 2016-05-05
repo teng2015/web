@@ -328,6 +328,13 @@ angular.module('viewApp',['ngRoute'])
 			});
 		}
 		
+		//隔行变色
+		
+        /*$(".line_a span:odd").css("background-color",color);  //改变偶数行背景色
+        /* 把背景色保存到属性中 
+        $(".line_a:odd").attr("background","blue");
+        $(".line_a:even").attr("background","#fcfcfc");*/
+      
 	
 
 
