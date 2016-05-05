@@ -8,12 +8,20 @@ angular.module('securitySet',['ngRoute'])
 	.controller('securitySetPage',function($scope,$http){
 		var eKey = localStorage.ekey;
 		var eValue= localStorage.evalue;
-		
-		if(eKey && eValue){
+		var eToken = localStorage.token;
+		var bindJson = {
+			eKey:eKey,
+			eValue:eValue
+
+		};
+
+		if(eToken){
+			if(eKey && eValue){
 			
 			ngCom.ngAjax({
-				url:"/sec/email/site/"+eKey+"/"+eValue,
-				method:'get',
+				url:"/sec/email/site/",
+				data:bindJson,
+				method:'put',
 				ngHttp:$http,
 				success:function(response){
 					if(response.result=='success'){
@@ -42,6 +50,10 @@ angular.module('securitySet',['ngRoute'])
 			});*/
 
 		}
+		}else{
+			window.location.href="/index.html";
+		}
+		
 		function guid() {
 	    function S4() {
 	       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
@@ -146,8 +158,11 @@ angular.module('securitySet',['ngRoute'])
 				}
 				
 			},
-			error:function (error_data){
-				console.log(error_data);
+			error:function(data){
+				console.log(data);
+				console.log(data.message);
+				$('.errMsg').empty().html(data.message).show();
+				loadImageCode();
 			}
 		
 		});
@@ -159,6 +174,9 @@ angular.module('securitySet',['ngRoute'])
 		
 		$('.secShow').hide();
 		$('.bindEmail').show();
+		$('#emailName').val('');
+		$('#yzmimg').val('');
+		$('.showTxt').html('');
 		loadImageCode();
 		
 		

@@ -1,6 +1,7 @@
 .body{width:100%; height:100%;background-color: white;}
 .view { width:1352px; margin:0px auto; background:#fff; padding:0px 21px; border:1px solid #eeeeee; box-shadow: 3px 3px 4px #bbb;position:relative;top:0; left:0;}
 .clearFix{zoom:1}
+
 /*名词字典*/
 .explainRight{position:absolute;bottom:0;right:-100px; }
 .explainUl li{width:50px;/*clear:both;*/}
@@ -38,17 +39,17 @@
 /*导出*/
 .export{width:50px; height:20px;line-height:20px; background:orange;color:white;display:block; float:right;text-align: center;}
 
-.top{ width:1178px; height:110px; background:#ffffff; }
-.top li{float:left; height:110px;line-height:110px;  }
+.top{ width:100%; height:110px; background:#ffffff; }
 
-
+.img_logo{display:block;margin-top:15px; margin-left:10px;}
+.idNumber{margin-left:20px; display:block;}
 .score{color:orange;font-size:18px;font-weight:bold;float:left;display:block;margin-left:10px;}
 .slash{font-size:20px;float:left;margin-left:10px;}
 .lossRate{font-size:14px;float:left;display:block;margin-left:5px;}
 .lossRateNum{font-size:16px;}
-.viewTitle{width:300px; height:40px;font-size:25px;float:left;margin-left:300px;}
-.tel{float:right;margin-top:-15px;margin-left:250px;}
-.tel p{width:166px;height:20px;}
+.viewTitle{width:300px; line-height:110px;height:110px;font-size:31px;float:left;margin-left:400px;}
+.tel{float:right;margin-top:50px; margin-right:10px;}
+.tel p{width:166px;height:20px; text-align: right;}
 .viewImg{float:right;height:40px; width:50px;}
 .progressBar{width:100%;height:2px; background-color:#1c86d1;}
 
@@ -72,7 +73,7 @@
 
 .cusInfo .title,.busInfo .title,.colInfo .title { width: 130px; background:#1c86d1; float: left; font-size: 24px; margin-left: 20px;margin-bottom:10px; text-align: center; line-height:38px; color:#fff; border-radius: 0 0 5px 5px; height:38px;}
 
-.cusInfo .more,.busInfo .more,.colInfo .more{ float: right; font-size: 14px; width: 50px; text-align:center; padding:3px; line-height:22px; margin-top:5px; color:#2081c4;}
+.cusInfo .more,.busInfo .more,.colInfo .more{ float: right; font-size: 16px; width: 50px; text-align:center; padding:3px; line-height:22px; margin-top:5px; color:#2081c4;}
 .cusInfo .more:hover,.busInfo .more:hover,.colInfo .more:hover{  color:#fc9846;}
 .cusMes{ width:100%;}
 
@@ -95,7 +96,7 @@
 .rates{height:38px; line-height:38px; font-size:14px; margin-left:8px;}
 .school{width:75px;}
 .school_val{width:173px;}
-.busInfo table,.colInfo table{ width:100%;}
+.busInfo table,.colInfo table{ width:99.43%;}
 /*.busInfo td{ height:50px; line-height:50px; text-align: center;  border: 1px solid #d4d4d4;}
 .busInfo td{ background:#f6fcff;}*/
 /*.busInfo td:hover{ background:#fff4dd;}*/
@@ -104,7 +105,7 @@
 .colInfo td{ height:50px; line-height:50px; text-align: center;  border: 1px solid #d4d4d4;}
 
 
-.colInfo_title{ font-size:16px; color:#7184e4; background:#f6f6f6;}
+.colInfo_title{ font-size:16px; background:#fcfcfc; font-weight: bold;}
 .colInfo_title_val{font-size:14px; background:white; }
 
 .guarantee_number{width:200px;}
@@ -115,24 +116,27 @@
 .collateral_value{width:200px;}
 .residual_value{width:170px;}
 .owner{width:172px;}
-.busInfo{overflow:hidden;font-size:16px;  background:#f6f6f6;}
-.business_title span,.line_a span{ height:50px; line-height:50px; text-align: center;  border: 1px solid #d4d4d4; display:block; float:left;}
-.business_title span{color:#7184e4;}
-.line_a span{font-size:14px;}
-.credit_number{width:140px;}
+.busInfo{overflow:hidden;font-size:16px; margin-bottom:30px; }
+/*.business_title{background:#f6f6f6;}*/
+.business_title span,.line_a span{ margin-top: -1px;margin-bottom:0px;margin-right: 0px;margin-left:-1px;height:50px; line-height:50px; text-align: center;  border: 1px solid #d4d4d4; display:block; float:left;}
+.business_title span{background:#fcfcfc; font-weight: bold;}
+.line_a span{font-size:14px; margin-top: -1px;margin-bottom: 0px;margin-right: 0px;margin-left:-1px;}
+.credit_number{width:140px; border-left:2px solid #d4d4d4;}
 .business{width:160px;}
 .credit_line{width:140px;}
 .credit_maturity_date{width:160px;}
 .business_rate{width:114px;}
 .interest_rate{width:130px;}
-.guaranteed_amount{width:168px; color:#0326cc;}
-.account_balance{width:168px; color:#0326cc;}
+.guaranteed_amount{width:168px; }
+.account_balance{width:168px; }
+.guaranteed_amount_val{color:#0326cc;}
+.account_balance_val{ color:#0326cc;}
 .status{width:154px;}
 /*/*  信息列表 子表格  */
-.info_list_son{ border:1px solid #d4d4d4; width:93%; border-collapse:separate; }
+.info_list_son{width:100%; border:1px solid #d4d4d4; width:93%; border-collapse:separate; }
 .info_list_son th{ background:#f6f6f6; font-weight:normal;}
 .info_list_son th{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4;}
-.info_list_son td{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4;}
+.info_list_son td{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4; text-align: center;}
 .font_w td { background:#eee; font-weight:bold;}
 /*  信息列表 包含子表格外层TD  */
 .this_cor_fe { background:#fefefe;}

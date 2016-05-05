@@ -15,13 +15,16 @@
 <body class="body">
 <div class="view" ng-app="viewApp" ng-controller="viewController"> 
     <ul class="top clearfix">
-    	<li><span class="fl">视图编号:0000000</span></li>
+    	<li class="fl">
+        <span class="img_logo"><img src="../images/logo.gif" ></span>
+        <span class="idNumber">视图编号:0000000</span>
+      </li>
         <li class="viewTitle">风险视图</li>
     	<li class="tel fr">
         	<p>服务热线：400-890-7756</p>
             <p>2016年4月14日 09时00分00秒</p>
    		</li>
-        <li class="viewImg"><img src="../images/logo.gif" width="120" height="40"></li>
+        
     </ul>
     
     <div class="progressBar">
@@ -39,7 +42,7 @@
               <td class="credit_rating">信用评级：<span class="tab_txt_size">90分（AAA）</span></td>
               <td class="id_card">身份证：<span id="summaryIdNo">{{idNo}}<img style="vertical-align:middle" src="../images/{{idNoStatus}}.png"/></span></td>
               
-              <td class="addr">居住地址：<span id="mtCityCd">{{mtStateCdDscp}}{{mtCountyCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></span></td>
+              <td class="addr">居住地址：<span id="mtCityCd">{{mtStateCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></span></td>
               <td class="month_money">月收入：¥<span id="summaryMonthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle"  src="../images/{{monthlyIncAmtStatus}}.png"/></span></td>
               <td class="fixed_assets">固定资产：¥<span id="summaryHouseholdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></span></td>
             </tr>
@@ -149,31 +152,31 @@
         </p>
          <a href="infoBusiness.html?id={{id}}" class="more">详情</a>
       </div>
-    
+      
       <div class="business_title">
       
-            <span class="credit_number">授信编号</span>
+            <span class="credit_number" style="border-left:2px solid #d4d4d4">授信编号</span>
             <span class="business">业务</span>
             <span class="credit_line">信贷额度</span>
             <span class="credit_maturity_date">授信到期日</span>
             <span class="business_rate">利率</span>
             <span class="interest_rate">罚息利率</span>
             
-            <span class="guaranteed_amount">担保连接金额</span>
+            <span class="guaranteed_amount ">担保连接金额</span>
             <span class="account_balance">账户余额</span>
             <span class="status">状态</span>
         </div>
         
           <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display">
             <div class="business_line" >
-               <span class="credit_number">{{item.no}}</span>
-                <span class="business">{{item.mtFacCdDscp}}</span>
-                <span class="credit_line">{{item.lmtAppr}}</span>
-                <span class="credit_maturity_date">{{item.dtMaturity}}</span>
-                <span class="business_rate">{{item.mtRateTypRate}}%</span>
-                <span class="interest_rate">{{item.intRateInSuspense}}%</span>
+               <span class="credit_number" style="border-left:2px solid #d4d4d4">{{item.no}}</span>
+                <span class="business" style="border-bottom:1px solid #d4d4d4">{{item.mtFacCdDscp}}</span>
+                <span class="credit_line" style="border-bottom:1px solid #d4d4d4">{{item.lmtAppr}}</span>
+                <span class="credit_maturity_date" style="border-bottom:1px solid #d4d4d4">{{item.dtMaturity}}</span>
+                <span class="business_rate" style="border-bottom:1px solid #d4d4d4">{{item.mtRateTypRate}}%</span>
+                <span class="interest_rate" style="border-bottom:1px solid #d4d4d4">{{item.intRateInSuspense}}%</span>
                 
-                <span class="guaranteed_amount">
+                <span class="guaranteed_amount guaranteed_amount_val" style="border-bottom:1px solid #d4d4d4">
                   <div ng-show="{{item.marker}}== true">
                     <div class="col"  ng-click="toggle(1*($index+1))" style="color:red;">
                         {{item.chargeValue}}
@@ -185,7 +188,7 @@
                     </div>
                   </div>
                 </span>
-                <span class="account_balance">
+                <span class="account_balance account_balance_val" style="border-bottom:1px solid #d4d4d4">
                   <div ng-show="{{item.acctMarker}}== true">
                     <div class="acc" ng-click="toggle(2*($index+2))"  style="color:red;">
                       {{item.balance}}
@@ -197,7 +200,7 @@
                     </div>
                   </div>
                 </span>
-                <span class="status">     
+                <span class="status" style="border-bottom:1px solid #d4d4d4">     
                       {{item.mtFacStsCdDscp}}
                 </span>
             </div>
@@ -220,6 +223,11 @@
                   <td>{{coll.chargeValue}}</td>
                   <td>{{coll.ownerCifNm}}</td>
                 </tr>
+
+                <!-- <tr ng-show="coll.facId==null || item.id==null">
+                  <td>无数据</td>
+                  
+                </tr> -->
               </table>
         
             </div>
@@ -252,7 +260,7 @@
               </table>
             </div>
         </div>
-        
+     
   </div> 
     
    <div class="explainRight">
