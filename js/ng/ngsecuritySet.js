@@ -16,7 +16,8 @@ angular.module('securitySet',['ngRoute'])
 
 		};
 
-		if(eToken){
+		if(eToken!=undefined){
+
 			if(eKey && eValue){
 			
 			ngCom.ngAjax({
