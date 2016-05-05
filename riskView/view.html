@@ -12,12 +12,12 @@
 <script src="../js/ng/ngview.js"></script>
 </head>
 
-<body>
+<body class="body">
 <div class="view" ng-app="viewApp" ng-controller="viewController"> 
     <ul class="top clearfix">
-    	<li><span class="score">评分:983</span><span class="slash">/</span><span class="lossRate">&nbsp; &nbsp;当前信息缺失率 <span class="lossRateNum">32% </span>(补充信息后将会更准确)</span></li>
+    	<li><span class="fl">视图编号:0000000</span></li>
         <li class="viewTitle">风险视图</li>
-    	<li class="tel">
+    	<li class="tel fr">
         	<p>服务热线：400-890-7756</p>
             <p>2016年4月14日 09时00分00秒</p>
    		</li>
@@ -25,25 +25,30 @@
     </ul>
     
     <div class="progressBar">
-        
-        <span class="bar"></span>
-    </div>
 
+    </div>
+    <div class="name">
+      <div class="fl">
+        <span class="name_txt">{{nm}}</span><span class="integrity_rate">完整率&nbsp;：&nbsp</span><span class="rate">90%</span>
+      </div>
+      <div class="money fr">币种：人民币</div>
+    </div>
     <table class="userInfo">
     	<tbody>
             <tr>
-              <td><strong><span id="summaryNm">{{nm}}<img style="vertical-align:middle" src="../images/{{nmStatus}}.png" /></span>身份证</strong><span id="summaryIdNo">{{idNo}}<img style="vertical-align:middle" src="../images/{{idNoStatus}}.png"/></span></td>
-              <td><strong>客户评分：</strong><span class="tab_txt_size">AAA</span></td>
-              <td><strong>居住地址</strong>：<span id="mtCityCd">{{mtStateCdDscp}}{{mtCountyCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></span></td>
-              <td><strong>月收入：</strong>¥<span id="summaryMonthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle"  src="../images/{{monthlyIncAmtStatus}}.png"/></span></td>
-              <td><strong>固定资产：</strong>¥<span id="summaryHouseholdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></span></td>
+              <td class="credit_rating">信用评级：<span class="tab_txt_size">90分（AAA）</span></td>
+              <td class="id_card">身份证：<span id="summaryIdNo">{{idNo}}<img style="vertical-align:middle" src="../images/{{idNoStatus}}.png"/></span></td>
+              
+              <td class="addr">居住地址：<span id="mtCityCd">{{mtStateCdDscp}}{{mtCountyCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></span></td>
+              <td class="month_money">月收入：¥<span id="summaryMonthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle"  src="../images/{{monthlyIncAmtStatus}}.png"/></span></td>
+              <td class="fixed_assets">固定资产：¥<span id="summaryHouseholdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></span></td>
             </tr>
             <tr>
-              <td><strong>信贷总额度</strong>：¥<span id="summarylmtApprAllAmt"></span></td>
-              <td><strong>账户总余额：</strong>¥<span id="summaryOutstdAmtAll"></span></td>
-              <td><strong>担保连接总金额</strong>：¥<span id="summaryChargeValue"></span></td>
-              <td><strong>担保品总价值：</strong>¥<span id="summaryCollValue"></span></td>
-              <td><strong>担保品可用总价值：</strong>¥<span id="summaryRemainValue"></span></td>
+              <td class="credit_rating">信贷总额度：¥<span id="summarylmtApprAllAmt"></span></td>
+              <td class="id_card">账户总余额：¥<span id="summaryOutstdAmtAll"></span></td>
+              <td class="addr">担保连接总金额：¥<span id="summaryChargeValue"></span></td>
+              <td class="month_money">担保品总价值：¥<span id="summaryCollValue"></span></td>
+              <td class="fixed_assets">担保品可用总价值：¥<span id="summaryRemainValue"></span></td>
             </tr>
         </tbody>
     </table>
@@ -52,96 +57,147 @@
     	<img src="../images/riskPic.png">
     </div>
     <div class="cusInfo">
-        <h1 class="clearfix"> 
-             <p class="title">客户信息</p>
-             <a href="infoAccount.html" class="more">更多</a>
-        </h1>
+        <div class="cusTitle clearfix"> 
+             <p class="title fl">客户信息</p>
+             <p class="rates fl">
+            <span class="integrity_rate">完整率&nbsp;：&nbsp</span><span class="rate">90%</span>
+          </p>
+             <a href="infoAccount.html" class="more Customer_information">详情</a>
+        </div>
 
         <table class="cusMes">
         	<tbody>
                 <tr>
-                    <td class="grey">姓名</td>
-                    <td id="nm">{{nm}}<img style="vertical-align:middle" src="../images/{{nmStatus}}.png" /></td>
-                    <td class="grey">年龄</td>
-                    <td id="age">{{age}}<img style="vertical-align:middle" src="../images/{{ageStatus}}.png" /></td>
-                    <td class="grey">婚姻状况</td>
-                    <td id="mtMaritalStsCd">{{mtMaritalStsCdDscp}}<img style="vertical-align:middle" src="../images/{{mtMaritalStsCdDscpStatus}}.png"/></td>
-                    <td class="grey">月收入</td>
-                    <td id="monthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle" src="../images/{{monthlyIncAmtStatus}}.png"/></td>
-                    <td class="grey">家庭月收入</td>
-                    <td id="householdMonthlyIncAmt">10K</td>
-                    <td class="grey">固定资产</td>
-                    <td id="householdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></td>
+                    <td class="grey sex">性别</td>
+                    <td id="mtGenderCd" class="grey_val sex_val">{{mtGenderCdDscp}}<img style="vertical-align:middle" src="../images/{{mtGenderCdDscpStatus}}.png"/></td>
+                    <td class="grey year">年龄</td>
+                    <td id="age" class="grey_val year_val">{{age}}<img style="vertical-align:middle" src="../images/{{ageStatus}}.png" /></td>
+                    <td class="grey idNo">身份证号</td>
+                    <td id="mtEduLvlCd" class="grey_val idNo_">{{idNo}}<img style="vertical-align:middle" src="../images/{{idNoStatus}}.png"/></td>
+                    <td class="grey marital_status">婚姻状况</td>
+                    <td id="mtMaritalStsCd" class="grey_val marital_status_val">{{mtMaritalStsCdDscp}}<img style="vertical-align:middle" src="../images/{{mtMaritalStsCdDscpStatus}}.png"/></td>
+                    <td class="grey school">教育程度</td>
+                    <td id="mtEduLvlCd" class="grey_val school_val">{{mtEduLvlCdDscp}}<img style="vertical-align:middle" src="../images/{{mtEduLvlCdDscpStatus}}.png"/></td>
+                    
+                    
                 </tr>
                 <tr>
-                    <td class="grey">性别</td>
-                    <td id="mtGenderCd">{{mtGenderCdDscp}}<img style="vertical-align:middle" src="../images/{{mtGenderCdDscpStatus}}.png"/></td>
-                    <td class="grey">教育程度</td>
-                    <td id="mtEduLvlCd">{{mtEduLvlCdDscp}}<img style="vertical-align:middle" src="../images/{{mtEduLvlCdDscpStatus}}.png"/></td>
-                    <td class="grey">户籍</td>
-                    <td id="mtResidenceStsCd">{{mtStateCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></td>
-                    <td class="grey">职位</td>
-                    <td id="mtPosHeldCd">{{mtPosHeldCd}}<img style="vertical-align:middle" src="../images/{{mtPosHeldCdStatus}}.png"/></td>
-                    <td class="grey">工作单位</td>
-                    <td id="employerCifNm">{{employerCifNm}}<img style="vertical-align:middle" src="../images/{{employerCifNmStatus}}.png"/></td>
+                    <td class="grey sex">月收入</td>
+                    <td id="monthlyIncAmt" class="grey_val sex_val">{{monthlyIncAmt}}<img style="vertical-align:middle" src="../images/{{monthlyIncAmtStatus}}.png"/></td>
+                    <td class="grey year">家庭月收入</td>
+                    <td id="householdMonthlyIncAmt" class="grey_val year_val">10K</td>
+
+                    <td class="grey idNo">固定资产</td>
+                    <td id="householdFixAssetAmt" class="grey_val idNo_val">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></td>
+                    
+                    <td class="grey marital_status">工作单位</td>
+                    <td id="employerCifNm" class="grey_val">{{employerCifNm}}<img style="vertical-align:middle" src="../images/{{employerCifNmStatus}}.png"/></td>
+                   <!--  <td class="grey">户籍</td>
+                    <td id="mtResidenceStsCd" class="grey_val">{{mtStateCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></td> -->
+                    <td class="grey school">职位</td>
+                    <td id="mtPosHeldCd" class="grey_val school_val">{{mtPosHeldCd}}<img style="vertical-align:middle" src="../images/{{mtPosHeldCdStatus}}.png"/></td>
+                    
                 </tr>
             </tbody>
         </table>
         
     </div>
     
+    <!-- 担保信息 -->
     
-    <div class="busInfo">
-        <h1 class="clearfix"> 
-         <p class="title">业务信息</p>
-         <a href="infoBusiness.html?id={{id}}" class="more">更多</a>
-        </h1>
-       
+    <div class="colInfo">
+    	<div class="cusTitle clearfix"> 
+        	<p class="title fl">担保信息</p>
+          <p class="rates fl">
+            <span class="integrity_rate">完整率&nbsp;：&nbsp</span><span class="rate">90%</span>
+          </p>
+        	<a href="infoGuarantee.html" class="more">详情</a>
+        </div>
+        <table>
+        	<tbody>
+            	<tr class="colInfo_title">
+                    <td class="guarantee_number">担保编号</td>
+                    <td class="guarantee_type">担保类型</td>
+                    <td class="guarantee_types">担保种类</td>
+                    <td class="id_num">唯一识别号码</td>
+                    <td class="guaranteed_discount">担保品折扣系数</td>
+                    <td class="collateral_value">担保品价值</td>
+                    <td class="residual_value">担保品剩余价值</td>
+                    <td class="owner">所有者</td>
+                </tr>
+                <tr class="colInfo_title_val">
+                    <td class="guarantee_number">PR/2019/000189</td>
+                    <td class="guarantee_type">房产</td>
+                    <td  class="guarantee_types">住宅用房</td>
+                    <td class="id_num">0000000000000</td>
+                    <td class="guaranteed_discount">70%</td>
+                    <td class="collateral_value">¥33,333,333.00</td>
+                    <td class="residual_value">¥33,333,333.00</td>
+                    <td class="owner">¥3,010,000.00</td>
+                   
+                </tr>
+            </tbody>
+        </table>    
+    </div>
+   
+<!-- 业务信息 -->
+  <div class="busInfo">
+      <div class="cusTitle clearfix"> 
+         <p class="title fl">业务信息</p>
+         <p class="rates fl">
+          <span class="integrity_rate">完整率&nbsp;：&nbsp</span><span class="rate">90%</span>
+        </p>
+         <a href="infoBusiness.html?id={{id}}" class="more">详情</a>
+      </div>
+    
       <div class="business_title">
-            <span>授信编号</span>
-            <span>业务</span>
-            <span>授信到期日</span>
-            <span>利率</span>
-            <span>罚息利率</span>
-            <span>信贷额度</span>
-            <span>担保连接金额</span>
-            <span>账户余额</span>
-            <span>状态</span>
+      
+            <span class="credit_number">授信编号</span>
+            <span class="business">业务</span>
+            <span class="credit_line">信贷额度</span>
+            <span class="credit_maturity_date">授信到期日</span>
+            <span class="business_rate">利率</span>
+            <span class="interest_rate">罚息利率</span>
+            
+            <span class="guaranteed_amount">担保连接金额</span>
+            <span class="account_balance">账户余额</span>
+            <span class="status">状态</span>
         </div>
         
           <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display">
             <div class="business_line" >
-               <span>{{item.no}}</span>
-                <span>{{item.mtFacCdDscp}}</span>
-                <span>{{item.dtMaturity}}</span>
-                <span>{{item.mtRateTypRate}}%</span>
-                <span>{{item.intRateInSuspense}}%</span>
-                <span>{{item.lmtAppr}}</span>
-                <span>
-					<div ng-show="{{item.marker}}== true">
-						<div class="col"  ng-click="toggle(1*($index+1))" style="color:red;">
-								{{item.chargeValue}}
-						</div>
-					</div>
-					<div ng-show="{{item.marker}}== false">
-						<div class="col"  ng-click="toggle(1*($index+1))">
-								{{item.chargeValue}}
-						</div>
-					</div>
+               <span class="credit_number">{{item.no}}</span>
+                <span class="business">{{item.mtFacCdDscp}}</span>
+                <span class="credit_line">{{item.lmtAppr}}</span>
+                <span class="credit_maturity_date">{{item.dtMaturity}}</span>
+                <span class="business_rate">{{item.mtRateTypRate}}%</span>
+                <span class="interest_rate">{{item.intRateInSuspense}}%</span>
+                
+                <span class="guaranteed_amount">
+                  <div ng-show="{{item.marker}}== true">
+                    <div class="col"  ng-click="toggle(1*($index+1))" style="color:red;">
+                        {{item.chargeValue}}
+                    </div>
+                  </div>
+                  <div ng-show="{{item.marker}}== false">
+                    <div class="col"  ng-click="toggle(1*($index+1))">
+                        {{item.chargeValue}}
+                    </div>
+                  </div>
                 </span>
-                <span>
-					<div ng-show="{{item.acctMarker}}== true">
-						<div class="acc" ng-click="toggle(2*($index+2))"  style="color:red;">
-							{{item.balance}}
-						</div>
-					</div>
-					<div ng-show="{{item.acctMarker}}== false">
-						<div class="acc" ng-click="toggle(2*($index+2))">
-							{{item.balance}}
-						</div>
-					</div>
+                <span class="account_balance">
+                  <div ng-show="{{item.acctMarker}}== true">
+                    <div class="acc" ng-click="toggle(2*($index+2))"  style="color:red;">
+                      {{item.balance}}
+                    </div>
+                  </div>
+                  <div ng-show="{{item.acctMarker}}== false">
+                    <div class="acc" ng-click="toggle(2*($index+2))">
+                      {{item.balance}}
+                    </div>
+                  </div>
                 </span>
-                <span>     
+                <span class="status">     
                       {{item.mtFacStsCdDscp}}
                 </span>
             </div>
@@ -196,40 +252,8 @@
               </table>
             </div>
         </div>
-
-            
-            
-        </div>
-    <div class="colInfo">
-    	<h1 class="clearfix"> 
-        	<p class="title">担保信息</p>
-        	<a href="infoGuarantee.html" class="more">更多</a>
-        </h1>
-        <table>
-        	<tbody>
-            	<tr>
-                    <th>担保编号</th>
-                    <th>担保类型</th>
-                    <th>担保品种类</th>
-                    <th>唯一编号</th>
-                    <th>担保品价值</th>
-                    <th>担保品可用价值</th>
-                    <th>所有者</th>
-                </tr>
-                <tr>
-                    <td>PR/2019/000189</td>
-                    <td>房产</td>
-                    <td>住宅用房</td>
-                    <td>0000000000000</td>
-                    <td>70%</td>
-                    <td>¥33,333,333.00</td>
-                    <td>¥3,010,000.00</td>
-                   
-                </tr>
-            </tbody>
-        </table>    
-    </div>
-    
+        
+  </div> 
     
    <div class="explainRight">
        <ul class="explainUl">

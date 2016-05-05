@@ -31,9 +31,9 @@
 .secShowTxt{width:342px;height:20px;line-height:20px;font-size:14px; text-align: left; margin:0 auto;margin-top:30px;}
 .secEmailTxt{color:blue;}
 .btn{overflow:hidden;margin:30px auto; font-size:14px;width:340px;}
-.button{width:110px; height:26px; line-height:26px; color:#bfbfbf;font-size:14px;border:1px solid #bfbfbf; border-radius: 4px; background-color: #fbfbfb;}
+.button{width:110px; height:24px; line-height:24px; color:#bfbfbf;font-size:14px;border:1px solid #bfbfbf; border-radius: 4px; background-color: #fbfbfb;}
 .times{color:red;}
-.timeTxt{ height:26px; line-height:26px;font-size:14px;margin-left:10px;}
+.timeTxt{ height:24px; line-height:24px;font-size:14px;margin-left:10px;}
 .back{margin:0 auto;width:60px;}
 .tel,.back{font-size:13px;}
 .tel{width:120px; margin:20px auto; margin-bottom:20px;}
