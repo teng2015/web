@@ -16,6 +16,11 @@ $(function (){
 		}
 		
 	});
+
+	$('.loginout').click(function (){
+		delete localStorage.token;
+		window.location.href="/index.html";
+	});
 	/*$menuLiChild.click(function (){
 		
 		
