@@ -39,11 +39,34 @@ angular.module('riskHistory',['ngRoute'])
 					$scope.hisList = data.list;
 				}
 			})
-			
-			
-			
 		};
+		//查看记录--end--
+
+
 		
+
+		//添加分页 查询记录
+		// $scope.seeView=function(){
+		// 	//配置分页基本参数
+	 //        $scope.paginationConf = {
+	 //            currentPage: 1,
+	 //            itemsPerPage: 5,
+	 //            totalItems: 0	
+	 //        };
+		// 	$scope.viewList=true;
+		// 	var cifId=$('.seeReBtn').attr('data-id');
+		// 	ngCom.ngAjax({
+		// 		url:'/cif/cs_cifs/list?cifId='+cifId+'&mtTenantId=1&pageNum='+$scope.paginationConf.currentPage+'&pageSize='+$scope.paginationConf.itemsPerPage,
+		// 		method:'get',
+		// 		ngHttp:$http,
+		// 		success:function(data,status){
+					
+		// 			$scope.hisList = data.list;
+		// 		}
+		// 	})
+		// };
+        // $scope.$watch('paginationConf.currentPage + paginationConf.itemsPerPage', seeView);
+		//分页 --end--
 		
 	})
 	.config(['$routeProvider',function($routeProvider){

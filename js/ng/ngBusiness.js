@@ -6,9 +6,18 @@ angular.module('businessApp',['ngRoute'])
 			if (r!=null) return unescape(r[2]); return null; //返回参数值
 		} 
 		var id = getUrlParam('id');
+		var isHistory = getUrlParam('isHistory');
+		var appId = getUrlParam("appId");
+		var csCifId = getUrlParam('csCifId');
+		var facUrl;
+		if (isHistory == 'Y') {
+			facUrl = "/col/csfac_chrg/list?csCifId="+csCifId+"&mtTenantId=1&appId="+appId;
+		} else {
+			facUrl = "/col/facChrgs/list?cifId="+id+"&mtTenantId=1";
+		}
 		/*业务信息*/
 		ngCom.ngAjax({
-			url:"/col/facChrgs/list?cifId="+id+"&mtTenantId=1",
+			url:facUrl,
 			method:'get',
 			ngHttp:$http,
 			success:function(response){	
@@ -17,7 +26,7 @@ angular.module('businessApp',['ngRoute'])
 						var isRevolvingAllowed = "否";
 						if(facList[i]["isRevolvingAllowed"] == 'Y')
 						{
-								isRevolvingAllowed = "是";
+							isRevolvingAllowed = "是";
 						}
 						facList[i]["isRevolvingAllowed"] =isRevolvingAllowed;
 				}
