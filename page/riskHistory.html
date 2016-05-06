@@ -75,9 +75,31 @@
                         <a href="/riskView/view.html?csCifId={{data.cifId}}&mtTenantId=1&appId={{data.id}}&isHistory=Y" target="_blank">查看视图</a></td>
                 </tr>
             </tbody>
-            
         </table>
-    	
+
+        <!-- 分页 -->
+      <!-- <div class="text-center">
+        <div total-items="vm.PG.total_items"
+             ng-model="vm.PG.currentPage"
+             ng-change="vm.pageRefresh()"
+             max-size="vm.PG.max_size"
+             items-per-page="vm.PG.items_per_page"
+             previous-text="上一页"
+             next-text="下一页"
+             first-text="首页"
+             last-text="尾页"
+             class="pagination-sm m-t-sm m-b" boundary-links="true">上一页&& 下一页
+             </div>
+          <button class="" ng-click="vm.compageRefresh()">刷新</button>
+          <div>
+              <p>
+                  <span class="label bg-dark">共{{vm.PG.total_items}}条</span>
+                  <span class="label bg-dark">每页{{vm.PG.items_per_page}}条</span>
+                  <span class="label bg-dark">共{{vm.PG.pages}}页</span>
+              </p>
+          </div>
+      </div> -->
+      <!-- / 分页 -->
     </div>
     
 </div>

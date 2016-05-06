@@ -128,16 +128,15 @@
                     <td class="residual_value">担保品剩余价值</td>
                     <td class="owner">所有者</td>
                 </tr>
-                <tr class="colInfo_title_val">
-                    <td class="guarantee_number">PR/2019/000189</td>
-                    <td class="guarantee_type">房产</td>
-                    <td  class="guarantee_types">住宅用房</td>
-                    <td class="id_num">0000000000000</td>
-                    <td class="guaranteed_discount">70%</td>
-                    <td class="collateral_value">¥33,333,333.00</td>
-                    <td class="residual_value">¥33,333,333.00</td>
-                    <td class="owner">¥3,010,000.00</td>
-                   
+                <tr class="colInfo_title_val" ng-repeat="coll in collList">
+                    <td class="guarantee_number">{{coll.no}}</td>
+                    <td class="guarantee_type">{{coll.mtCollTypDscp}}</td>
+                    <td  class="guarantee_types">{{coll.mtCollCatDscp}}</td>
+                    <td class="id_num">{{coll.colIdNo}}</td>
+                    <td class="guaranteed_discount">{{coll.safetyFactor}}%</td>
+                    <td class="collateral_value">{{coll.collValue}}</td>
+                    <td class="residual_value">{{coll.remainValue}}</td>
+                    <td class="owner">{{coll.ownerCifNm}}</td>
                 </tr>
             </tbody>
         </table>    
@@ -150,7 +149,7 @@
          <p class="rates fl">
           <span class="integrity_rate">完整率&nbsp;：&nbsp</span><span class="rate">90%</span>
         </p>
-         <a href="infoBusiness.html?id={{id}}" class="more">详情</a>
+         < a href="javascript:;" class="more next">更多</ a>
       </div>
       
       <div class="business_title clearfix">

@@ -37,3 +37,17 @@
 .goBack{ font-size: 22px; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; font-weight: bold; cursor: pointer;}
 .allBtn{ height:36px;}
 .allBtn div{ color:#fff; font-size:14px; margin-left:15px; text-align:center; background:#1d8ddb; border:1px solid #eee; margin:5px; padding:3px; width:50px;}
+
+/*  分页  */
+/*.page-list .pagination {float:left;}
+.page-list .pagination span {cursor: pointer;}
+.page-list .pagination .separate span{cursor: default; border-top:none;border-bottom:none;}
+.page-list .pagination .separate span:hover {background: none;}
+.page-list .page-total {float:left; margin: 25px 20px;}
+.page-list .page-total input, .page-list .page-total select{height: 26px; border: 1px solid #ddd;}
+.page-list .page-total input {width: 40px; padding-left:3px;}
+.page-list .page-total select {width: 50px;}
+*/
+
+/*.test-center{margin:20 auto;}
+.pg_tion{height: 80px;width: 120px;background: #ccc;}*/

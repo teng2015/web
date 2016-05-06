@@ -7,26 +7,28 @@ angular.module('viewApp',['ngRoute'])
 			var r = window.location.search.substr(1).match(reg);  //匹配目标参数
 			if (r!=null) return unescape(r[2]); return null; //返回参数值
 			} 
+
 		var id = getUrlParam('id');
 		$scope.id =id;
 
 		var csCifId = getUrlParam('csCifId');
 		var isHistory = getUrlParam('isHistory');
 		var nextCsCifId = getUrlParam('nextCsCifId');
-	    var cifUrl,indvUrl,emplymtUrl,addrUrl;
-	    
+		var appId = getUrlParam("appId");
+	    var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl;
 		if (isHistory == 'Y') {
+			facUrl = "/col/csfac_chrg/list?csCifId="+csCifId+"&mtTenantId=1&appId="+appId;
 			cifUrl = "/cif/cs_cifs/"+csCifId+"&mtTenantId=1";
 			indvUrl = "/cif/cs_cif_addrs?cs_cif_id="+csCifId+"&mtTenantId=1";
 			emplymtUrl = "/cif/cs_cif_emps?cs_cif_id="+csCifId+"&mtTenantId=1";
 			addrUrl = "/cif/cs_cif_emps?cs_cif_id="+csCifId+"&mtTenantId=1";
 		} else {
+			facUrl = "/col/facChrgs/list?cifId="+id+"&mtTenantId=1";
 			cifUrl = "/cif/cifs/"+id+"?mtTenantId=1";
 			indvUrl = "/cif/indvs/?cif_id="+id+"&mtTenantId=1";
 			emplymtUrl = "/cif/emps/?cif_id="+id+"&mtTenantId=1";
 			addrUrl = "/cif/addrs/detail/"+id+"?mtTenantId=1";
 		}
-
 		/*姓名 身份证*/
 		ngCom.ngAjax({
 			url:"/cif/cifs/"+id+"?mtTenantId=1",
@@ -135,9 +137,52 @@ angular.module('viewApp',['ngRoute'])
 			
 		});
 
-		
-		
+		/*担保信息*/
+		ngCom.ngAjax({
+			url:"/col/coll/list?cifId="+id+"&mtTenantId=1",
+			method:'get',
+			ngHttp:$http,
+			success:function(response){	
+				$scope.collList = response;
+			},
+			error:function (error_data){
+				console.log(error_data);
+			}
+			
+		});
+		/*业务信息*/
+		//业务信息
+		$('.next').click(function (){
+			if(isHistory == 'Y'){
+				window.location.href="infoBusiness.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y";
+			}else{
+				window.location.href="infoBusiness.html?id="+id;
+			}
+		});
 
+		ngCom.ngAjax({
+			
+			url:"/col/facChrgs/list?cifId="+id+"&mtTenantId=1",
+			method:'get',
+			ngHttp:$http,
+			success:function(response){	
+				$scope.resJson = response.facList;;
+				$scope.resColl = response.collList;
+				$scope.resAcct = response.acctList;
+
+			},
+			error:function (error_data){
+				console.log(error_data);
+			}
+			
+		});
+		$scope.toggle = function(dis) {
+			  if ($scope.display!=dis) {
+				  $scope.display=dis;
+			  }else{
+				$scope.display=-1;
+			  }
+			};
 		if (isHistory == 'Y') {
 		
 		
