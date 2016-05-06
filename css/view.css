@@ -13,7 +13,7 @@
 .explainConTwo {width:342px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
 /*信贷额度*/
 .explainCon .explainList{}
-.explainCon .explainList li{position:relative;top:0;left:0;width:140px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block; border-left:1px solid white;}
+.explainCon .explainList li{position:relative;top:0;left:0;width:139px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block; border-left:1px solid white;}
 
 .explainListCon{width:300px;position:absolute; right:180px;top:-20px; background:white;z-index:3;padding:15px 15px; box-shadow: 0 0 20px #c9c9c9; }
 
@@ -121,6 +121,7 @@
 .business_title span,.line_a span{ margin-top: -1px;margin-bottom:0px;margin-right: 0px;margin-left:-1px;height:50px; line-height:50px; text-align: center;  border: 1px solid #d4d4d4; display:block; float:left;}
 .business_title span{background:#fcfcfc; font-weight: bold;}
 .line_a span{font-size:14px; margin-top: -1px;margin-bottom: 0px;margin-right: 0px;margin-left:-1px;}
+.business_line{}
 .credit_number{width:140px; border-left:2px solid #d4d4d4;}
 .business{width:160px;}
 .credit_line{width:140px;}
@@ -132,6 +133,8 @@
 .guaranteed_amount_val{color:#0326cc;}
 .account_balance_val{ color:#0326cc;}
 .status{width:154px;}
+.one{background:red;}
+.two{background-color: yellow;}
 /*/*  信息列表 子表格  */
 .info_list_son{width:100%; border:1px solid #d4d4d4; width:93%; border-collapse:separate; }
 .info_list_son th{ background:#f6f6f6; font-weight:normal;}
