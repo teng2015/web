@@ -153,7 +153,7 @@
          <a href="infoBusiness.html?id={{id}}" class="more">详情</a>
       </div>
       
-      <div class="business_title">
+      <div class="business_title clearfix">
       
             <span class="credit_number" style="border-left:2px solid #d4d4d4">授信编号</span>
             <span class="business">业务</span>
@@ -168,8 +168,8 @@
         </div>
         
           <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display">
-            <div class="business_line" >
-               <span class="credit_number" style="border-left:2px solid #d4d4d4">{{item.no}}</span>
+            <div class="business_line clearfix " >
+               <span class="credit_number " style="border-left:2px solid #d4d4d4">{{item.no}}</span>
                 <span class="business" style="border-bottom:1px solid #d4d4d4">{{item.mtFacCdDscp}}</span>
                 <span class="credit_line" style="border-bottom:1px solid #d4d4d4">{{item.lmtAppr}}</span>
                 <span class="credit_maturity_date" style="border-bottom:1px solid #d4d4d4">{{item.dtMaturity}}</span>
