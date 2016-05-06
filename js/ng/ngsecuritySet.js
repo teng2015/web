@@ -144,8 +144,9 @@ angular.module('securitySet',['ngRoute'])
 						
 						if(count<=0){
 							
-							$('.times').html(50);
+							$('.times').html(20);
 							$('.button').attr('disabled',false);
+							$('.button').attr('color','#bfbfbf');
 							clearInterval(timer);
 						}else{
 							$('.times').html(count);
@@ -155,8 +156,15 @@ angular.module('securitySet',['ngRoute'])
 
 					},1000);
 					var emailInputVal=$('#emailName').val();
+					var str = emailInputVal.substr(0,4);
+					var at = emailInputVal.indexOf('@');
+					var changestr = emailInputVal.substr(at);
+					/*console.log(str+'**');
+					console.log(changestr);
+					console.log(str+'**'+changestr);*/
+					
 
-					$('.secEmailTxt').html(emailInputVal);
+					$('.secEmailTxt').html(str+'**'+changestr);
 					
 
 				}
