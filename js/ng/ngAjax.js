@@ -34,7 +34,7 @@ var ngCom = {
 					window.location.href = "/index.html" ;
 				}
 				else{
-					options.errfn();
+					options.errfn(status);
 				}
 			}	
 		);

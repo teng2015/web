@@ -6,57 +6,18 @@
 	
 angular.module('securitySet',['ngRoute'])
 	.controller('securitySetPage',function($scope,$http){
-		var eKey = localStorage.ekey;
-		var eValue= localStorage.evalue;
-		var eToken = localStorage.token;
-		console.log(eToken);
-		var bindJson = {
-			eKey:eKey,
-			eValue:eValue
+		ngCom.ngAjax({
+			url:"/sec/email/bind_status/",
+			method:'get',
+			ngHttp:$http,
+			success:function(response){
+				/*var emailTxt = response.emailAddr;
+				$('.bind').html('重绑');*/
+			},
+			error:function (data){
 
-		};
-
-		if(eToken!=undefined){
-
-			if(eKey && eValue){
-			
-			ngCom.ngAjax({
-				url:"/sec/email/site/",
-				data:bindJson,
-				method:'put',
-				ngHttp:$http,
-				success:function(response){
-					if(response.result=='success'){
-
-						$('.layer').show();
-						$('.bind').html('重新绑定');
-						setTimeout(function (){
-							$('.layer').hide();
-						},3000);
-					}
-					
-				},
-				error:function (data){
-					console.log(data);
-				}
-			});
-
-		}else if(eKey){
-			
-			/*ngCom.ngAjax({
-				url:"/sec/email/link/",
-				data:json,
-				method:'post',
-				ngHttp:$http,
-				success:function(response){},
-				error:function (){}
-			});*/
-
-		}
-		}else{
-			console.log(111);
-			window.location.href="/index.html";
-		}
+			}
+		});
 		
 		function guid() {
 	    function S4() {
@@ -171,6 +132,14 @@ angular.module('securitySet',['ngRoute'])
 				
 			},
 			error:function(data){
+
+				console.log(data);
+				console.log(data.message);
+				$('.errMsg').empty().html(data.message).show();
+				loadImageCode();
+			},
+			errfn:function(data){
+				
 				console.log(data);
 				console.log(data.message);
 				$('.errMsg').empty().html(data.message).show();
