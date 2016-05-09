@@ -162,7 +162,7 @@ angular.module('viewApp',['ngRoute'])
 
 		ngCom.ngAjax({
 			
-			url:"/col/facChrgs/list?cifId="+id+"&mtTenantId=1",
+			url:facUrl,
 			method:'get',
 			ngHttp:$http,
 			success:function(response){	
