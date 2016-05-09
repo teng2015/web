@@ -26,12 +26,12 @@ angular.module('riskHistory',['ngRoute'])
 			}
 		};
 		//查看记录
-		$scope.seeView=function(){
+		$scope.seeView=function(id){
 			
 			$scope.viewList=true;
-			var cifId=$('.seeReBtn').attr('data-id');
+			/*var cifId=$('.seeReBtn').attr('data-id');*/
 			ngCom.ngAjax({
-				url:'/cif/cs_cifs/list?cifId='+cifId+'&mtTenantId=1',
+				url:'/cif/cs_cifs/list?cifId='+id+'&mtTenantId=1',
 				method:'get',
 				ngHttp:$http,
 				success:function(data,status){
