@@ -33,7 +33,7 @@
 .history_list_son td{ padding:4px; border-right:1px solid #d4d4d4;border-bottom:1px solid #d4d4d4;}
 
 /*  调用历史 */
-.seeView{ position:absolute; width:700px; left:50%; top:0px; margin-left:-360px; padding:30px 20px 34px; border-radius:5px; background:#fff; box-shadow:0 0 10px rgba(0, 0, 0, .4); height:300px; }
+.seeView{ position:absolute; width:700px; left:50%; top:100px; margin-left:-360px; padding:30px 20px 34px; border-radius:5px; background:#fff; box-shadow:0 0 10px rgba(0, 0, 0, .4); height:500px; overflow-y:auto;}
 .goBack{ font-size: 22px; line-height: .5; position: absolute; top: 8px; right: 11px; color: #aaa; font-weight: bold; cursor: pointer;}
 .allBtn{ height:36px;}
 .allBtn div{ color:#fff; font-size:14px; margin-left:15px; text-align:center; background:#1d8ddb; border:1px solid #eee; margin:5px; padding:3px; width:50px;}

@@ -12,6 +12,7 @@ angular.module('viewApp',['ngRoute'])
 		$scope.id =id;
 
 		var csCifId = getUrlParam('csCifId');
+		
 		var isHistory = getUrlParam('isHistory');
 		var nextCsCifId = getUrlParam('nextCsCifId');
 		var appId = getUrlParam("appId");
@@ -22,12 +23,14 @@ angular.module('viewApp',['ngRoute'])
 			indvUrl = "/cif/cs_cif_addrs?cs_cif_id="+csCifId+"&mtTenantId=1";
 			emplymtUrl = "/cif/cs_cif_emps?cs_cif_id="+csCifId+"&mtTenantId=1";
 			addrUrl = "/cif/cs_cif_emps?cs_cif_id="+csCifId+"&mtTenantId=1";
+			collUrl = "/col/cs_colls/cs_cif/"+appId+"?mtTenantId=1";
 		} else {
 			facUrl = "/col/facChrgs/list?cifId="+id+"&mtTenantId=1";
 			cifUrl = "/cif/cifs/"+id+"?mtTenantId=1";
 			indvUrl = "/cif/indvs/?cif_id="+id+"&mtTenantId=1";
 			emplymtUrl = "/cif/emps/?cif_id="+id+"&mtTenantId=1";
 			addrUrl = "/cif/addrs/detail/"+id+"?mtTenantId=1";
+			collUrl = "/col/coll/list?cifId="+id+"&mtTenantId=1";
 		}
 		/*姓名 身份证*/
 		ngCom.ngAjax({
@@ -51,13 +54,21 @@ angular.module('viewApp',['ngRoute'])
 
 		ngCom.ngAjax({
 			
-			url:"/col/facChrgs/list?cifId="+id+"&mtTenantId=1",
+			url:"/cif/inteRates/"+id+"/1",
 			method:'get',
 			ngHttp:$http,
 			success:function(response){	
-				$scope.resJson = response.facList;;
-				$scope.resColl = response.collList;
-				$scope.resAcct = response.acctList;
+				/*$scope.resJson = response;*/
+				console.log(response);
+				var totalrate = response.totalRate;/*总*/
+				var factotalrate = response.facTotalRate;/*业务*/
+				var ciftotalrate = response.cifTotalRate;/*客户*/
+				var colltotalrate = response.collTotalRate;/*担保*/
+
+				$('.total').html(parseInt(totalrate*100)+'%');
+				$('.factotalrate').html(parseInt(factotalrate*100)+'%');
+				$('.ciftotalrate').html(parseInt(ciftotalrate*100)+'%');
+				$('.colltotalrate').html(parseInt(colltotalrate*100)+'%');
 
 			},
 			error:function (error_data){
@@ -138,11 +149,13 @@ angular.module('viewApp',['ngRoute'])
 		});
 
 		/*担保信息*/
+		console.log(collUrl);
 		ngCom.ngAjax({
-			url:"/col/coll/list?cifId="+id+"&mtTenantId=1",
+			url:collUrl,
 			method:'get',
 			ngHttp:$http,
 			success:function(response){	
+				console.log(response);
 				$scope.collList = response;
 			},
 			error:function (error_data){
@@ -151,7 +164,7 @@ angular.module('viewApp',['ngRoute'])
 			
 		});
 		/*业务信息*/
-		//业务信息
+		
 		$('.next').click(function (){
 			if(isHistory == 'Y'){
 				window.location.href="infoBusiness.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y";
@@ -159,7 +172,7 @@ angular.module('viewApp',['ngRoute'])
 				window.location.href="infoBusiness.html?id="+id;
 			}
 		});
-
+		//业务信息
 		ngCom.ngAjax({
 			
 			url:facUrl,
@@ -328,7 +341,7 @@ angular.module('viewApp',['ngRoute'])
 
 		/*业务信息*/
 
-		ngCom.ngAjax({
+		/*ngCom.ngAjax({
 			
 			url:"/col/facChrgs/list?cifId="+id+"&mtTenantId=1",
 			method:'get',
@@ -340,7 +353,7 @@ angular.module('viewApp',['ngRoute'])
 				//隔行变色
 				
 					
-				/*var $line_a = $('.busInfo').find('.business_line');
+				var $line_a = $('.busInfo').find('.business_line');
 				console.log($line_a);
 				$line_a.each(function (i,ele){
 					
@@ -353,7 +366,7 @@ angular.module('viewApp',['ngRoute'])
 						
 					}
 
-				});*/
+				});
 					
 
 			},
@@ -361,7 +374,7 @@ angular.module('viewApp',['ngRoute'])
 				console.log(error_data);
 			}
 			
-		});
+		});*/
 		$scope.toggle = function(dis) {
 			  if ($scope.display!=dis) {
 				  $scope.display=dis;

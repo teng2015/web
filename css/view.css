@@ -1,30 +1,30 @@
 .body{width:100%; height:100%;background-color: white;}
-.view { width:1352px; margin:0px auto; background:#fff; padding:0px 21px; border:1px solid #eeeeee; box-shadow: 3px 3px 4px #bbb;position:relative;top:0; left:0;}
+.view { width:1324px; margin:0px auto; background:#fff; padding:0px 21px; border:1px solid #eeeeee;position:relative;top:0; left:0;}
 .clearFix{zoom:1}
 
 /*名词字典*/
 .explainRight{position:fixed;top:50%;right:0px; margin-top:-81px;}
 .explainUl li{width:58px;/*clear:both;*/}
 .explainFirst{width: 38px;color:white;text-align:center;margin:0 auto; font-size:14px;display: block;background:#1e8ddc;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
-.explainCon {width:342px; background:#8aaac2;display:none;margin-bottom:2px;  float:right;}
+.explainCon {width:282px; background:#8aaac2;display:none;margin-bottom:2px;  float:right;}
 
 .explainUl li:hover{background-color: #f2a139;}
 .explainFirstLiTwo{width: 38px;color:white; font-size:14px;text-align:center;margin:0 auto;display: block;background:#1e8ddc;margin-bottom:2px;cursor:pointer;padding: 10px 10px;}
 .explainConTwo {width:342px; background:#ccc;display:none;margin-bottom:2px;  float:right;}
 /*信贷额度*/
 .explainCon .explainList{}
-.explainCon .explainList li{position:relative;top:0;left:0;font-size:14px; font-size:12px;width:139px;float:left; padding: 10px 15px; color:white;text-align:center; border-bottom:1px solid white;display:block; border-left:1px solid white;}
+.explainCon .explainList li{position:relative;top:0;left:0;font-size:14px;height: 38px;line-height: 38px;width: 138px;float:left;/* padding: 6px 4px; */color:white;text-align:center;border-bottom:1px solid white;display:block;border-left:1px solid white;}
 
-.explainListCon{width:300px;position:absolute; right:180px;top:-20px; background:white;z-index:3;padding:15px 15px; box-shadow: 0 0 20px #c9c9c9; }
+.explainListCon{width:300px;position:absolute; right:152px;top:-20px; background:#f7f8f8;z-index:3;padding:15px 15px; box-shadow: 0 0 20px #c9c9c9; }
 
 /*右三角*/
 
 .rightdirection {width:0;height:0;line-height:0;border-width: 10px;border-style:solid;border-color: transparent transparent transparent white;  position: absolute;right: -20px;top: 25px;}  
 
-.explainTitle{ text-align: left; color:black;}
+.explainTitle{ text-align: left; color:black; font-size: 14px; margin-top:-10px;}
 
-.line{width:100%; height:2px; background-color: orange;margin-top:4px;}
-.explainDesc{width:100%; text-indent: 20px;padding:10px 0px;text-align:left;}
+.line{width:100%; height:2px; margin-top:4px;background-color:#f2a139;margin-top:-4px;}
+.explainDesc{width:100%; padding:10px 0px;text-align:left;}
 .explainDescP{ line-height:20px; color:black;}
 
 /*查看导出*/
@@ -47,9 +47,9 @@
 .slash{font-size:20px;float:left;margin-left:10px;}
 .lossRate{font-size:14px;float:left;display:block;margin-left:5px;}
 .lossRateNum{font-size:16px;}
-.viewTitle{width:300px; line-height:110px;height:110px;font-size:31px;float:left;margin-left:400px;}
+.viewTitle{width:980px;text-align: center; line-height:110px;height:110px;font-size:31px;float:left;}
 .tel{float:right;margin-top:50px; margin-right:10px;}
-.tel p{width:166px;height:20px; text-align: right;}
+.tel p{width:185px;height:20px; text-align: right;}
 .viewImg{float:right;height:40px; width:50px;}
 .progressBar{width:100%;height:2px; background-color:#1c86d1;}
 
@@ -96,7 +96,7 @@
 .rates{height:38px; line-height:38px; font-size:14px; margin-left:8px;}
 .school{width:75px;}
 .school_val{width:173px;}
-.busInfo table,.colInfo table{ width:99.43%;}
+.busInfo table,.colInfo table{ width:100%;}
 /*.busInfo td{ height:50px; line-height:50px; text-align: center;  border: 1px solid #d4d4d4;}
 .busInfo td{ background:#f6fcff;}*/
 /*.busInfo td:hover{ background:#fff4dd;}*/
@@ -116,9 +116,9 @@
 .collateral_value{width:200px;}
 .residual_value{width:170px;}
 .owner{width:172px;}
-.busInfo{overflow:hidden;font-size:16px; margin-bottom:30px; }
+.busInfo{font-size:16px; margin-bottom:30px; }
 /*.business_title{background:#f6f6f6;}*/
-.business_title span,.line_a span{ margin-top: -1px;margin-bottom:0px;margin-right: 0px;margin-left:-1px;height:50px; line-height:50px; text-align: center;  border: 1px solid #d4d4d4; display:block; float:left;}
+.business_title span,.line_a span{ margin-top: -1px;margin-bottom:0px;margin-right: 0px;margin-left:-1px;height:52px; line-height:52px; text-align: center;  border: 1px solid #d4d4d4; display:block; float:left;}
 .business_title span{background:#fcfcfc; font-weight: bold;}
 .line_a span{font-size:14px; margin-top: -1px;margin-bottom: 0px;margin-right: 0px;margin-left:-1px;}
 .business_line{}
@@ -132,7 +132,7 @@
 .account_balance{width:168px; }
 .guaranteed_amount_val{color:#0326cc;}
 .account_balance_val{ color:#0326cc;}
-.status{width:154px;}
+.status{width:130px;}
 .one{background:red;}
 .two{background-color: yellow;}
 /*/*  信息列表 子表格  */
@@ -143,8 +143,8 @@
 .font_w td { background:#eee; font-weight:bold;}
 /*  信息列表 包含子表格外层TD  */
 .this_cor_fe { background:#fefefe;}
-.this_div { width:100%; overflow:hidden; height:auto;margin-top:20px; }
-.this_div2 { width:100%; overflow:hidden; height:auto;margin-top:20px; }
+.this_div { width:100%; overflow:hidden; height:auto;margin-top:20px;margin-bottom:20px; }
+.this_div2 { width:100%; overflow:hidden; height:auto;margin-top:20px; margin-bottom:20px; }
 .info_list .hide{ display:none;}
 .info_list .show{ display:block;}
 /*  表格隔行换色  */
