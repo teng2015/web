@@ -112,22 +112,6 @@ angular.module('viewApp',['ngRoute'])
 		
 		});
 
-		/*居住地址*/
-		/*ngCom.ngAjax({
-		url:"/cif/addrs/?cif_id="+id+"&mtTenantId=1",
-		method:'get',
-		ngHttp:$http,
-		success:function(response){
-			
-			
-			
-		},
-		error:function (error_data){
-			console.log(error_data);
-		}
-		
-		});*/
-
 		/*客户信息*/
 
 		ngCom.ngAjax({
@@ -149,7 +133,7 @@ angular.module('viewApp',['ngRoute'])
 		});
 
 		/*担保信息*/
-		console.log(collUrl);
+		
 		ngCom.ngAjax({
 			url:collUrl,
 			method:'get',
@@ -182,6 +166,47 @@ angular.module('viewApp',['ngRoute'])
 				$scope.resJson = response.facList;;
 				$scope.resColl = response.collList;
 				$scope.resAcct = response.acctList;
+				//信贷总额度
+				var summarylmtApprAllAmt = 0;
+				//账户总余额
+				var summaryOutstdAmtAll = 0;
+				//担保连接总金额
+				var summaryChargeValue = 0;
+				//
+				var summaryCollValue = 0;
+				//
+				var summaryRemainValue = 0;
+				
+				angular.forEach($scope.resJson, function(data){
+				
+				summarylmtApprAllAmt += parseInt(data.lmtAppr);
+				$scope.summarylmtApprAllAmt = summarylmtApprAllAmt;
+				
+				});
+				angular.forEach($scope.resAcct, function(data){
+				
+				summaryOutstdAmtAll += parseInt(data.outstdAmt);
+				$scope.summaryOutstdAmtAll = summaryOutstdAmtAll;
+				
+				});
+				angular.forEach($scope.resColl, function(data){
+				
+				summaryChargeValue += parseInt(data.chargeValue);
+				$scope.summaryChargeValue = summaryChargeValue;
+				
+				});
+				angular.forEach($scope.resColl, function(data){
+				
+				summaryCollValue += parseInt(data.collValue);
+				$scope.summaryCollValue = summaryCollValue;
+				
+				});
+				angular.forEach($scope.resColl, function(data){
+				
+				summaryRemainValue += parseInt(data.remainValue);
+				$scope.summaryRemainValue = summaryRemainValue;
+				
+				});
 
 			},
 			error:function (error_data){
@@ -339,42 +364,15 @@ angular.module('viewApp',['ngRoute'])
 			$(this).parents('.business_line').next('.this_div').next('.this_div').hide();
 		});
 
-		/*业务信息*/
+		/* 担保信息 5.9*/
+			$('.collMore').click(function (){
+			if(isHistory == 'Y'){
+				window.location.href="infoGuarantee.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y";
+			}else{
+				window.location.href="infoGuarantee.html?id="+id;
 
-		/*ngCom.ngAjax({
-			
-			url:"/col/facChrgs/list?cifId="+id+"&mtTenantId=1",
-			method:'get',
-			ngHttp:$http,
-			success:function(response){	
-				$scope.resJson = response.facList;;
-				$scope.resColl = response.collList;
-				$scope.resAcct = response.acctList;
-				//隔行变色
-				
-					
-				var $line_a = $('.busInfo').find('.business_line');
-				console.log($line_a);
-				$line_a.each(function (i,ele){
-					
-					if(i%2==0){
-						$('.business_line').eq(i).addClass("two");
-					
-					}else{
-						
-						$('.business_line').eq(i).addClass("one");
-						
-					}
-
-				});
-					
-
-			},
-			error:function (error_data){
-				console.log(error_data);
 			}
-			
-		});*/
+		});
 		$scope.toggle = function(dis) {
 			  if ($scope.display!=dis) {
 				  $scope.display=dis;
