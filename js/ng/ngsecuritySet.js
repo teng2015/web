@@ -11,8 +11,14 @@ angular.module('securitySet',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
-				/*var emailTxt = response.emailAddr;
-				$('.bind').html('重绑');*/
+				
+				$('.bind').html('重绑');
+
+				$('.layer').show();
+				setTimeout(function (){
+					$('.layer').hide();
+				},3000);
+				
 			},
 			error:function (data){
 
@@ -78,6 +84,9 @@ angular.module('securitySet',['ngRoute'])
 
 	/*点击提交*/
 	//$scope.aa = true;
+	$('#yzmimg').focus(function(){
+		$('.errMsg').hide();
+	});
 
 	$('.sub').click(function (){
 		//console.log(2);

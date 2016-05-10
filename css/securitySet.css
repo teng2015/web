@@ -23,7 +23,7 @@
 .yzm_a:hover{ color:#1234B5; text-decoration:underline;}
 .span-grey{ color:#686868;}
 .yzmPosition{width:110px;}
-.sub { margin-left:80px;margin-top:30px;margin-bottom:40px;width:202px;height:30px;font-size:18px; line-height:30px; padding:3px 8px; display:block; text-align:center; color:#fff; border:none; background-color:#1d8ddb; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; cursor:pointer; }
+.sub { margin:0 auto;margin-top:30px;margin-bottom:40px;width:202px;height:30px;font-size:18px; line-height:30px; padding:3px 8px; display:block; text-align:center; color:#fff; border:none; background-color:#1d8ddb; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; cursor:pointer; }
 .sub:hover{background-color:#2181c4; }
 .showTxt{ height:36px;line-height:36px;margin-left:20px;color:red;font-size:12px;}
 
@@ -36,6 +36,7 @@
 .timeTxt{ height:24px; line-height:24px;font-size:14px;margin-left:10px;}
 .back{margin:0 auto;width:60px;}
 .tel,.back{font-size:13px;}
-.tel{width:143px; margin:20px auto; margin-bottom:20px;}
+.tel{width:154px; margin:20px auto; margin-bottom:20px;}
 .back a:hover{color:red;}
 .layer{margin:0 auto;margin-top:50px; width:150px; height:30px; line-height:30px; background:#4d4d4d; border-radius:5px; display:none;color:white;font-weight: bold; text-align: center;}
+.errMsg{width:200px;margin:20px auto;text-align: center;color:red;display:none;}
