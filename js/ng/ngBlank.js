@@ -29,19 +29,33 @@ angular.module('blank',['ngRoute'])
 						ngHttp:$http,
 						success:function(response){
 							if(response.result=='success'){
+								ngCom.ngAjax({
+									url:"/sec/email/bind_status/",
+									method:'get',
+									ngHttp:$http,
+									success:function(response){
+										var emailInputVal=response.emailAddr;
+										var str = emailInputVal.substr(0,4);
+										var at = emailInputVal.indexOf('@');
+										var changestr = emailInputVal.substr(at);
+										$('.bindEmail').html(str+'**'+changestr);
+									},
+									error:function (data){
 
+									}
+								});
 								
 								$('.bindSuccess').show();
 								var times = 5;
 								
 								var timer = setInterval(function (){
 									times--;
-									if(count>=1){
+									if(times>=1){
 										$('.count_time').html(times);
-										clearInterval(timer);
 										
-									}else if(count==0){
-										window.location.href="http://101.201.46.3:8080/page/index.html#/securitySet";
+										
+									}else if(times==0){
+										window.location.href="/page/index.html#/securitySet";
 									}
 									
 								},1000);
@@ -60,7 +74,7 @@ angular.module('blank',['ngRoute'])
 							var mess = data.message;
 							var messIndex = mess.indexOf('-');
 							var p_sucessTxt = mess.substr(0,messIndex);
-							var p_txt = mess.substr(messIndex);
+							var p_txt = mess.substr((messIndex+1));
 							$('.p_sucess_tip').html(p_sucessTxt);
 							$('.p_txt_tip').html(p_txt);
 							$('.bindFail').show();
@@ -86,27 +100,14 @@ angular.module('blank',['ngRoute'])
 				
 			}
 			$('.jump').click(function (){
-				window.location.href="http://101.201.46.3:8080/page/index.html#/securitySet";
+				window.location.href="/page/index.html#/securitySet";
 			});
 			$('.bindLogin').click(function (){
+				delete localStorage.token;
 				window.location.href="/index.html";
 			});
 
-			ngCom.ngAjax({
-				url:"/sec/email/bind_status/",
-				method:'get',
-				ngHttp:$http,
-				success:function(response){
-					var emailInputVal=response.emailAddr;
-					var str = emailInputVal.substr(0,4);
-					var at = emailInputVal.indexOf('@');
-					var changestr = emailInputVal.substr(at);
-					$('.bindEmail').html(str+'**'+changestr);
-				},
-				error:function (data){
-
-				}
-			});
+			
 
 
 	})
