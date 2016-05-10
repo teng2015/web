@@ -19,22 +19,22 @@ angular.module('viewApp',['ngRoute'])
 	    var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl;
 		if (isHistory == 'Y') {
 			facUrl = "/col/csfac_chrg/list?csCifId="+csCifId+"&mtTenantId=1&appId="+appId;
-			cifUrl = "/cif/cs_cifs/"+csCifId+"&mtTenantId=1";
-			indvUrl = "/cif/cs_cif_addrs?cs_cif_id="+csCifId+"&mtTenantId=1";
-			emplymtUrl = "/cif/cs_cif_emps?cs_cif_id="+csCifId+"&mtTenantId=1";
-			addrUrl = "/cif/cs_cif_emps?cs_cif_id="+csCifId+"&mtTenantId=1";
+			cifUrl = "/cif/cs_cifs/"+csCifId+"?mtTenantId=1";
+			indvUrl = "/cif/cs_cif_indvs/?cs_cif_id="+csCifId+"&mtTenantId=1";
+			emplymtUrl = "/cif/cs_cif_emps/?cs_cif_Id="+csCifId+"&mtTenantId=1";
+			addrUrl = "/cif/cs_cif_addrs/?cs_cif_id="+csCifId+"&mtTenantId=1";
 			collUrl = "/col/cs_colls/cs_cif/"+appId+"?mtTenantId=1";
 		} else {
 			facUrl = "/col/facChrgs/list?cifId="+id+"&mtTenantId=1";
 			cifUrl = "/cif/cifs/"+id+"?mtTenantId=1";
 			indvUrl = "/cif/indvs/?cif_id="+id+"&mtTenantId=1";
 			emplymtUrl = "/cif/emps/?cif_id="+id+"&mtTenantId=1";
-			addrUrl = "/cif/addrs/detail/"+id+"?mtTenantId=1";
+			addrUrl = "/cif/addrs/"+id+"?mtTenantId=1";
 			collUrl = "/col/coll/list?cifId="+id+"&mtTenantId=1";
 		}
 		/*姓名 身份证*/
 		ngCom.ngAjax({
-			url:"/cif/cifs/"+id+"?mtTenantId=1",
+			url:cifUrl,
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
@@ -83,8 +83,8 @@ angular.module('viewApp',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
-				$scope.mtStateCdDscp = response[0].mtStateCdDscp;
-				$scope.mtCountyCdDscp= response[0].mtCountyCdDscp;
+				$scope.mtStateCdDscp = response.mtStateCdDscp;
+				$scope.mtCountyCdDscp= response.mtCountyCdDscp;
 			
 				
 			},
@@ -151,9 +151,9 @@ angular.module('viewApp',['ngRoute'])
 		
 		$('.next').click(function (){
 			if(isHistory == 'Y'){
-				window.location.href="infoBusiness.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y";
+				window.open("infoBusiness.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y");
 			}else{
-				window.location.href="infoBusiness.html?id="+id;
+				window.open("infoBusiness.html?id="+id);
 			}
 		});
 		//业务信息
@@ -344,32 +344,14 @@ angular.module('viewApp',['ngRoute'])
 			console.log($scope._index);
 		}
 
-		/*点击担保链接金额弹出div*/
-		$('.col').toggle(function (){
-			
-			$('.this_div').hide();
-			$(this).parents('.business_line').next('.this_div').show();
-		},function (){
-			$('.this_div').hide();
-			$(this).parents('.business_line').next('.this_div').hide();
-		});
 		
 
-		/*点击账户余额*/
-		$('.acc').toggle(function (){
-			$('.this_div').hide();
-			$(this).parents('.business_line').next('.this_div').next('.this_div').show();
-		},function (){
-			$('.this_div').hide();
-			$(this).parents('.business_line').next('.this_div').next('.this_div').hide();
-		});
-
-		/* 担保信息 5.9*/
+		/* 担保信息 详情5.9*/
 			$('.collMore').click(function (){
 			if(isHistory == 'Y'){
-				window.location.href="infoGuarantee.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y";
+				window.open("infoGuarantee.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y");
 			}else{
-				window.location.href="infoGuarantee.html?id="+id;
+				window.open("infoGuarantee.html?id="+id);
 
 			}
 		});
@@ -418,12 +400,6 @@ angular.module('viewApp',['ngRoute'])
 			});
 		}
 		
-
-		
-        
-      
-	
-
 
 		/*回到顶部*/
 

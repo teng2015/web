@@ -7,12 +7,12 @@
 .se_grade .se_low ,.se_height{ border-radius:10%;}
 
 .pw_state{width: 90px;}
-.pw_font{width: 200px;}
+.pw_font{width: 100px;}
 .pw_ct{width: 432px;}
 .em_state{width: 90px;}
-.em_font{width: 200px;}
+.em_font{width: 100px;}
 .em_ct{width: 432px;}
-
+.em_fun,.pw_fun{width:100px;text-align: center; float:right;}
 .bindEmail{width:420px; margin:100px auto;display:none;border:1px solid #e6e6e6;border-radius:5px 5px 0px 0px; }
 .bindEmailTxt{width:411px;height:30px;line-height:30px;font-size:16px; margin:0 auto; color:white; background-color: #49a3e1;border-radius: 5px 5px 0px 0px; padding-left:10px;}
 .inputText {width:200px;outline:none; height:28px; line-height:28px; padding:3px 8px; border:1px #cfcfcf solid; }

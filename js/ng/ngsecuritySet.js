@@ -11,13 +11,16 @@ angular.module('securitySet',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
-				
-				$('.bind').html('重绑');
+				if(response.bindStatus!='null'){
+					$('.bind').html('已绑定');
 
-				$('.layer').show();
-				setTimeout(function (){
-					$('.layer').hide();
-				},3000);
+					$('.layer').show();
+					setTimeout(function (){
+						$('.layer').hide();
+					},3000);
+				}
+				
+				
 				
 			},
 			error:function (data){
