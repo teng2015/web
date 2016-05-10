@@ -32,7 +32,7 @@
     </div>
     <div class="name">
       <div class="fl">
-        <span class="name_txt">{{nm}}</span><span class="integrity_rate">完整率&nbsp;：&nbsp</span><span class="rate">90%</span>
+        <span class="name_txt">{{nm}}</span><span class="integrity_rate ">完整率&nbsp;：&nbsp</span><span class="rate total"></span>
       </div>
       <div class="money fr">币种：人民币</div>
     </div>
@@ -43,15 +43,15 @@
               <td class="id_card">身份证：<span id="summaryIdNo">{{idNo}}<img style="vertical-align:middle" src="../images/{{idNoStatus}}.png"/></span></td>
               
               <td class="addr">居住地址：<span id="mtCityCd">{{mtStateCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></span></td>
-              <td class="month_money">月收入：¥<span id="summaryMonthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle"  src="../images/{{monthlyIncAmtStatus}}.png"/></span></td>
-              <td class="fixed_assets">固定资产：¥<span id="summaryHouseholdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></span></td>
+              <td class="month_money">月收入：<span id="summaryMonthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle"  src="../images/{{monthlyIncAmtStatus}}.png"/></span></td>
+              <td class="fixed_assets">固定资产：<span id="summaryHouseholdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></span></td>
             </tr>
             <tr>
-              <td class="credit_rating">信贷总额度：¥<span id="summarylmtApprAllAmt"></span></td>
-              <td class="id_card">账户总余额：¥<span id="summaryOutstdAmtAll"></span></td>
-              <td class="addr">担保连接总金额：¥<span id="summaryChargeValue"></span></td>
-              <td class="month_money">担保品总价值：¥<span id="summaryCollValue"></span></td>
-              <td class="fixed_assets">担保品可用总价值：¥<span id="summaryRemainValue"></span></td>
+              <td class="credit_rating">信贷总额度：<span id="summarylmtApprAllAmt"></span></td>
+              <td class="id_card">账户总余额：<span id="summaryOutstdAmtAll"></span></td>
+              <td class="addr">担保连接总金额：<span id="summaryChargeValue"></span></td>
+              <td class="month_money">担保品总价值：<span id="summaryCollValue"></span></td>
+              <td class="fixed_assets">担保品可用总价值：<span id="summaryRemainValue"></span></td>
             </tr>
         </tbody>
     </table>
@@ -63,7 +63,7 @@
         <div class="cusTitle clearfix"> 
              <p class="title fl">客户信息</p>
              <p class="rates fl">
-            <span class="integrity_rate">完整率&nbsp;：&nbsp</span><span class="rate">90%</span>
+            <span class="integrity_rate ">完整率&nbsp;：&nbsp</span><span class="rate ciftotalrate"></span>
           </p>
              <a href="infoAccount.html" class="more Customer_information"  target="_blank">详情</a>
         </div>
@@ -112,7 +112,7 @@
     	<div class="cusTitle clearfix"> 
         	<p class="title fl">担保信息</p>
           <p class="rates fl">
-            <span class="integrity_rate">完整率&nbsp;：&nbsp</span><span class="rate">90%</span>
+            <span class="integrity_rate ">完整率&nbsp;：&nbsp</span><span class="rate colltotalrate"></span>
           </p>
         	<a href="infoGuarantee.html" class="more"  target="_blank">详情</a>
         </div>
@@ -125,7 +125,7 @@
                     <td class="id_num">唯一识别号码</td>
                     <td class="guaranteed_discount">担保品折扣系数</td>
                     <td class="collateral_value">担保品价值</td>
-                    <td class="residual_value">担保品剩余价值</td>
+                    <td class="residual_value">担保品可用价值</td>
                     <td class="owner">所有者</td>
                 </tr>
                 <tr class="colInfo_title_val" ng-repeat="coll in collList">
@@ -147,7 +147,7 @@
       <div class="cusTitle clearfix"> 
          <p class="title fl">业务信息</p>
          <p class="rates fl">
-          <span class="integrity_rate">完整率&nbsp;：&nbsp</span><span class="rate">90%</span>
+          <span class="integrity_rate ">完整率&nbsp;：&nbsp</span><span class="rate factotalrate"></span>
         </p>
          <a href="javascript:;" class="more next" target="_blank">详情</a>
       </div>
@@ -158,7 +158,7 @@
             <span class="business">业务</span>
             <span class="credit_line">信贷额度</span>
             <span class="credit_maturity_date">授信到期日</span>
-            <span class="business_rate">利率</span>
+            <span class="business_rate">业务利率</span>
             <span class="interest_rate">罚息利率</span>
             
             <span class="guaranteed_amount ">担保连接金额</span>
@@ -169,13 +169,13 @@
           <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display">
             <div class="business_line clearfix " >
                <span class="credit_number " style="border-left:2px solid #d4d4d4">{{item.no}}</span>
-                <span class="business" style="border-bottom:1px solid #d4d4d4">{{item.mtFacCdDscp}}</span>
-                <span class="credit_line" style="border-bottom:1px solid #d4d4d4">{{item.lmtAppr}}</span>
-                <span class="credit_maturity_date" style="border-bottom:1px solid #d4d4d4">{{item.dtMaturity}}</span>
-                <span class="business_rate" style="border-bottom:1px solid #d4d4d4">{{item.mtRateTypRate}}%</span>
-                <span class="interest_rate" style="border-bottom:1px solid #d4d4d4">{{item.intRateInSuspense}}%</span>
+                <span class="business" >{{item.mtFacCdDscp}}</span>
+                <span class="credit_line" >{{item.lmtAppr}}</span>
+                <span class="credit_maturity_date" >{{item.dtMaturity}}</span>
+                <span class="business_rate" >{{item.mtRateTypRate}}%</span>
+                <span class="interest_rate" >{{item.intRateInSuspense}}%</span>
                 
-                <span class="guaranteed_amount guaranteed_amount_val" style="border-bottom:1px solid #d4d4d4">
+                <span class="guaranteed_amount guaranteed_amount_val" >
                   <div ng-show="{{item.marker}}== true">
                     <div class="col"  ng-click="toggle(1*($index+1))" style="color:red;">
                         {{item.chargeValue}}
@@ -187,7 +187,7 @@
                     </div>
                   </div>
                 </span>
-                <span class="account_balance account_balance_val" style="border-bottom:1px solid #d4d4d4">
+                <span class="account_balance account_balance_val">
                   <div ng-show="{{item.acctMarker}}== true">
                     <div class="acc" ng-click="toggle(2*($index+2))"  style="color:red;">
                       {{item.balance}}
@@ -199,7 +199,7 @@
                     </div>
                   </div>
                 </span>
-                <span class="status" style="border-bottom:1px solid #d4d4d4">     
+                <span class="status" >     
                       {{item.mtFacStsCdDscp}}
                 </span>
             </div>
@@ -210,8 +210,8 @@
                   <th>担保编号</th>
                   <th>担保种类</th>
                   <th>担保品价值</th>
-                  <th>担保品剩余价值</th>
-                  <th>担保链接金额</th>
+                  <th>担保品可用价值</th>
+                  <th>担保连接金额</th>
                   <th>所有者</th>
                 </tr>
                 <tr ng-repeat="coll in resColl" ng-show="coll.facId==item.id">
@@ -219,7 +219,7 @@
                   <td>{{coll.mtCollCatDscp}}</td>
                   <td>{{coll.collValue}}</td>
                   <td>{{coll.remainValue}}</td>
-                  <td>{{coll.chargeValue}}</td>
+                  <td style="color:red;">{{coll.chargeValue}}</td>
                   <td>{{coll.ownerCifNm}}</td>
                 </tr>
 
@@ -237,7 +237,7 @@
                   <th>还款周期</th>
                   <th>还款方式</th>
                   <th>到期日</th>
-                  <th>利率</th>
+                  <th>业务利率</th>
                   <th>罚息利率</th>
                   <th>账户余额（含拖欠）</th>
                   <th>拖欠本金</th>
@@ -252,8 +252,8 @@
                   <td>{{acct.mtRateTypRate}}%</td>
                   <td>{{acct.intRateInSuspense}}%</td>
                   <td>{{acct.outstdAmt}}</td>
-                  <td>{{acct.tardyCapitalAmt}}</td>
-                  <td>{{acct.tardyInterestAmt}}</td>
+                  <td style="color:red;">{{acct.tardyCapitalAmt}}</td>
+                  <td style="color:red;">{{acct.tardyInterestAmt}}</td>
                   <td>{{acct.purpose}}</td>
                 </tr>
               </table>
@@ -269,7 +269,7 @@
                 <div class="explainCon" id="explainCon">
                     <ul class="explainList clearFix">
                         <li ng-repeat="resli in resList" class="explainListLi" ng-mouseout="showPhotomcout($index)" ng-mouseover="showPhotomc($index)" ng-class="{'active':isActivemc($index)}">
-                            <span class="explainSec">{{resli.niName}}</span>
+                            <div class="explainSec">{{resli.niName}}</div>
                             <div class="explainListCon" ng-show="isActivemc($index)">
                                 <div  class="rightdirection"></div>  
 

@@ -83,7 +83,7 @@
     function loadImageCode(){
         var ssid = $("#ssid").val();
         
-        $.post("/sec/captcha/",{id:ssid},function (repJson,status) { 
+        $.post("/sec/secode/",{id:ssid},function (repJson,status) { 
             $("#imageCode").html('<img src="data:image/png;base64,' + repJson + '" />');
         });
 

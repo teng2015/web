@@ -13,11 +13,72 @@
 			var r = window.location.search.substr(1).match(reg);  //匹配目标参数
 			if (r!=null) return unescape(r[2]); return null; //返回参数值
 			} 
-		localStorage.ekey=getUrlParam('eKey');
-		localStorage.evalue=getUrlParam('eValue');
-		setTimeout(function (){
-			window.location.href="http://101.201.46.3:8080/page/index.html#/securitySet";
-		},2000);
+			var ekey=getUrlParam('eKey');
+			var evalue=getUrlParam('eValue');
+
+			
+			var eToken = localStorage.token;
+			console.log(eToken);
+			var bindJson = {
+				eKey:ekey,
+				eValue:evalue
+
+			};
+
+			if(eToken!=undefined){
+
+				if(ekey && evalue){
+				
+					ngCom.ngAjax({
+						url:"/sec/email/site/",
+						data:bindJson,
+						method:'put',
+						ngHttp:$http,
+						success:function(response){
+							if(response.result=='success'){
+
+								/*$('.layer').show();
+								$('.bind').html('重新绑定');
+								setTimeout(function (){
+									$('.layer').hide();
+								},3000);*/
+
+								setTimeout(function (){
+									window.location.href="http://101.201.46.3:8080/page/index.html#/securitySet";
+								},2000);
+							}
+							
+						},
+						error:function (data){
+							console.log(data);
+						},
+
+						errfn:function(data){
+							
+							console.log(data);
+							console.log(data.message);
+							
+							
+						}
+					});
+
+				}else if(eKey){
+				
+				/*ngCom.ngAjax({
+					url:"/sec/email/link/",
+					data:json,
+					method:'post',
+					ngHttp:$http,
+					success:function(response){},
+					error:function (){}
+				});*/
+
+				}
+			}else{
+				
+				window.location.href="/index.html";
+			}
+		
 		
 	});
 	</script>
