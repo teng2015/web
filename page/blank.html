@@ -4,86 +4,48 @@
 	<meta charset="UTF-8">
 	<title>邮箱绑定空白页取参数</title>
 	<script src="../js/libs/jquery.js"></script>
-	
-	<script type="text/javascript">
-	$(function (){
-		function getUrlParam(name)
-			{
-			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-			var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-			if (r!=null) return unescape(r[2]); return null; //返回参数值
-			} 
-			var ekey=getUrlParam('eKey');
-			var evalue=getUrlParam('eValue');
+	<script src="../js/libs/angular.js"></script>
+	<script src="../js/ng/ngAjax.js"></script>
+	<script src="../js/ng/ngBlank.js"></script>
+	<script src="../js/libs/angular-route.js"></script>
 
-			
-			var eToken = localStorage.token;
-			console.log(eToken);
-			var bindJson = {
-				eKey:ekey,
-				eValue:evalue
-
-			};
-
-			if(eToken!=undefined){
-
-				if(ekey && evalue){
-				
-					ngCom.ngAjax({
-						url:"/sec/email/site/",
-						data:bindJson,
-						method:'put',
-						ngHttp:$http,
-						success:function(response){
-							if(response.result=='success'){
-
-								/*$('.layer').show();
-								$('.bind').html('重新绑定');
-								setTimeout(function (){
-									$('.layer').hide();
-								},3000);*/
-
-								setTimeout(function (){
-									window.location.href="http://101.201.46.3:8080/page/index.html#/securitySet";
-								},2000);
-							}
-							
-						},
-						error:function (data){
-							console.log(data);
-						},
-
-						errfn:function(data){
-							
-							console.log(data);
-							console.log(data.message);
-							
-							
-						}
-					});
-
-				}else if(eKey){
-				
-				/*ngCom.ngAjax({
-					url:"/sec/email/link/",
-					data:json,
-					method:'post',
-					ngHttp:$http,
-					success:function(response){},
-					error:function (){}
-				});*/
-
-				}
-			}else{
-				
-				window.location.href="/index.html";
-			}
-		
-		
-	});
-	</script>
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/blank.css">
 </head>
 <body>
-	
+	<div class="container" ng-app="blank" ng-controller="blankController">
+
+		<div class="head">
+			<div class="logo fl"><a href="index.html" title="炼金台客户风险视图" target="_top"><img src="../images/logo.png" alt="炼金台客户风险视图"></a></div>
+		</div>
+
+		<div class="line"></div>
+
+		<div class="center">
+			<div class="bindSuccess">
+				<div class="bindImg"><img src="../images/bindsuccess.png"></div>
+				<div class="bindRight">
+					<p class="p_sucess">恭喜您，绑定成功！！！</p>
+					<p class="p_txt">您已绑定邮箱：<span class="bindEmail">XXX.qq.com</span></p>
+					<p class="p_href"><a href="javascript:;" class="jump">立即跳转</a> &nbsp; (5s)  &nbsp; 炼金台</p>
+				</div>
+			</div>
+
+			<div class="bindFail">
+				<div class="bindImg"><img src="../images/bindfails.png"></div>
+				<div class="bindFailRight">
+					<p class="p_sucess">抱歉！！连接已失效！！</p>
+					
+					<p class="p_href">请，重新登录炼金台<a href="javascript:;" class="bindLogin">立即登录</a></p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="footer">
+              <span>CopyRight &copy; 2016</span><span>版权所有</span><span>北京海恩炼鑫台</span><span>京ICP备14056262号</span><span class="padding_left_20">问题反馈：service@lianjintai.com</span><span>客服电话：400-890-7756</span> 
+        </div>
+		
+	</div>
 </body>
 </html>

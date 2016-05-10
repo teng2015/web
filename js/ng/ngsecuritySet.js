@@ -11,8 +11,14 @@ angular.module('securitySet',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
-				/*var emailTxt = response.emailAddr;
-				$('.bind').html('重绑');*/
+				
+				$('.bind').html('重绑');
+
+				$('.layer').show();
+				setTimeout(function (){
+					$('.layer').hide();
+				},3000);
+				
 			},
 			error:function (data){
 

@@ -16,6 +16,19 @@ angular.module('welcome',['ngRoute'])
 			},
 			
 		});
+
+		ngCom.ngAjax({
+			url:"/sec/email/bind_status/",
+			method:'get',
+			ngHttp:$http,
+			success:function(response){
+				$('.bindTxt').hide();
+				
+			},
+			error:function (data){
+
+			}
+		});
 		
 	})
 	.config(['$routeProvider',function($routeProvider){

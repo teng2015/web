@@ -112,22 +112,6 @@ angular.module('viewApp',['ngRoute'])
 		
 		});
 
-		/*居住地址*/
-		/*ngCom.ngAjax({
-		url:"/cif/addrs/?cif_id="+id+"&mtTenantId=1",
-		method:'get',
-		ngHttp:$http,
-		success:function(response){
-			
-			
-			
-		},
-		error:function (error_data){
-			console.log(error_data);
-		}
-		
-		});*/
-
 		/*客户信息*/
 
 		ngCom.ngAjax({
@@ -149,7 +133,7 @@ angular.module('viewApp',['ngRoute'])
 		});
 
 		/*担保信息*/
-		console.log(collUrl);
+		
 		ngCom.ngAjax({
 			url:collUrl,
 			method:'get',
@@ -182,6 +166,47 @@ angular.module('viewApp',['ngRoute'])
 				$scope.resJson = response.facList;;
 				$scope.resColl = response.collList;
 				$scope.resAcct = response.acctList;
+				//信贷总额度
+				var summarylmtApprAllAmt = 0;
+				//账户总余额
+				var summaryOutstdAmtAll = 0;
+				//担保连接总金额
+				var summaryChargeValue = 0;
+				//
+				var summaryCollValue = 0;
+				//
+				var summaryRemainValue = 0;
+				
+				angular.forEach($scope.resJson, function(data){
+				
+				summarylmtApprAllAmt += parseInt(data.lmtAppr);
+				$scope.summarylmtApprAllAmt = summarylmtApprAllAmt;
+				
+				});
+				angular.forEach($scope.resAcct, function(data){
+				
+				summaryOutstdAmtAll += parseInt(data.outstdAmt);
+				$scope.summaryOutstdAmtAll = summaryOutstdAmtAll;
+				
+				});
+				angular.forEach($scope.resColl, function(data){
+				
+				summaryChargeValue += parseInt(data.chargeValue);
+				$scope.summaryChargeValue = summaryChargeValue;
+				
+				});
+				angular.forEach($scope.resColl, function(data){
+				
+				summaryCollValue += parseInt(data.collValue);
+				$scope.summaryCollValue = summaryCollValue;
+				
+				});
+				angular.forEach($scope.resColl, function(data){
+				
+				summaryRemainValue += parseInt(data.remainValue);
+				$scope.summaryRemainValue = summaryRemainValue;
+				
+				});
 
 			},
 			error:function (error_data){
