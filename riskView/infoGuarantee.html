@@ -5,8 +5,13 @@
 	<title>担保信息</title>
 	<link rel="stylesheet" href="../css/base.css">
 	<link rel="stylesheet" href="../css/infoGuarantee.css">
+	<script src="../js/libs/angular.js"></script>
+	<script src="../js/ng/ngGuarantee.js"></script>
+	<script src="../js/libs/angular.js"></script>
+	<script src="../js/libs/angular-route.js"></script>
+	<script src="../js/ng/ngAjax.js"></script>
 </head>
-<body>
+<body ng-app="guarApp" ng-controller="guarController">
 	<div class="layOut shadow"> 
 	  <!--  头  -->
 	  <ul class="top">
@@ -30,6 +35,7 @@
 	    </tr>
 
 	    <tr>
+	    <!-- <tr>
     	<td>PR/2019/000189</td><td>房产</td><td>商业用房</td><td>0000001</td><td>3,200,000.00</td><td>2,140,000.00</td><td>王蔓</td>
     </tr>
 
@@ -38,23 +44,28 @@
     </tr>
     <tr>
     	<td>PR/2018/001785</td><td>房产</td><td>商业用房</td><td>0000003</td><td>2,000,000.00</td><td>1,580,000.00</td><td>王蔓</td>
+    </tr> -->
+    <tr ng-repeat="coll in collList">
+    	<td>{{coll.no}}</td>
+    	<td>{{coll.mtCollTypDscp}}</td>
+    	<td>{{coll.mtCollCatDscp}}</td>
+    	<td>{{coll.colIdNo}}</td>
+        <td>{{coll.colValue}}</td>
+        <td>{{coll.colAvailValue}}</td>
+        <td>{{coll.ownerCifNm}}</td>     
     </tr>
 	  </table>
 	  
 	  <!--  担保详情  -->
 	  <div class=" guarantee_detail"> 
-	  
 	  	<p class="title"><strong><a href="javascript:;">担保详情</a></strong></p>
-	  
-	  
 	  </div>
 	  
 	  <div id="col_detail">
 	  </div>
-	  
-	  
 	  <!--  详情信息块 1  -->
-	  <div class="detail_son_long mt_10"> <strong><a href="javascript:;">1　房产(PR/2019/000189)</a></strong><i><a href="info_business.htm">更多</a></i> </div>
+	  <div class="detail_son_long mt_10"> <strong><a href="javascript:;">1　房产(PR/2019/000189)</a></strong>
+	  <i><a href="info_business.htm">更多</a></i> </div>
 	  <table class="yewu_list_son_long">
 	    <tr>
 	      <th>房产证号</th>
@@ -81,6 +92,18 @@
 	      <td></td>
 	      <td></td>
 	      <td></td>
+	    <tr ng-repeat="coll in collList">
+	      <td>{{coll.houseNo}}</td>
+	      <td>{{coll.buildingName}}</td>
+	      <td>{{coll.country}}</td>
+	      <td>{{coll.location}}</td>
+	      <td>{{coll.colValue}}</td>
+	      <td>{{coll.date}}</td>
+	      <td>{{coll.buyprice}}</td>
+	      <td>{{coll.houseArea}}</td>
+	      <td>{{coll.landWay}}</td>
+	      <td>{{coll.landUse}}</td>
+	      <td>{{coll.landArea}}</td>
 	    </tr>
 	  </table> 
 	  </div>

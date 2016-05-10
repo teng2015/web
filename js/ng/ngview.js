@@ -339,42 +339,15 @@ angular.module('viewApp',['ngRoute'])
 			$(this).parents('.business_line').next('.this_div').next('.this_div').hide();
 		});
 
-		/*业务信息*/
+		/* 担保信息 5.9*/
+			$('.collMore').click(function (){
+			if(isHistory == 'Y'){
+				window.location.href="infoGuarantee.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y";
+			}else{
+				window.location.href="infoGuarantee.html?id="+id;
 
-		/*ngCom.ngAjax({
-			
-			url:"/col/facChrgs/list?cifId="+id+"&mtTenantId=1",
-			method:'get',
-			ngHttp:$http,
-			success:function(response){	
-				$scope.resJson = response.facList;;
-				$scope.resColl = response.collList;
-				$scope.resAcct = response.acctList;
-				//隔行变色
-				
-					
-				var $line_a = $('.busInfo').find('.business_line');
-				console.log($line_a);
-				$line_a.each(function (i,ele){
-					
-					if(i%2==0){
-						$('.business_line').eq(i).addClass("two");
-					
-					}else{
-						
-						$('.business_line').eq(i).addClass("one");
-						
-					}
-
-				});
-					
-
-			},
-			error:function (error_data){
-				console.log(error_data);
 			}
-			
-		});*/
+		});
 		$scope.toggle = function(dis) {
 			  if ($scope.display!=dis) {
 				  $scope.display=dis;
