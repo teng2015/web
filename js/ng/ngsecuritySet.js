@@ -11,13 +11,13 @@ angular.module('securitySet',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
-				if(response.bindStatus!='null'){
+				if(response.bindStatus!=null){
 					$('.bind').html('已绑定');
-
-					$('.layer').show();
+					$('.em_state_status').attr('src','../images/yes.png');
+					/*$('.layer').show();
 					setTimeout(function (){
 						$('.layer').hide();
-					},3000);
+					},3000);*/
 				}
 				
 				
@@ -152,8 +152,7 @@ angular.module('securitySet',['ngRoute'])
 			},
 			errfn:function(data){
 				
-				console.log(data);
-				console.log(data.message);
+				
 				$('.errMsg').empty().html(data.message).show();
 				loadImageCode();
 			}
