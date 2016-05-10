@@ -39,8 +39,8 @@
     	<td>{{coll.mtCollTypDscp}}</td>
     	<td>{{coll.mtCollCatDscp}}</td>
     	<td>{{coll.colIdNo}}</td>
-        <td>{{coll.colValue}}</td>
-        <td>{{coll.colAvailValue}}</td>
+        <td>{{coll.collValue}}</td>
+        <td>{{coll.remainValue}}</td>
         <td>{{coll.ownerCifNm}}</td>     
     </tr>
 	  </table>
@@ -54,7 +54,7 @@
 	  </div>
 	  <!--  详情信息块 1  -->
 	  <div class="detail_son_long mt_10"> <strong><a href="javascript:;">1　房产(PR/2019/000189)</a></strong>
-	  <i><a href="info_business.htm">更多</a></i> </div>
+	  <i><a href="info_business.htm"></a></i> </div>
 	  <table class="yewu_list_son_long">
 	    <tr>
 	      <th>房产证号</th>
@@ -72,14 +72,14 @@
 	    <tr ng-repeat="coll in collDetailList">
 	      <td>{{coll.propertyNo}}</td>
 	      <td>{{coll.buildingNm}}</td>
-	      <td>{{coll.country}}</td>
+	      <td>{{coll.mtCtryCd}}</td>
 	      <td>{{coll.addrLine}}</td>
-	      <td>{{coll.colValue}}</td>
+	      <td>{{coll.collValue}}</td>
 	      <td>{{coll.dtPurchased}}</td>
-	      <td>{{coll.buyprice}}</td>
-	      <td>{{coll.houseArea}}</td>
-	      <td>{{coll.landWay}}</td>
-	      <td>{{coll.landUse}}</td>
+	      <td>{{coll.purchasedPrc}}</td>
+	      <td>{{coll.builtUpArea}}</td>
+	      <td>{{coll.mtLandAcquireMtdCd}}</td>
+	      <td>{{coll.mtLandUseCd}}</td>
 	      <td>{{coll.landArea}}</td>
 	    </tr>
 	  </table> 
