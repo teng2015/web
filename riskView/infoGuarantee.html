@@ -18,7 +18,7 @@
 	    <li class="t_logo"><img src="../images/logo.gif" width="138" height="52"></li>
 	    <li class="t_title">客户风险视图</li>
 	    <li class="t_date">服务热线：400-890-7756<br>
-	2016年03月11日 16时38分06秒</li>  </ul>
+	2016年03月11日 16时38分06秒</li><li>{{dt1 | date:'yyyy-MM-dd HH:mm:ss'}}{{dt2}}</li></ul>
 	  
 	  <!--  业务信息 1  -->
 	  <div class=" mod_title"> <strong><a href="javascript:;">担保信息 </a></strong><i><!--<a href="info_business.htm">更多</a>--></i> </div>
@@ -33,18 +33,7 @@
 	      <th>担保品可用价值</th>
 	      <th>所有者</th>
 	    </tr>
-
 	    <tr>
-	    <!-- <tr>
-    	<td>PR/2019/000189</td><td>房产</td><td>商业用房</td><td>0000001</td><td>3,200,000.00</td><td>2,140,000.00</td><td>王蔓</td>
-    </tr>
-
-    <tr>
-    	<td>GR/2018/001317</td><td>保证</td><td>个人保证人</td><td>0000002</td><td>500,000.00</td><td>225,000.00</td><td>个贷01</td>
-    </tr>
-    <tr>
-    	<td>PR/2018/001785</td><td>房产</td><td>商业用房</td><td>0000003</td><td>2,000,000.00</td><td>1,580,000.00</td><td>王蔓</td>
-    </tr> -->
     <tr ng-repeat="coll in collList">
     	<td>{{coll.no}}</td>
     	<td>{{coll.mtCollTypDscp}}</td>
@@ -80,25 +69,13 @@
 	      <th>土地用途</th>
 	      <th>土地面积</th>
 	    </tr>
-	    <tr>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	      <td></td>
-	    <tr ng-repeat="coll in collList">
-	      <td>{{coll.houseNo}}</td>
-	      <td>{{coll.buildingName}}</td>
+	    <tr ng-repeat="coll in collDetailList">
+	      <td>{{coll.propertyNo}}</td>
+	      <td>{{coll.buildingNm}}</td>
 	      <td>{{coll.country}}</td>
-	      <td>{{coll.location}}</td>
+	      <td>{{coll.addrLine}}</td>
 	      <td>{{coll.colValue}}</td>
-	      <td>{{coll.date}}</td>
+	      <td>{{coll.dtPurchased}}</td>
 	      <td>{{coll.buyprice}}</td>
 	      <td>{{coll.houseArea}}</td>
 	      <td>{{coll.landWay}}</td>
