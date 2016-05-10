@@ -84,6 +84,9 @@ angular.module('securitySet',['ngRoute'])
 
 	/*点击提交*/
 	//$scope.aa = true;
+	$('#yzmimg').focus(function(){
+		$('.errMsg').hide();
+	});
 
 	$('.sub').click(function (){
 		//console.log(2);
