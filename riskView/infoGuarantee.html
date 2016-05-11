@@ -28,7 +28,6 @@
 	      <th>担保类型</th>
 	      <th>担保种类</th>
 	      <th>唯一编号</th>
-	      <!-- <th>担保品折扣系数</th> -->
 	      <th>担保品价值</th>
 	      <th>担保品可用价值</th>
 	      <th>所有者</th>
@@ -39,8 +38,8 @@
     	<td>{{coll.mtCollTypDscp}}</td>
     	<td>{{coll.mtCollCatDscp}}</td>
     	<td>{{coll.colIdNo}}</td>
-        <td>{{coll.colValue}}</td>
-        <td>{{coll.colAvailValue}}</td>
+        <td>{{coll.collValue}}</td>
+        <td>{{coll.remainValue}}</td>
         <td>{{coll.ownerCifNm}}</td>     
     </tr>
 	  </table>
@@ -52,37 +51,58 @@
 	  
 	  <div id="col_detail">
 	  </div>
-	  <!--  详情信息块 1  -->
-	  <div class="detail_son_long mt_10"> <strong><a href="javascript:;">1　房产(PR/2019/000189)</a></strong>
-	  <i><a href="info_business.htm"></a></i> </div>
-	  <table class="yewu_list_son_long">
+	  <div ng-repeat="collDetail in collList">
+	  	<!--  详情信息块 1  -->
+		  <div class="detail_son_long mt_10"> <strong><a href="javascript:;">{{$index + 1}}　{{collDetail.mtCollTypDscp}}({{collDetail.no}})</a></strong>
+		  <i><a href="info_business.htm"></a></i> </div>
+		  <table class="yewu_list_son_long" ng-show="{{collDetail.mtCollTypDscp=='房产'}}">
+		    <tr >
+		      <th>房产证号</th>
+		      <th>建筑物名称</th>
+		      <th>国家</th>
+		      <th>所在位置</th>
+		      <th>担保品价值</th>
+		      <th>购买日期</th>
+		      <th>购买价格</th>
+		      <th>房产面积</th>
+		      <th>土地取得方式</th>
+		      <th>土地用途</th>
+		      <th>土地面积</th>
+		    </tr>
+		    <tr ng-repeat="coll in collDetailList">
+		      <td>{{coll.propertyNo}}</td>
+		      <td>{{coll.buildingNm}}</td>
+		      <td>{{coll.mtCtryCd}}</td>
+		      <td>{{coll.addrLine}}</td>
+		      <td>{{coll.collValue}}</td>
+		      <td>{{coll.dtPurchased}}</td>
+		      <td>{{coll.purchasedPrc}}</td>
+		      <td>{{coll.builtUpArea}}</td>
+		      <td>{{coll.mtLandAcquireMtdCd}}</td>
+		      <td>{{coll.mtLandUseCd}}</td>
+		      <td>{{coll.landArea}}</td>
+		    </tr>
+	  </table> 
+	  <!--  详情信息块 2  -->
+	  <table class="yewu_list_son_long" ng-show="{{collDetail.mtCollTypDscp=='保证'}}">
 	    <tr>
-	      <th>房产证号</th>
-	      <th>建筑物名称</th>
-	      <th>国家</th>
-	      <th>所在位置</th>
-	      <th>担保品价值</th>
-	      <th>购买日期</th>
-	      <th>购买价格</th>
-	      <th>房产面积</th>
-	      <th>土地取得方式</th>
-	      <th>土地用途</th>
-	      <th>土地面积</th>
+	      <th>保证人名称</th>
+	      <th>证件号码</th>
+	      <th>担保价值</th>
+	      <th>保证开始日期</th>
+	      <th>保证到期日</th>
+	      <th>是否阶段担保</th>
 	    </tr>
 	    <tr ng-repeat="coll in collDetailList">
-	      <td>{{coll.propertyNo}}</td>
-	      <td>{{coll.buildingNm}}</td>
-	      <td>{{coll.mtCtryCd}}</td>
-	      <td>{{coll.addrLine}}</td>
+	      <td>{{coll.ownerCifNm}}</td>
+	      <td>{{coll.idCard}}</td>
 	      <td>{{coll.collValue}}</td>
-	      <td>{{coll.dtPurchased}}</td>
-	      <td>{{coll.purchasedPrc}}</td>
-	      <td>{{coll.builtUpArea}}</td>
-	      <td>{{coll.mtLandAcquireMtdCd}}</td>
-	      <td>{{coll.mtLandUseCd}}</td>
-	      <td>{{coll.landArea}}</td>
+	      <td>{{coll.grteeDt}}</td>
+	      <td>{{coll.grteeDtMaturity}}</td>
+	      <td>{{coll.isGrteePeriodically}}</td>
 	    </tr>
-	  </table> 
+	  </table>
+	  </div>
 	  </div>
 </body>
 </html>

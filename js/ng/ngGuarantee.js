@@ -37,7 +37,7 @@ angular.module('guarApp',['ngRoute'])
 			}
 		});
 
-		/*担保详情*/
+		/*担保详情1*/
 		ngCom.ngAjax({
 			url:collDetailUrl,
 			method:'get',
@@ -50,8 +50,9 @@ angular.module('guarApp',['ngRoute'])
 			}
 		});
 
-
-	}).config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
+		
+	})
+	.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
 		$httpProvider.defaults.headers.common['Authorization'] = localStorage.token; //注入 httpProvider 设置请求头token
 		
 	}]);
