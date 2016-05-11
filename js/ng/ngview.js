@@ -24,6 +24,7 @@ angular.module('viewApp',['ngRoute'])
 			emplymtUrl = "/cif/cs_cif_emps/?cs_cif_Id="+csCifId+"&mtTenantId=1";
 			addrUrl = "/cif/cs_cif_addrs/?cs_cif_id="+csCifId+"&mtTenantId=1";
 			collUrl = "/col/cs_colls/cs_cif/"+appId+"?mtTenantId=1";
+			ratingUrl = "/cif/cs_cif_ratings/?cs_cif_id="+csCifId+"&mtTenantId=1";
 		} else {
 			facUrl = "/col/facChrgs/list?cifId="+id+"&mtTenantId=1";
 			cifUrl = "/cif/cifs/"+id+"?mtTenantId=1";
@@ -31,6 +32,7 @@ angular.module('viewApp',['ngRoute'])
 			emplymtUrl = "/cif/emps/?cif_id="+id+"&mtTenantId=1";
 			addrUrl = "/cif/addrs/"+id+"?mtTenantId=1";
 			collUrl = "/col/coll/list?cifId="+id+"&mtTenantId=1";
+			ratingUrl = "/cif/ratings/?cif_id="+id+"&mtTenantId=1";
 		}
 		/*姓名 身份证*/
 		ngCom.ngAjax({
@@ -124,6 +126,8 @@ angular.module('viewApp',['ngRoute'])
 				$scope.mtGenderCdDscp= response.mtGenderCdDscp;
 				$scope.mtEduLvlCdDscp= response.mtEduLvlCdDscp;
 				$scope.householdFixAssetAmt= response.householdFixAssetAmt;
+				$scope.householdMonthlyIncAmt= response.householdMonthlyIncAmt;
+				
 				
 			},
 			error:function (error_data){
@@ -133,19 +137,67 @@ angular.module('viewApp',['ngRoute'])
 		});
 
 		/*担保信息*/
-		
+		var collTr = '';
+		var collTxtTr = '<tr class="colInfo_title">'+
+                    '<td class="guarantee_number">担保编号</td>'+
+                    '<td class="guarantee_type">担保类型</td>'+
+                    '<td class="guarantee_types">担保种类</td>'+
+                    '<td class="id_num">唯一识别号码</td>'+
+                    '<td class="guaranteed_discount">担保品折扣系数</td>'+
+                    '<td class="collateral_value">担保品价值</td>'+
+                    '<td class="residual_value">担保品可用价值</td>'+
+                    '<td class="owner">所有者</td>'+
+                	'</tr>';
 		ngCom.ngAjax({
 			url:collUrl,
 			method:'get',
 			ngHttp:$http,
 			success:function(response){	
-				console.log(response);
-				$scope.collList = response;
+				
+				/*$scope.collList = response;*/
+				
+				$.each(response,function (i,ele){
+					collTr+='<tr class="colInfo_title_val">'+
+                    '<td class="guarantee_number">'+ele.no+'</td>'+
+                    '<td class="guarantee_type">'+ele.mtCollTypDscp+'</td>'+
+                    '<td  class="guarantee_types">'+ele.mtCollCatDscp+'</td>'+
+                    '<td class="id_num">'+ele.colIdNo+'</td>'+
+                    '<td class="guaranteed_discount">'+ele.safetyFactor+'%</td>'+
+                    '<td class="collateral_value">'+ele.collValue+'</td>'+
+                    '<td class="residual_value">'+ele.remainValue+'</td>'+
+                    '<td class="owner">'+ele.ownerCifNm+'</td>'+
+                '</tr>';
+				});
+				
+               
+                var trHtml=collTxtTr+collTr;
+                
+                $('.collTbody').html(trHtml);
 			},
 			error:function (error_data){
 				console.log(error_data);
 			}
 			
+		});
+
+		/*用户评级*/
+		ngCom.ngAjax({
+			
+			url:ratingUrl,
+			method:'get',
+			ngHttp:$http,
+			success:function(response){
+				
+			$scope.score= response.score;
+			$scope.dtRated= response.dtRated.substr(0,10);
+			$scope.rating= response.rating;
+
+				
+			},
+			error:function (error_data){
+				console.log(error_data);
+			}
+		
 		});
 		/*业务信息*/
 		
@@ -250,6 +302,7 @@ angular.module('viewApp',['ngRoute'])
 									/*客户职业信息资源*/
 									$scope.mtPosHeldCdStatus = response.mtPosHeldCdDscp;
 									$scope.employerCifNmStatus = response.employerCifNm;
+									$scope.householdMonthlyIncAmtStatus= response.householdMonthlyIncAmt;
 				
 									},
 									error:function (error_data){
@@ -301,6 +354,7 @@ angular.module('viewApp',['ngRoute'])
 									/*客户职业信息资源*/
 									$scope.mtPosHeldCdStatus = response.mtPosHeldCdDscp;
 									$scope.employerCifNmStatus = response.employerCifNm;
+									$scope.householdMonthlyIncAmtStatus= response.householdMonthlyIncAmt;
 				
 									},
 									error:function (error_data){

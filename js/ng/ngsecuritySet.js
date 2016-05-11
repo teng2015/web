@@ -13,6 +13,8 @@ angular.module('securitySet',['ngRoute'])
 			success:function(response){
 				if(response.bindStatus!=null){
 					$('.bind').html('已绑定');
+					$('.bind').unbind("click");
+					$('.bind').css('color','#000');
 					$('.em_state_status').attr('src','../images/yes.png');
 					/*$('.layer').show();
 					setTimeout(function (){
@@ -26,6 +28,12 @@ angular.module('securitySet',['ngRoute'])
 			error:function (data){
 
 			}
+		});
+		/*点击安全设置显示界面（隐藏绑定邮箱界面）*/
+		$('.menu_child').click(function (){
+			$('.security').show();
+			$('.secShow').hide();
+			$('.bindEmail').hide();
 		});
 		
 		function guid() {
@@ -129,7 +137,7 @@ angular.module('securitySet',['ngRoute'])
 
 					},1000);
 					var emailInputVal=$('#emailName').val();
-					var str = emailInputVal.substr(0,4);
+					var str = emailInputVal.substr(0,3);
 					var at = emailInputVal.indexOf('@');
 					var changestr = emailInputVal.substr(at);
 					/*console.log(str+'**');
@@ -137,7 +145,7 @@ angular.module('securitySet',['ngRoute'])
 					console.log(str+'**'+changestr);*/
 					
 
-					$('.secEmailTxt').html(str+'**'+changestr);
+					$('.secEmailTxt').html(str+'***'+changestr);
 					
 
 				}
