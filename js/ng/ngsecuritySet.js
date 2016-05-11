@@ -86,6 +86,8 @@ angular.module('securitySet',['ngRoute'])
 
 			$('.showTxt').html("请正确填写邮箱");
 			
+		}else if(reMail.test(sText)==null){
+			$('.showTxt').html("邮箱不能为空");
 		}else{
 			$('.showTxt').html("邮箱正确");
 		}
@@ -100,13 +102,15 @@ angular.module('securitySet',['ngRoute'])
 	});
 
 	$('.sub').click(function (){
+
 		//console.log(2);
+		$('.yzm_a').unbind('click');
 		var json = {
 			emailAddr:$('#emailName').val(),
 			authCode: $('#yzmimg').val(),
 			ssid:$('#ssid').attr("value")
 		};
-		
+		if($('#emailName').val()){
   		ngCom.ngAjax({
 			url:"/sec/email/link/",
 			data:json,
@@ -153,31 +157,45 @@ angular.module('securitySet',['ngRoute'])
 			},
 			error:function(data){
 
-				console.log(data);
+				/*console.log(data);
 				console.log(data.message);
 				$('.errMsg').empty().html(data.message).show();
-				loadImageCode();
+				loadImageCode();*/
 			},
 			errfn:function(data){
 				
 				
 				$('.errMsg').empty().html(data.message).show();
+				$('.yzm_a').click(function (){
+
+					loadImageCode();
+
+				});
 				loadImageCode();
 			}
 		
 		});
+	}else{
+		$('.showTxt').html("邮箱不能为空");	
+	}
 
 	});
 
 	
 	$('.button').click(function (){
+		loadImageCode();
+		$('.yzm_a').click(function (){
+
+			loadImageCode();
+
+		});
 		
 		$('.secShow').hide();
 		$('.bindEmail').show();
 		$('#emailName').val('');
 		$('#yzmimg').val('');
 		$('.showTxt').html('');
-		loadImageCode();
+		
 		
 		
 	});

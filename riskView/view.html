@@ -65,7 +65,7 @@
              <p class="rates fl">
             <span class="integrity_rate ">完整率&nbsp;：&nbsp</span><span class="rate ciftotalrate"></span>
           </p>
-             <a href="infoAccount.html" class="more Customer_information"  target="_blank">详情</a>
+             <a class="more Customer_information">详情</a>
         </div>
 
         <table class="cusMes">
@@ -114,7 +114,8 @@
           <p class="rates fl">
             <span class="integrity_rate ">完整率&nbsp;：&nbsp</span><span class="rate colltotalrate"></span>
           </p>
-          <a href="javascript:;" class="more collMore" target="_blank" >详情</a>
+        	
+          <a class="more collMore">详情</a>
         </div>
         <table>
         	<tbody class="collTbody">
@@ -149,7 +150,7 @@
          <p class="rates fl">
           <span class="integrity_rate ">完整率&nbsp;：&nbsp</span><span class="rate factotalrate"></span>
         </p>
-         <a href="javascript:;" class="more next" target="_blank">详情</a>
+         <a class="more next">详情</a>
       </div>
       
       <div class="business_title clearfix">
@@ -219,7 +220,8 @@
                   <td>{{coll.mtCollCatDscp}}</td>
                   <td>{{coll.collValue}}</td>
                   <td>{{coll.remainValue}}</td>
-                  <td style="color:red;">{{coll.chargeValue}}</td>
+                  <td ng-show="{{item.marker}}== true" style="color:red;">{{coll.chargeValue}}</td>
+                  <td ng-show="{{item.marker}}== false" >{{coll.chargeValue}}</td>
                   <td>{{coll.ownerCifNm}}</td>
                 </tr>
 

@@ -9,14 +9,16 @@ angular.module('infoApp',['ngRoute'])
 			} 
 		var id = getUrlParam('id');
 		var isHistory = getUrlParam('isHistory');
-		var nextId = getUrlParam('nextId');
+		
+		var csCifId = getUrlParam("csCifId");
+
 		if(isHistory == 'Y'){
-			cifUrl = "/cif/cs_cifs/"+id+"?mtTenantId=1";
-			indvUrl = "/cif/csCifIndv/getCsCifIndvByCifId?csCifId="+ $.getUrlParam('csCifId') +"&mtTenantId=" + $.getUrlParam('mtTenantId');
-			emplymtUrl = "/cif/csCifEmplymt/getCsCifEmplymtByCifId?csCifId="+ $.getUrlParam('csCifId') +"&mtTenantId=" + $.getUrlParam('mtTenantId');
-			addrUrl = "/cif/csCifAddr/getCsCifAddrByCifId?csCifId="+ $.getUrlParam('csCifId') +"&mtTenantId=" + $.getUrlParam('mtTenantId');
-			ratingUrl = "/cif/csCifRating/getCsCifRatingByCifid?csCifId="+ $.getUrlParam('csCifId') +"&mtTenantId=" + $.getUrlParam('mtTenantId');
-			conflictUrl = "/cif/conflict/cs_cif_detail?current_cs_cif_id="+id+"&next_cs_cif_id="+nextId+"&mtTenantId=1";
+			cifUrl = "/cif/cs_cifs/detail/"+csCifId+"?mtTenantId=1";
+			indvUrl = "/cif/cs_cif_indvs/detail?cs_cif_id="+ csCifId +"&mtTenantId=1";
+			emplymtUrl = "/cif/cs_cif_emps/detail?cs_cif_Id="+ csCifId +"&mtTenantId=1";
+			addrUrl = "/cif/cs_cif_addrs/detail?cs_cif_id="+ csCifId +"&mtTenantId=1";
+			ratingUrl = "/cif/cs_cif_ratings/?cs_cif_id="+ csCifId +"&mtTenantId=1";
+			conflictUrl = "/cif/conflict/cs_cif_detail?current_cs_cif_id="+csCifId+"&mtTenantId=1";
 	    }else{
 		    cifUrl = "/cif/cifs/detail/"+id+"?mtTenantId=1";
 			indvUrl = "/cif/indvs/detail?cif_id="+id+"&mtTenantId=1";
