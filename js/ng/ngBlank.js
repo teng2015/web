@@ -35,10 +35,10 @@ angular.module('blank',['ngRoute'])
 									ngHttp:$http,
 									success:function(response){
 										var emailInputVal=response.emailAddr;
-										var str = emailInputVal.substr(0,4);
+										var str = emailInputVal.substr(0,3);
 										var at = emailInputVal.indexOf('@');
 										var changestr = emailInputVal.substr(at);
-										$('.bindEmail').html(str+'**'+changestr);
+										$('.bindEmail').html(str+'***'+changestr);
 									},
 									error:function (data){
 
