@@ -5,16 +5,16 @@
    
 }
 /*  顶部的信息  */
-.top{ width:1178px; height:50px; background:#ffffff; clear:both; border-bottom:1px #ffb112 solid; }
+.top{ width:1178px; height:50px; background:#ffffff; clear:both; border-bottom:1px #2792dd solid; }
 .top li{float:left; height:50px;line-height:50px; color:#ffffff; }
 .top li.t_logo{  width:178px; }
 .top li.t_title{ width:700px; font-size:28px; font-weight:bold;text-align:center; color:#333333;}
 .top li.t_date{ font-size:12px; width:300px; text-align:right; color:#666; line-height:18px; padding-top:5px;}
 /*  各大模块的TITLE   客户/业务/担保/   */
-.mod_title { width:1178px;  height:35px; border-bottom:4px solid #fc9846/*fe6409*/; margin-top:20px;}
+.mod_title { width:1178px;  height:35px; border-bottom:4px solid #2792dd; margin-top:20px;}
 .mod_title a {line-height:30px; height:30px; margin-top:5px; display:block;  }
 
-.mod_title strong{ width:100px; background-color:#fc9846;height:35px; border-radius:5px 5px 0px 0px; float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
+.mod_title strong{ width:100px; background-color:#1c86d1;height:35px; border-radius:5px 5px 0px 0px; float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
 .mod_title strong a{ width:100px; color:#fff; }
 .mod_title strong a:visited{ color:#fff; }
 .mod_title strong a:hover{ color:#fff; }
@@ -42,3 +42,10 @@
 .jobtd{border-bottom:0px; border-top:0px;}
 .fz_14{font-size:14px;}
 .fw_bold{font-weight:bold; }
+/*信用评级*/
+.info_account_rating{ width:1178px;clear:both; height:auto; overflow:hidden; background:#fafafa; border-bottom:1px solid #dddddd; margin-top:10px;}
+.credit_rating{width:130px;margin-top:40px;float:left;height:80px;font-size:16px; font-weight:bold;text-align:right;color:#333333; padding-right:30px;}
+.info_account_con_rating{float:left;width:86%; text-align:left;  color:#666666;margin-top:30px; margin-bottom:10px;}
+.info_account_con_rating li{width:98%;height:50px;margin:0 auto; line-height:50px;}
+.info_account_con_rating li div{width:32.6%;height:50px;float:left; text-align: center;line-height:50px;border-bottom:1px solid #dddddd;}
+.rating_title div{border:1px solid #dddddd;}

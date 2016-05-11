@@ -9,6 +9,10 @@ angular.module('welcome',['ngRoute'])
 		ngCom.ngAjax({
 			url:'/sec/loginhis/',
 			method:'get',
+
+			/*url: "/sec/userHis/get",
+			type: "get",
+			data:{time:new Date().getTime()},*/
 			ngHttp:$http,
 			success:function(data,status){
 				$scope.loginAcc = data.currLoginNumber; //登录次数

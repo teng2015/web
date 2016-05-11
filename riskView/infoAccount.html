@@ -33,7 +33,7 @@
 	      <table class="info_account_con ">
 	        <tr>
 	          <td id="nm" class="tab_gray jobwidth">{{nm}} <img src="../images/{{nmConflict}}.png" style="vertical-align:middle" />
-			  ({{mtCifIdTypCdDscp}})<img src="../images/{{mtCifIdTypCdDscpConflict}hb}.png" style="vertical-align:middle" /></td>
+			  ({{mtCifIdTypCdDscp}})<img src="../images/{{mtCifIdTypCdDscpConflicthb}}.png" style="vertical-align:middle" /></td>
 	          <td id="idNo">{{idNo}}<img src="../images/{{idNoConflict}}.png" style="vertical-align:middle" /></td>
 	          <td class="tab_gray">性别</td>
 	          <td id="mtGenderCd">{{mtGenderCdDscp}}<img src="../images/{{mtGenderCdDscpConflict}}.png" style="vertical-align:middle" /></td>
@@ -205,7 +205,7 @@
 	    </li>
 	  </ul>
 	  <!--  信息块  -->
-	  <ul class="info_account">
+	  <!-- <ul class="info_account">
 	    <li class="name">信用评级</li>
 	    <li class="content">
 	      <table class="info_account_con">
@@ -219,7 +219,26 @@
 	        </tr>
 	      </table>
 	    </li>
-	  </ul>
+	  </ul> -->
+	  <div class="info_account_rating">
+	    <div class="credit_rating">信用评级</div>
+	    <!-- <div class="content"> -->
+	      <ul class="info_account_con_rating">
+	        <!-- <tr>
+	          <td class="tab_gray jobwidth">客户评分</td>
+	          <td id="score" class="fw_bold fz_14">{{score}}<img src="../images/{{scoreConflict}}.png" style="vertical-align:middle" /></td>
+	          <td class="tab_gray">信用评级</td>
+	          <td id="rating" class="fw_bold fz_14">{{rating}}<img src="../images/{{ratingConflict}}.png" style="vertical-align:middle" /></td>
+	          <td class="tab_gray">评级日期</td>
+	          <td id="dtRated" class="fw_bold fz_14">{{dtRated}}<img src="../images/{{dtRatedConflict}}.png" style="vertical-align:middle" /></td>
+	        </tr> -->
+	        <li class="rating_title"><div class="tab_gray jobwidth">客户评分</div><div>信用评级</div><div class="tab_gray">评级日期</div></li>
+	        <li class="rating_li"><div>{{score}}</div><div>{{rating}}</div><div>{{dtRated}}</div></li>
+	        
+	      </ul>
+	    <!-- </div> -->
+	  </div>
+
 	</div>
 </body>
 </html>
