@@ -22,7 +22,7 @@ angular.module('welcome',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
-				if(response.bindStatus=='null'){
+				if(response.bindStatus==null){
 					$('.bindTxt').show();
 				}else{
 				$('.bindTxt').hide();

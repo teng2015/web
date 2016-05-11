@@ -6,10 +6,10 @@
 .se_grade .se_curr{background-color: #fe640a;}
 .se_grade .se_low ,.se_height{ border-radius:10%;}
 
-.pw_state{width: 90px;}
+.pw_state{width: 90px;height:46px;line-height: 46px;padding-top:4px;}
 .pw_font{width: 100px;}
 .pw_ct{width: 432px;}
-.em_state{width: 90px;}
+.em_state{width: 90px;height:46px;line-height: 46px;padding-top:4px;}
 .em_font{width: 100px;}
 .em_ct{width: 432px;}
 .em_fun,.pw_fun{width:100px;text-align: center; float:right;}

@@ -2,10 +2,11 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>邮箱绑定空白页取参数</title>
+	<title>空白页</title>
 	<script src="../js/libs/jquery.js"></script>
 	<script src="../js/libs/angular.js"></script>
 	<script src="../js/ng/ngAjax.js"></script>
+	<script src="../js/ng/ngIndex.js"></script>
 	<script src="../js/ng/ngBlank.js"></script>
 	<script src="../js/libs/angular-route.js"></script>
 
@@ -27,16 +28,25 @@
 				<div class="bindRight">
 					<p class="p_sucess">恭喜您，绑定成功！！！</p>
 					<p class="p_txt">您已绑定邮箱：<span class="bindEmail">XXX.qq.com</span></p>
-					<p class="p_href"><a href="javascript:;" class="jump">立即跳转</a> &nbsp; (5s)  &nbsp; 炼金台</p>
+					<p class="p_href"><a href="javascript:;" class="jump">立即跳转</a> &nbsp; (<span class="count_time">5</span>s)  &nbsp; 炼金台</p>
 				</div>
 			</div>
 
 			<div class="bindFail">
 				<div class="bindImg"><img src="../images/bindfails.png"></div>
 				<div class="bindFailRight">
-					<p class="p_sucess">抱歉！！连接已失效！！</p>
+					<p class="p_sucess p_sucess_tip">抱歉！！连接已失效！！</p>
+					<p class="p_txt p_txt_tip">请，重新发送绑定邮件</p>
+					<p class="p_href"><a href="javascript:;" class="bindLogin">立即登录</a> &nbsp;&nbsp; 炼金台</p>
+				</div>
+			</div>
+
+			<div class="bindFailTxt">
+				<div class="bindImg"><img src="../images/bindfails.png"></div>
+				<div class="bindFailRightTxt">
+					<p class="p_sucess">请，登录后点击激活链接</p>
 					
-					<p class="p_href">请，重新登录炼金台<a href="javascript:;" class="bindLogin">立即登录</a></p>
+					<p class="p_href"><a href="javascript:;" class="bindLogin">立即登录</a> &nbsp;&nbsp; 炼金台</p>
 				</div>
 			</div>
 		</div>
