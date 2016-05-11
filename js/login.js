@@ -102,6 +102,29 @@
 
     init();
 
+  /**                       
+   * 监控登录按钮回车事件                   
+   */
+  $(document).ready(function(){
+   // $("#divLogin").focus();
+    $("#yzmimg").focus();
+   // $("#loginPassWord").focus();
+   // $("#loginname").focus();
+    onkeydowns($("#loginname"));
+    onkeydowns($("#loginPassWord"));
+    onkeydowns($("#yzmimg"));
+    onkeydowns($("#divLogin"));
+  }); 
+
+  function onkeydowns(obj){
+    obj.keydown(function (e) { 
+      var keyCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode; 
+      if (keyCode == 13){ 
+        login();
+      } 
+    }); 
+  }
+
     //login
     function login(){
 

@@ -39,7 +39,7 @@
     <table class="userInfo">
     	<tbody>
             <tr>
-              <td class="credit_rating">信用评级：<span class="tab_txt_size">90分（AAA）</span></td>
+              <td class="credit_rating">信用评级：<span class="tab_txt_size">{{score}}分{{rating}}</span></td>
               <td class="id_card">身份证：<span id="summaryIdNo">{{idNo}}<img style="vertical-align:middle" src="../images/{{idNoStatus}}.png"/></span></td>
               
               <td class="addr">居住地址：<span id="mtCityCd">{{mtStateCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></span></td>
@@ -88,7 +88,7 @@
                     <td class="grey sex">月收入</td>
                     <td id="monthlyIncAmt" class="grey_val sex_val">{{monthlyIncAmt}}<img style="vertical-align:middle" src="../images/{{monthlyIncAmtStatus}}.png"/></td>
                     <td class="grey year">家庭月收入</td>
-                    <td id="householdMonthlyIncAmt" class="grey_val year_val">10K</td>
+                    <td id="householdMonthlyIncAmt" class="grey_val year_val">{{householdMonthlyIncAmt}}<img style="vertical-align:middle" src="../images/{{householdMonthlyIncAmtStatus}}.png"/></td>
 
                     <td class="grey idNo">固定资产</td>
                     <td id="householdFixAssetAmt" class="grey_val idNo_val">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></td>
@@ -117,8 +117,8 @@
           <a href="javascript:;" class="more collMore" target="_blank" >详情</a>
         </div>
         <table>
-        	<tbody>
-            	<tr class="colInfo_title">
+        	<tbody class="collTbody">
+            	<!-- <tr class="colInfo_title">
                     <td class="guarantee_number">担保编号</td>
                     <td class="guarantee_type">担保类型</td>
                     <td class="guarantee_types">担保种类</td>
@@ -127,8 +127,8 @@
                     <td class="collateral_value">担保品价值</td>
                     <td class="residual_value">担保品可用价值</td>
                     <td class="owner">所有者</td>
-                </tr>
-                <tr class="colInfo_title_val" ng-repeat="coll in collList">
+                </tr> -->
+                <!-- <tr class="colInfo_title_val" ng-repeat="coll in collList">
                     <td class="guarantee_number">{{coll.no}}</td>
                     <td class="guarantee_type">{{coll.mtCollTypDscp}}</td>
                     <td  class="guarantee_types">{{coll.mtCollCatDscp}}</td>
@@ -137,7 +137,7 @@
                     <td class="collateral_value">{{coll.collValue}}</td>
                     <td class="residual_value">{{coll.remainValue}}</td>
                     <td class="owner">{{coll.ownerCifNm}}</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>    
     </div>
@@ -154,7 +154,7 @@
       
       <div class="business_title clearfix">
       
-            <span class="credit_number" style="border-left:2px solid #d4d4d4">授信编号</span>
+            <span class="credit_number" style="border-left:1px solid #d4d4d4">授信编号</span>
             <span class="business">业务</span>
             <span class="credit_line">信贷额度</span>
             <span class="credit_maturity_date">授信到期日</span>
@@ -168,7 +168,7 @@
         
           <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display">
             <div class="business_line clearfix " >
-               <span class="credit_number " style="border-left:2px solid #d4d4d4">{{item.no}}</span>
+               <span class="credit_number " style="border-left:1px solid #d4d4d4">{{item.no}}</span>
                 <span class="business" >{{item.mtFacCdDscp}}</span>
                 <span class="credit_line" >{{item.lmtAppr}}</span>
                 <span class="credit_maturity_date" >{{item.dtMaturity}}</span>
