@@ -69,11 +69,11 @@
     	}
 
     }
-
-    $scope.loadImageCode=function (){
+    $('.yzm_a').click(function (){
 
        loadImageCode(); 
-    }
+    });
+   
 
     $scope.login=function (){
         
@@ -127,6 +127,7 @@
 
     //login
     function login(){
+      $('.yzm_a').unbind('click');
 
         var json =  JSON.stringify({
             userName:$('#loginname').attr("value"),
@@ -173,6 +174,10 @@
           },
           error: function (xhr, statusText, err) {
         	  var result = parseErrorJson(xhr.responseText);
+            $('.yzm_a').click(function (){
+
+               loadImageCode(); 
+            });
         	  if(result && result.code && result.message)
         		  return;
         	  alert("系统错误，请稍后重试!");

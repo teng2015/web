@@ -114,7 +114,15 @@ angular.module('viewApp',['ngRoute'])
 		
 		});
 
-		/*客户信息*/
+		/*客户信息详情*/
+		$('.Customer_information').click(function (){
+
+			if(isHistory == 'Y'){
+				window.open("infoAccount.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y",'_blank');
+			}else{
+				window.open("infoAccount.html?id="+id,'_blank');
+			}
+		});
 
 		ngCom.ngAjax({
 			url:indvUrl,
@@ -203,9 +211,9 @@ angular.module('viewApp',['ngRoute'])
 		
 		$('.next').click(function (){
 			if(isHistory == 'Y'){
-				window.open("infoBusiness.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y");
+				window.open("infoBusiness.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y",'_blank');
 			}else{
-				window.open("infoBusiness.html?id="+id);
+				window.open("infoBusiness.html?id="+id,'_blank');
 			}
 		});
 		//业务信息
@@ -403,9 +411,9 @@ angular.module('viewApp',['ngRoute'])
 		/* 担保信息 详情5.9*/
 			$('.collMore').click(function (){
 			if(isHistory == 'Y'){
-				window.open("infoGuarantee.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y");
+				window.open("infoGuarantee.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y",'_blank');
 			}else{
-				window.open("infoGuarantee.html?id="+id);
+				window.open("infoGuarantee.html?id="+id,'_blank');
 
 			}
 		});
