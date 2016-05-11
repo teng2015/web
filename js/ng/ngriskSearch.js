@@ -8,6 +8,9 @@ angular.module('riskSearch',['ngRoute'])
 	.controller('riskSearchPage',function($scope,$http){
 
 		$scope.riskSearch=function (){
+            
+
+
 			ngCom.ngAjax({
 			url:"/cif/cifs/?nm="+encodeURI($.trim($scope.nm))+"&idNo="+$.trim($scope.idNo)+"&mtTenantId=1",
 			method:'get',
@@ -24,6 +27,8 @@ angular.module('riskSearch',['ngRoute'])
 			
 			});
 		}	
+
+
 		
 	})
 	.config(['$routeProvider',function($routeProvider){
