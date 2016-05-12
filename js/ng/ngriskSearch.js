@@ -20,13 +20,13 @@ angular.module('riskSearch',['ngRoute'])
                  return false;
 			}
 
-
+			$('.mess_table').show();
 			ngCom.ngAjax({
 			url:"/cif/cifs/?nm="+encodeURI($.trim($scope.nm))+"&idNo="+$.trim($scope.idNo)+"&mtTenantId=1",
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
-				$('.mess_table').show();
+				
 				
 				$scope.riskdata = response.list;
 				

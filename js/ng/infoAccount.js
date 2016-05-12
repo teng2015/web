@@ -212,10 +212,12 @@ angular.module('infoApp',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
-				$scope.nmConflict = response.nm;
-				$scope.mtCifIdTypCdDscpConflict = response.mtCifIdTypCdDscp;
-				$scope.idNoConflict = response.idNo;
-				$scope.ageConflict = response.age;
+				if(response.idNo == "goUp" || response.idNo == "goDown" || response.mtCifIdTypCdDscp == "textChange" || response.nm == "textChange"){
+						$scope.idNoConflict = "textChange";
+				}
+				if(response.age == "goUp" || response.age == "goDown"){
+						$scope.ageConflict = "textChange";
+				}
 				
 				
 				$scope.dtCreatedConflict = response.dtCreated;
@@ -294,7 +296,11 @@ angular.module('infoApp',['ngRoute'])
 
 	})
 	.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
-		$httpProvider.defaults.headers.common['Authorization'] = localStorage.token; //注入 httpProvider 设置请求头token
+		if(localStorage.token){
+			$httpProvider.defaults.headers.common['Authorization'] = localStorage.token; //注入 httpProvider 设置请求头token
+		}else{
+			window.location.href="/index.html";
+		}
 		
 	}]);
 

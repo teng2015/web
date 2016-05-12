@@ -40,11 +40,11 @@
     	<tbody>
             <tr>
               <td class="credit_rating">信用评级：<span class="tab_txt_size">{{score}}分{{rating}}</span></td>
-              <td class="id_card">身份证：<span id="summaryIdNo">{{idNo}}<img style="vertical-align:middle" src="../images/{{idNoStatus}}.png"/></span></td>
+              <td class="id_card">{{mtCifIdTypCdDscp}}：<span id="summaryIdNo">{{idNo}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{idNoStatus}}.png"/></span></td>
               
-              <td class="addr">居住地址：<span id="mtCityCd">{{mtStateCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></span></td>
-              <td class="month_money">月收入：<span id="summaryMonthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle"  src="../images/{{monthlyIncAmtStatus}}.png"/></span></td>
-              <td class="fixed_assets">固定资产：<span id="summaryHouseholdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></span></td>
+              <td class="addr">居住地址：<span id="mtCityCd">{{mtStateCdDscp}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{mtStateCdDscpStatus}}.png"/></span></td>
+              <td class="month_money">月收入：<span id="summaryMonthlyIncAmt">{{monthlyIncAmt}}<img style="vertical-align:middle;margin-left:20px;"  src="../images/{{monthlyIncAmtStatus}}.png"/></span></td>
+              <td class="fixed_assets">固定资产：<span id="summaryHouseholdFixAssetAmt">{{householdFixAssetAmt}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{householdFixAssetAmtStatus}}.png"/></span></td>
             </tr>
             <tr>
               <td class="credit_rating">信贷总额度：<span id="summarylmtApprAllAmt">{{summarylmtApprAllAmt}}</span></td>
@@ -72,33 +72,33 @@
         	<tbody>
                 <tr>
                     <td class="grey sex">性别</td>
-                    <td id="mtGenderCd" class="grey_val sex_val">{{mtGenderCdDscp}}<img style="vertical-align:middle" src="../images/{{mtGenderCdDscpStatus}}.png"/></td>
+                    <td id="mtGenderCd" class="grey_val sex_val">{{mtGenderCdDscp}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{mtGenderCdDscpStatus}}.png"/></td>
                     <td class="grey year">年龄</td>
-                    <td id="age" class="grey_val year_val">{{age}}<img style="vertical-align:middle" src="../images/{{ageStatus}}.png" /></td>
-                    <td class="grey idNo">身份证号</td>
-                    <td id="mtEduLvlCd" class="grey_val idNo_">{{idNo}}<img style="vertical-align:middle" src="../images/{{idNoStatus}}.png"/></td>
+                    <td id="age" class="grey_val year_val">{{age}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{ageStatus}}.png" /></td>
+                    <td class="grey idNo">{{mtCifIdTypCdDscp}}</td>
+                    <td id="mtEduLvlCd" class="grey_val idNo_">{{idNo}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{idNoStatus}}.png"/></td>
                     <td class="grey marital_status">婚姻状况</td>
-                    <td id="mtMaritalStsCd" class="grey_val marital_status_val">{{mtMaritalStsCdDscp}}<img style="vertical-align:middle" src="../images/{{mtMaritalStsCdDscpStatus}}.png"/></td>
+                    <td id="mtMaritalStsCd" class="grey_val marital_status_val">{{mtMaritalStsCdDscp}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{mtMaritalStsCdDscpStatus}}.png"/></td>
                     <td class="grey school">教育程度</td>
-                    <td id="mtEduLvlCd" class="grey_val school_val">{{mtEduLvlCdDscp}}<img style="vertical-align:middle" src="../images/{{mtEduLvlCdDscpStatus}}.png"/></td>
+                    <td id="mtEduLvlCd" class="grey_val school_val">{{mtEduLvlCdDscp}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{mtEduLvlCdDscpStatus}}.png"/></td>
                     
                     
                 </tr>
                 <tr>
                     <td class="grey sex">月收入</td>
-                    <td id="monthlyIncAmt" class="grey_val sex_val">{{monthlyIncAmt}}<img style="vertical-align:middle" src="../images/{{monthlyIncAmtStatus}}.png"/></td>
+                    <td id="monthlyIncAmt" class="grey_val sex_val">{{monthlyIncAmt}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{monthlyIncAmtStatus}}.png"/></td>
                     <td class="grey year">家庭月收入</td>
-                    <td id="householdMonthlyIncAmt" class="grey_val year_val">{{householdMonthlyIncAmt}}<img style="vertical-align:middle" src="../images/{{householdMonthlyIncAmtStatus}}.png"/></td>
+                    <td id="householdMonthlyIncAmt" class="grey_val year_val">{{householdMonthlyIncAmt}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{householdMonthlyIncAmtStatus}}.png"/></td>
 
                     <td class="grey idNo">固定资产</td>
-                    <td id="householdFixAssetAmt" class="grey_val idNo_val">{{householdFixAssetAmt}}<img style="vertical-align:middle" src="../images/{{householdFixAssetAmtStatus}}.png"/></td>
+                    <td id="householdFixAssetAmt" class="grey_val idNo_val">{{householdFixAssetAmt}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{householdFixAssetAmtStatus}}.png"/></td>
                     
                     <td class="grey marital_status">工作单位</td>
-                    <td id="employerCifNm" class="grey_val">{{employerCifNm}}<img style="vertical-align:middle" src="../images/{{employerCifNmStatus}}.png"/></td>
+                    <td id="employerCifNm" class="grey_val">{{employerCifNm}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{employerCifNmStatus}}.png"/></td>
                    <!--  <td class="grey">户籍</td>
-                    <td id="mtResidenceStsCd" class="grey_val">{{mtStateCdDscp}}<img style="vertical-align:middle" src="../images/{{mtStateCdDscpStatus}}.png"/></td> -->
+                    <td id="mtResidenceStsCd" class="grey_val">{{mtStateCdDscp}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{mtStateCdDscpStatus}}.png"/></td> -->
                     <td class="grey school">职位</td>
-                    <td id="mtPosHeldCd" class="grey_val school_val">{{mtPosHeldCd}}<img style="vertical-align:middle" src="../images/{{mtPosHeldCdStatus}}.png"/></td>
+                    <td id="mtPosHeldCd" class="grey_val school_val">{{mtPosHeldCd}}<img style="vertical-align:middle;margin-left:20px;" src="../images/{{mtPosHeldCdStatus}}.png"/></td>
                     
                 </tr>
             </tbody>
@@ -167,8 +167,8 @@
             <span class="status">状态</span>
         </div>
         
-          <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display">
-            <div class="business_line clearfix " >
+          <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display" >
+            <div class="business_line clearfix">
                <span class="credit_number " style="border-left:1px solid #d4d4d4">{{item.no}}</span>
                 <span class="business" >{{item.mtFacCdDscp}}</span>
                 <span class="credit_line" >{{item.lmtAppr}}</span>
