@@ -6,10 +6,10 @@
    <div class="mess_search">
         <ul class="clearfix">
            <li> <span>姓名：</span>
-               <input type="text" class="nameText" name="startTime" ng-model="nm"/>
+               <input type="text" class="nameText" name="startTime" ng-model="nm" ng-maxlength="20"/>
            </li>
            <li> <span>证件号：</span>
-               <input type="text" class="idText" name="endTime" ng-model="idNo"/>
+               <input type="text" class="idText" name="endTime" ng-model="idNo" ng-maxlength="40"/>
            </li>
            <li>
                <input type="button" value="调 用" class="searchBtn" ng-click="riskSearch();" >
