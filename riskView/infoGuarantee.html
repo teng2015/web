@@ -51,11 +51,10 @@
 	  
 	  <div id="col_detail">
 	  </div>
-	  <div ng-repeat="collDetail in collList">
 	  	<!--  详情信息块 1  -->
-		  <div class="detail_son_long mt_10"> <strong><a href="javascript:;">{{$index + 1}}　{{collDetail.mtCollTypDscp}}({{collDetail.no}})</a></strong>
+		  <div class="detail_son_long mt_10"> <strong><a href="javascript:;">1　房产({{collList[0].no}})</a></strong>
 		  <i><a href="info_business.htm"></a></i> </div>
-		  <table class="yewu_list_son_long" ng-show="{{collDetail.mtCollTypDscp=='房产'}}">
+		  <table class="yewu_list_son_long">
 		    <tr >
 		      <th>房产证号</th>
 		      <th>建筑物名称</th>
@@ -84,7 +83,10 @@
 		    </tr>
 	  </table> 
 	  <!--  详情信息块 2  -->
-	  <table class="yewu_list_son_long" ng-show="{{collDetail.mtCollTypDscp=='保证'}}">
+	  <div class="detail_son_long mt_10"> <strong><a href="javascript:;">2　保证({{collList[1].no}})</a></strong>
+	    <i><a href="info_business.htm"></a></i> 
+	  </div>
+	  <table class="yewu_list_son_long">
 	    <tr>
 	      <th>保证人名称</th>
 	      <th>证件号码</th>
@@ -102,7 +104,6 @@
 	      <td>{{coll.isGrteePeriodically}}</td>
 	    </tr>
 	  </table>
-	  </div>
 	  </div>
 </body>
 </html>

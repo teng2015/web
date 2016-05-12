@@ -8,7 +8,17 @@ angular.module('riskSearch',['ngRoute'])
 	.controller('riskSearchPage',function($scope,$http){
 
 		$scope.riskSearch=function (){
-            
+            var reg = new RegExp("^([a-z|A-Z|0-9|\u4e00-\u9fa5]+)$");
+			//alert(reg.test($scope.nm));
+			if($scope.nm == null && $scope.idText == null){
+                 alert("请输入用户名或证件号！");
+			}
+			else if(!reg.test($scope.nm)){ 
+                 alert("请输入正确的用户名！");
+                 $scope.nm="";
+                 $scope.idText="";
+                 return false;
+			}
 
 
 			ngCom.ngAjax({
