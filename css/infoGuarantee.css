@@ -6,7 +6,7 @@ body{ background:#eeeeee;}
    
 }
 /*  顶部的信息  */
-.top{ width:1178px; height:50px; background:#ffffff; clear:both; border-bottom:1px #ffb112 solid; }
+.top{ width:1178px; height:50px; background:#ffffff; clear:both; border-bottom:1px #2792dd  solid; }
 .top li{float:left; height:50px;line-height:50px; color:#ffffff; }
 .top li.t_logo{  width:178px; }
 .top li.t_title{ width:700px; font-size:28px; font-weight:bold;text-align:center; color:#333333;}
@@ -14,10 +14,10 @@ body{ background:#eeeeee;}
 
 /*  INDEX视图页  */
 /*  各大模块的TITLE   客户/业务/担保/   */
-.mod_title { width:1178px;  height:35px; border-bottom:4px solid #fc9846; margin-top:30px;}
+.mod_title { width:1178px;  height:35px; border-bottom:4px solid #2792dd; margin-top:20px;}
 .mod_title a {line-height:30px; height:30px; margin-top:5px; display:block;  }
 
-.mod_title strong{ width:100px; background:url(../images/title_bg.jpg); float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
+.mod_title strong{ width:100px; background-color:#1c86d1;height:35px; border-radius:5px 5px 0px 0px; float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
 .mod_title strong a{ width:100px; color:#fff; }
 .mod_title strong a:visited{ color:#fff; }
 .mod_title strong a:hover{ color:#fff; }
@@ -45,8 +45,8 @@ body{ background:#eeeeee;}
 #col_detail{ width:1178px;}
 
 .guarantee_detail a {line-height:30px; height:30px; display:block;  }
-.guarantee_detail .title { border-bottom:2px solid #fc9846; height:30px; margin-top:5px;}
-.guarantee_detail strong{ background-color:#fc9846; border-radius:5px 5px 0px 0px;float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
+.guarantee_detail .title { border-bottom:2px solid #2792dd; height:30px; margin-top:5px;}
+.guarantee_detail strong{ background-color:#1c86d1; border-radius:5px 5px 0px 0px;float:left; font-size:16px;  display:block; margin-left:20px;  text-align:center; }
 .title strong a{ width:100px; color:#fff; }
 .guarantee_detail strong a:visited{ color:#fff; }
 .guarantee_detail strong a:hover{ color:#fff; }
