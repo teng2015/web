@@ -29,7 +29,7 @@
 		      <th>授信编号</th>
 		      <th>业务</th>
 		      <th>授信有效到期日</th>
-		      <th>利率</th>
+		      <th>业务利率</th>
 		      <th>罚息利率</th>
 		      <th>信贷额度</th>
 		      <th>有效担保连接金额</th>
@@ -74,7 +74,7 @@
 	      <th>担保品剩余价值</th>
 	      <th>担保连接金额</th>
 	      <th>担保品折扣系数</th>
-	      <th>担保连接金额</th>
+	      <!-- <th>担保连接金额</th> -->
 	      <th>担保连接余额</th>
 	      <th>所有者</th>
 	    </tr>
@@ -83,9 +83,10 @@
 	      <td>{{coll.mtCollCatDscp}}</td>
 	      <td>{{coll.collValue}}</td>
 	      <td>{{coll.remainValue}}</td>
-	      <td>{{coll.chargeValue}}</td>
+	      <td ng-show="{{item.marker}}== true" style="color:red;">{{coll.chargeValue}}</td>
+          <td ng-show="{{item.marker}}== false" >{{coll.chargeValue}}</td>
 	      <td>{{coll.safetyFactor}}%</td>
-	      <td>{{coll.effectiveChargeValue}}</td>
+	      <!-- <td>{{coll.effectiveChargeValue}}</td> -->
 	      <td>{{coll.remainChargeValue}}</td>
 	      <td>{{coll.ownerCifNm}}</td>
 	    </tr>
@@ -97,7 +98,7 @@
 	      <th>还款周期</th>
 	      <th>还款方式</th>
 	      <th>到期日</th>
-	      <th>利率</th>
+	      <th>业务利率</th>
 	      <th>罚息利率</th>
 	      <th>账户余额(含拖欠）</th>
 	      <th>拖欠利息</th>
@@ -112,8 +113,8 @@
 	      <td>{{acct.mtRateTypRate}}%</td>
 	      <td>{{acct.intRateInSuspense}}%</td>
 	      <td>{{acct.outstdAmt}}</td>
-		  <td>{{acct.tardyCapitalAmt}}</td>
-          <td>{{acct.tardyInterestAmt}}</td>
+		  <td style="color:red;">{{acct.tardyCapitalAmt}}</td>
+          <td style="color:red;">{{acct.tardyInterestAmt}}</td>
           <td>{{acct.purpose}}</td>
 	    </tr>
 	  </table></div>
