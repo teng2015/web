@@ -2,11 +2,13 @@ angular.module('viewApp',['ngRoute'])
 	.controller('viewController',function($scope,$http){
 
 		function getUrlParam(name)
-			{
+		{
 			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
 			var r = window.location.search.substr(1).match(reg);  //匹配目标参数
 			if (r!=null) return unescape(r[2]); return null; //返回参数值
-			} 
+		} 
+
+		 
 
 		var id = getUrlParam('id');
 		$scope.id =id;
@@ -44,6 +46,8 @@ angular.module('viewApp',['ngRoute'])
 				$scope.idNo = response.idNo;
 				$scope.nm= response.nm;
 				$scope.age= response.age;
+				$scope.mtCifIdTypCdDscp= response.mtCifIdTypCdDscp;
+				
 				
 			},
 			error:function (error_data){
@@ -181,6 +185,26 @@ angular.module('viewApp',['ngRoute'])
                 var trHtml=collTxtTr+collTr;
                 
                 $('.collTbody').html(trHtml);
+
+                
+
+               //隔行换色
+					
+			  var $tables = $('.collTbody').find('.colInfo_title_val'); //遍历文档中的所有table
+			  for(var i=0; i<$tables.length; i++) {
+			   
+			    if(i%2) {
+					
+			     $tables.eq(i).addClass("evenLine");
+			     
+			    }else { 
+			    	
+		     		$tables.eq(i).addClass("oddLine");
+				} 
+			  }
+				
+
+				
 			},
 			error:function (error_data){
 				console.log(error_data);
@@ -268,6 +292,28 @@ angular.module('viewApp',['ngRoute'])
 				
 				});
 
+				//隔行换色
+				/*console.log(222);
+				$scope.isActive=function (index){
+					console.log(index);
+					return $scope._index = index;
+					console.log($scope._index);
+				}*/
+					
+			  /*var $tables = $('.line_a'); //遍历文档中的所有table
+			  console.log($tables.length);
+			  for(var i=0; i<$tables.length; i++) {
+			   console.log(111);
+			    if(i%2) {
+					
+			     $tables.eq(i).find('.business_line').addClass("evenLine");
+			     
+			    }else { 
+			    	
+		     		$tables.eq(i).find('.business_line').addClass("oddLine");
+				} 
+			  }*/
+				
 			},
 			error:function (error_data){
 				console.log(error_data);
@@ -292,9 +338,13 @@ angular.module('viewApp',['ngRoute'])
 							success:function(response){
 				
 							/*姓名 身份证*/
-									$scope.idNoStatus = response.idNo;
+									if(response.idNo == "goUp" || response.idNo == "goDown" || response.mtCifIdTypCdDscp == "textChange"){
+										$scope.idNoStatus = "textChange";
+									}
 									$scope.nmStatus= response.nm;
-									$scope.ageStatus= response.age;
+									if(response.age == "goUp" || response.age == "goDown"){
+										$scope.ageStatus = "textChange";
+									}
 
 							/*获取客户地址信息*/
 									$scope.mtStateCdDscpStatus = response.mtStateCdDscp;
@@ -344,9 +394,13 @@ angular.module('viewApp',['ngRoute'])
 							success:function(response){
 				
 							/*姓名 身份证*/
-									$scope.idNoStatus = response.idNo;
+									if(response.idNo == "goUp" || response.idNo == "goDown" || response.mtCifIdTypCdDscp == "textChange"){
+										$scope.idNoStatus = "textChange";
+									}
 									$scope.nmStatus= response.nm;
-									$scope.ageStatus= response.age;
+									if(response.age == "goUp" || response.age == "goDown"){
+										$scope.ageStatus = "textChange";
+									}
 
 							/*获取客户地址信息*/
 									$scope.mtStateCdDscpStatus = response.mtStateCdDscp;
@@ -488,7 +542,13 @@ angular.module('viewApp',['ngRoute'])
 
 	})
 	.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
-		$httpProvider.defaults.headers.common['Authorization'] = localStorage.token; //注入 httpProvider 设置请求头token
+		if(localStorage.token){
+			$httpProvider.defaults.headers.common['Authorization'] = localStorage.token; //注入 httpProvider 设置请求头token
+		}else{
+			window.location.href="/index.html";
+		}
+
+		
 		
 	}]);
 

@@ -110,7 +110,9 @@ angular.module('securitySet',['ngRoute'])
 			authCode: $('#yzmimg').val(),
 			ssid:$('#ssid').attr("value")
 		};
-		if($('#emailName').val()){
+		
+		var reMail =/^[\w/=?_{|}]+(?:\.[\w/=?_{|}]+)*@(?:[\w](?:[\w]*[\w])?\.)+[\w](?:[\w]*[\w])?$/;
+		if(reMail.test($('#emailName').val())){
   		ngCom.ngAjax({
 			url:"/sec/email/link/",
 			data:json,

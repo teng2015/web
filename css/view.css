@@ -1,7 +1,8 @@
 .body{width:100%; height:100%;background-color: white;}
 .view { width:1304px; margin:0px auto; background:#fff; padding:0px 21px; border:1px solid #eeeeee;position:relative;top:0; left:0;}
 .clearFix{zoom:1}
-
+.evenLine{background-color: #fcfcfc;}
+.oddLine{background-color: white;}
 /*名词字典*/
 .explainRight{position:fixed;top:50%;right:0px; margin-top:-81px;}
 .explainUl li{width:58px;/*clear:both;*/}
@@ -106,7 +107,7 @@
 
 
 .colInfo_title{ font-size:16px; background:#fcfcfc; font-weight: bold;}
-.colInfo_title_val{font-size:14px; background:white; }
+.colInfo_title_val{font-size:14px;  }
 
 .guarantee_number{width:200px;}
 .guarantee_type{width:136px;}
@@ -121,7 +122,7 @@
 .business_title span,.line_a span{ margin-top: -1px;margin-bottom:0px;margin-right: 0px;margin-left:-1px;height:52px; line-height:52px; text-align: center;  border: 1px solid #d4d4d4; display:block; float:left;}
 .business_title span{background:#fcfcfc; font-weight: bold;}
 .line_a span{font-size:14px; margin-top: -1px;margin-bottom: 0px;margin-right: 0px;margin-left:-1px;}
-.business_line{}
+.business_line{/*background:red;*/}
 .credit_number{width:125px; border-left:2px solid #d4d4d4;}
 .business{width:160px;}
 .credit_line{width:140px;}
