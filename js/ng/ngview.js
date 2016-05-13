@@ -190,7 +190,7 @@ angular.module('viewApp',['ngRoute'])
 
                //隔行换色
 					
-			  var $tables = $('.collTbody').find('.colInfo_title_val'); //遍历文档中的所有table
+			 /* var $tables = $('.collTbody').find('.colInfo_title_val'); //遍历文档中的所有table
 			  for(var i=0; i<$tables.length; i++) {
 			   
 			    if(i%2) {
@@ -201,7 +201,7 @@ angular.module('viewApp',['ngRoute'])
 			    	
 		     		$tables.eq(i).addClass("oddLine");
 				} 
-			  }
+			  }*/
 				
 
 				
