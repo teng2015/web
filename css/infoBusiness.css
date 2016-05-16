@@ -55,7 +55,7 @@ body{ background:#eeeeee;}
 /*  业务信息子表格  */
 .yewu_list_son{ border:1px solid #d4d4d4; color:#444444; text-align:left; margin-left:20px;width:1156px; }
 .yewu_list_son th{ background:#f6f6f6; font-weight:normal;}
-.yewu_list_son th{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4;}
+.yewu_list_son th{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4; text-align:left;}
 .yewu_list_son td{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4;}
 .mt_10{ margin-top:10px;}
 
