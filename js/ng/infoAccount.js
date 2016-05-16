@@ -214,9 +214,13 @@ angular.module('infoApp',['ngRoute'])
 			success:function(response){
 				if(response.idNo == "goUp" || response.idNo == "goDown" || response.mtCifIdTypCdDscp == "textChange" || response.nm == "textChange"){
 						$scope.idNoConflict = "textChange";
+				}else{
+					$scope.idNoConflict = response.idNo;
 				}
 				if(response.age == "goUp" || response.age == "goDown"){
 						$scope.ageConflict = "textChange";
+				}else{
+					$scope.ageConflict = response.age;
 				}
 				
 				

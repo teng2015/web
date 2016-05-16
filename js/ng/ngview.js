@@ -244,14 +244,14 @@ angular.module('viewApp',['ngRoute'])
 		
 		});
 		/*业务信息*/
-		
-		$('.next').click(function (){
+		$scope.next=function (){
 			if(isHistory == 'Y'){
 				window.open("infoBusiness.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y",'_blank');
 			}else{
 				window.open("infoBusiness.html?id="+id,'_blank');
 			}
-		});
+		}
+		
 		//业务信息
 		ngCom.ngAjax({
 			
@@ -303,28 +303,6 @@ angular.module('viewApp',['ngRoute'])
 				$scope.summaryRemainValue = summaryRemainValue;
 				
 				});
-
-				//隔行换色
-				/*console.log(222);
-				$scope.isActive=function (index){
-					console.log(index);
-					return $scope._index = index;
-					console.log($scope._index);
-				}*/
-					
-			  /*var $tables = $('.line_a'); //遍历文档中的所有table
-			  console.log($tables.length);
-			  for(var i=0; i<$tables.length; i++) {
-			   console.log(111);
-			    if(i%2) {
-					
-			     $tables.eq(i).find('.business_line').addClass("evenLine");
-			     
-			    }else { 
-			    	
-		     		$tables.eq(i).find('.business_line').addClass("oddLine");
-				} 
-			  }*/
 				
 			},
 			error:function (error_data){
@@ -352,10 +330,14 @@ angular.module('viewApp',['ngRoute'])
 							/*姓名 身份证*/
 									if(response.idNo == "goUp" || response.idNo == "goDown" || response.mtCifIdTypCdDscp == "textChange"){
 										$scope.idNoStatus = "textChange";
+									}else{
+										$scope.idNoStatus = response.idNo;
 									}
 									$scope.nmStatus= response.nm;
 									if(response.age == "goUp" || response.age == "goDown"){
 										$scope.ageStatus = "textChange";
+									}else{
+										$scope.ageStatus = response.age;
 									}
 
 							/*获取客户地址信息*/
@@ -408,10 +390,14 @@ angular.module('viewApp',['ngRoute'])
 							/*姓名 身份证*/
 									if(response.idNo == "goUp" || response.idNo == "goDown" || response.mtCifIdTypCdDscp == "textChange"){
 										$scope.idNoStatus = "textChange";
+									}else{
+										$scope.idNoStatus = response.idNo;
 									}
 									$scope.nmStatus= response.nm;
 									if(response.age == "goUp" || response.age == "goDown"){
 										$scope.ageStatus = "textChange";
+									}else{
+										$scope.ageStatus = response.age;
 									}
 
 							/*获取客户地址信息*/
@@ -475,14 +461,15 @@ angular.module('viewApp',['ngRoute'])
 		
 
 		/* 担保信息 详情5.9*/
-			$('.collMore').click(function (){
+		$scope.collMore=function (){
 			if(isHistory == 'Y'){
 				window.open("infoGuarantee.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y",'_blank');
 			}else{
 				window.open("infoGuarantee.html?id="+id,'_blank');
 
 			}
-		});
+		}
+			
 		$scope.toggle = function(dis) {
 			  if ($scope.display!=dis) {
 				  $scope.display=dis;
