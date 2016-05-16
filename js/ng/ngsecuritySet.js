@@ -82,12 +82,12 @@ angular.module('securitySet',['ngRoute'])
 
 		/*var reMail =/^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;*/
 		var reMail =/^[\w/=?_{|}]+(?:\.[\w/=?_{|}]+)*@(?:[\w](?:[\w]*[\w])?\.)+[\w](?:[\w]*[\w])?$/;
-		if(!reMail.test(sText)){
+		if(!sText){
+			$('.showTxt').html("邮箱不能为空");
+		}else if(!reMail.test(sText)){
 
 			$('.showTxt').html("请正确填写邮箱");
 			
-		}else if(reMail.test(sText)==null){
-			$('.showTxt').html("邮箱不能为空");
 		}else{
 			$('.showTxt').html("邮箱正确");
 		}
@@ -112,76 +112,79 @@ angular.module('securitySet',['ngRoute'])
 		};
 		
 		var reMail =/^[\w/=?_{|}]+(?:\.[\w/=?_{|}]+)*@(?:[\w](?:[\w]*[\w])?\.)+[\w](?:[\w]*[\w])?$/;
-		if(reMail.test($('#emailName').val())){
-  		ngCom.ngAjax({
-			url:"/sec/email/link/",
-			data:json,
-			method:'post',
-			ngHttp:$http,
-			success:function(response){
-				
-				if(response.result=='success'){
-					$('.bindEmail').hide();
-					$('.secShow').show();
-					//$scope.aa = !$scope.aa;
-					var count=20;
 
-					var timer=setInterval(function (){
-						count--;
-						
-						if(count<=0){
+		if(!$('#emailName').val()){
+			$('.showTxt').html("邮箱不能为空");	
+		}else if(reMail.test($('#emailName').val())){
+	  		ngCom.ngAjax({
+				url:"/sec/email/link/",
+				data:json,
+				method:'post',
+				ngHttp:$http,
+				success:function(response){
+					
+					if(response.result=='success'){
+						$('.bindEmail').hide();
+						$('.secShow').show();
+						//$scope.aa = !$scope.aa;
+						var count=20;
+
+						var timer=setInterval(function (){
+							count--;
 							
-							$('.times').html(20);
-							$('.button').attr('disabled',false);
-							$('.button').attr('color','#bfbfbf');
-							clearInterval(timer);
-						}else{
-							$('.times').html(count);
-							$('.button').attr('disabled','disabled');
-						}
+							if(count<=0){
+								
+								$('.times').html(20);
+								$('.button').attr('disabled',false);
+								$('.button').attr('color','#bfbfbf');
+								clearInterval(timer);
+							}else{
+								$('.times').html(count);
+								$('.button').attr('disabled','disabled');
+							}
 
 
-					},1000);
-					var emailInputVal=$('#emailName').val();
-					var str = emailInputVal.substr(0,3);
-					var at = emailInputVal.indexOf('@');
-					var changestr = emailInputVal.substr(at);
-					/*console.log(str+'**');
-					console.log(changestr);
-					console.log(str+'**'+changestr);*/
+						},1000);
+						var emailInputVal=$('#emailName').val();
+						var str = emailInputVal.substr(0,3);
+						var at = emailInputVal.indexOf('@');
+						var changestr = emailInputVal.substr(at);
+						/*console.log(str+'**');
+						console.log(changestr);
+						console.log(str+'**'+changestr);*/
+						
+
+						$('.secEmailTxt').html(str+'***'+changestr);
+						
+
+					}
 					
+				},
+				error:function(data){
 
-					$('.secEmailTxt').html(str+'***'+changestr);
+					/*console.log(data);
+					console.log(data.message);
+					$('.errMsg').empty().html(data.message).show();
+					loadImageCode();*/
+				},
+				errfn:function(data){
 					
+					
+					$('.errMsg').empty().html(data.message).show();
+					$('.yzm_a').click(function (){
 
-				}
-				
-			},
-			error:function(data){
+						loadImageCode();
 
-				/*console.log(data);
-				console.log(data.message);
-				$('.errMsg').empty().html(data.message).show();
-				loadImageCode();*/
-			},
-			errfn:function(data){
-				
-				
-				$('.errMsg').empty().html(data.message).show();
-				$('.yzm_a').click(function (){
-
+					});
 					loadImageCode();
+				}
+			
+			});
+		}else{
+			$('.showTxt').html("请正确填写邮箱");
+		}
 
-				});
-				loadImageCode();
-			}
-		
 		});
-	}else{
-		$('.showTxt').html("邮箱不能为空");	
-	}
-
-	});
 
 	
 	$('.button').click(function (){

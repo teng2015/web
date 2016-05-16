@@ -8,6 +8,18 @@ angular.module('viewApp',['ngRoute'])
 			if (r!=null) return unescape(r[2]); return null; //返回参数值
 		} 
 
+		function formatMoney(num) {
+			var tail = ".00";
+		    var num = (num || 0).toString();
+			var result = '';
+		    while (num.length > 3) {
+		        result = ',' + num.slice(-3) + result;
+		        num = num.slice(0, num.length - 3);
+				  //循环末尾的三个数字，每匹配一次，就把逗号和匹配到的内容插入到结果字符串的开头
+		    }
+		    if (num) { result = num + result + tail; }    
+		    return result;
+		}
 		 
 
 		var id = getUrlParam('id');
@@ -190,7 +202,7 @@ angular.module('viewApp',['ngRoute'])
 
                //隔行换色
 					
-			 /* var $tables = $('.collTbody').find('.colInfo_title_val'); //遍历文档中的所有table
+			  var $tables = $('.collTbody').find('.colInfo_title_val'); //遍历文档中的所有table
 			  for(var i=0; i<$tables.length; i++) {
 			   
 			    if(i%2) {
@@ -201,7 +213,7 @@ angular.module('viewApp',['ngRoute'])
 			    	
 		     		$tables.eq(i).addClass("oddLine");
 				} 
-			  }*/
+			  }
 				
 
 				
