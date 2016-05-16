@@ -30,9 +30,14 @@ angular.module('riskSearch',['ngRoute'])
 				
 				$scope.riskdata = response.list;
 				
+				
+				
 			},
 			error:function (error_data){
 				console.log(error_data);
+			},
+			errfn:function (){
+				$scope.riskdata = '';
 			}
 			
 			});

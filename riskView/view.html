@@ -168,7 +168,7 @@
         </div>
         
           <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display" >
-            <div class="business_line clearfix">
+            <div class="business_line clearfix" ng-class-even="'evenLine'">
                <span class="credit_number " style="border-left:1px solid #d4d4d4">{{item.no}}</span>
                 <span class="business" >{{item.mtFacCdDscp}}</span>
                 <span class="credit_line" >{{item.lmtAppr}}</span>
@@ -253,7 +253,7 @@
                   <td>{{acct.dtMaturity}}</td>
                   <td>{{acct.mtRateTypRate}}%</td>
                   <td>{{acct.intRateInSuspense}}%</td>
-                  <td>{{acct.outstdAmt}}</td>
+                  <td style="color:red;">{{acct.outstdAmt}}</td>
                   <td style="color:red;">{{acct.tardyCapitalAmt}}</td>
                   <td style="color:red;">{{acct.tardyInterestAmt}}</td>
                   <td>{{acct.purpose}}</td>
