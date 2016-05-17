@@ -45,18 +45,18 @@
 		      <td>{{item.dtMaturity}}</td>
 			  <td>{{item.mtRateTypRate}}%</td>
               <td>{{item.intRateInSuspense}}%</td>
-              <td>{{item.lmtAppr}}</td>
+              <td>{{item.lmtAppr   | number:2}}</td>
 			  <td ng-show="{{item.marker}}== true" style="color:red;">
-				{{item.chargeValue}}
+				{{item.chargeValue   | number:2}}
 			  </td>
 			 <td  ng-show="{{item.marker}}== false">
-							{{item.chargeValue}}
+							{{item.chargeValue   | number:2}}
 			 </td>
 			<td ng-show="{{item.acctMarker}}== true" style="color:red;">
-				{{item.balance}}
+				{{item.balance   | number:2}}
 			  </td>
 			 <td  ng-show="{{item.acctMarker}}== false">
-							{{item.balance}}
+							{{item.balance   | number:2}}
 			 </td>	
 		      <td>{{item.isRevolvingAllowed}}</td>
 		      <td>{{item.lgdGradeCdDscp}}</td>
@@ -81,13 +81,13 @@
 	    <tr  ng-repeat="coll in resColl" ng-show="coll.facId==item.id">
 	      <td>{{coll.colIdNo}}</td>
 	      <td>{{coll.mtCollCatDscp}}</td>
-	      <td>{{coll.collValue}}</td>
-	      <td>{{coll.remainValue}}</td>
-	      <td ng-show="{{item.marker}}== true" style="color:red;">{{coll.chargeValue}}</td>
-          <td ng-show="{{item.marker}}== false" >{{coll.chargeValue}}</td>
+	      <td>{{coll.collValue  | number:2}}</td>
+	      <td>{{coll.remainValue  | number:2}}</td>
+	      <td ng-show="{{item.marker}}== true" style="color:red;">{{coll.chargeValue  | number:2}}</td>
+          <td ng-show="{{item.marker}}== false" >{{coll.chargeValue  | number:2}}</td>
 	      <td>{{coll.safetyFactor}}%</td>
 	      <!-- <td>{{coll.effectiveChargeValue}}</td> -->
-	      <td>{{coll.remainChargeValue}}</td>
+	      <td>{{coll.remainChargeValue  | number:2}}</td>
 	      <td>{{coll.ownerCifNm}}</td>
 	    </tr>
 	  </table></div>
@@ -112,9 +112,9 @@
 	      <td>{{acct.dtMaturity}}</td>
 	      <td>{{acct.mtRateTypRate}}%</td>
 	      <td>{{acct.intRateInSuspense}}%</td>
-	      <td>{{acct.outstdAmt}}</td>
-		  <td style="color:red;">{{acct.tardyCapitalAmt}}</td>
-          <td style="color:red;">{{acct.tardyInterestAmt}}</td>
+	      <td style="color:red;">{{acct.outstdAmt | number:2}}</td>
+		  <td style="color:red;">{{acct.tardyCapitalAmt | number:2}}</td>
+          <td style="color:red;">{{acct.tardyInterestAmt | number:2}}</td>
           <td>{{acct.purpose}}</td>
 	    </tr>
 	  </table></div>

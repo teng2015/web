@@ -26,32 +26,32 @@
             <div class="business_line clearfix" ng-class-even="'evenLine'">
                <span class="credit_number " style="border-left:1px solid #d4d4d4">{{item.no}}</span>
                 <span class="business" >{{item.mtFacCdDscp}}</span>
-                <span class="credit_line" >{{item.lmtAppr}}</span>
-                <span class="credit_maturity_date" >{{item.dtMaturity}}</span>
+                <span class="credit_line">{{item.lmtAppr | number:2}}</span>
+                <span class="credit_maturity_date">{{item.dtMaturity}}</span>
                 <span class="business_rate" >{{item.mtRateTypRate}}%</span>
                 <span class="interest_rate" >{{item.intRateInSuspense}}%</span>
                 
                 <span class="guaranteed_amount guaranteed_amount_val" >
                   <div ng-show="{{item.marker}}== true">
                     <div class="col"  ng-click="toggle(1*($index+1))" style="color:red;">
-                        {{item.chargeValue}}
+                        {{item.chargeValue | number:2}}
                     </div>
                   </div>
                   <div ng-show="{{item.marker}}== false">
                     <div class="col"  ng-click="toggle(1*($index+1))">
-                        {{item.chargeValue}}
+                        {{item.chargeValue | number:2}}
                     </div>
                   </div>
                 </span>
                 <span class="account_balance account_balance_val">
                   <div ng-show="{{item.acctMarker}}== true">
                     <div class="acc" ng-click="toggle(2*($index+2))"  style="color:red;">
-                      {{item.balance}}
+                      {{item.balance | number:2}}
                     </div>
                   </div>
                   <div ng-show="{{item.acctMarker}}== false">
                     <div class="acc" ng-click="toggle(2*($index+2))">
-                      {{item.balance}}
+                      {{item.balance | number:2}}
                     </div>
                   </div>
                 </span>

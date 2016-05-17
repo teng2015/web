@@ -67,7 +67,7 @@
 	          <td class="tab_gray">供养人数</td>
 	          <td id="noOfDependentChild">{{noOfDependentChild}}人<img src="../images/{{noOfDependentChildConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
 	          <td class="tab_gray">家庭月收入</td>
-	          <td id="householdMonthlyIncAmt">￥{{householdMonthlyIncAmt}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
+	          <td id="householdMonthlyIncAmt">{{householdMonthlyIncAmt | number:2}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
 	          <td class="tab_gray">累计消费金额</td>
 	          <td id="mtCardUsageCd">{{mtCardUsageCdDscp}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
 	          <td class="tab_gray">户籍</td>
@@ -77,11 +77,11 @@
 	          <td class="tab_gray">个人贷款记录年限</td>
 	          <td id="loanFixedYear">{{loanFixedYear}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
 	          <td class="tab_gray">月收入</td>
-	          <td id="monthlyIncAmt">￥{{monthlyIncAmt}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
+	          <td id="monthlyIncAmt">{{monthlyIncAmt | number:2}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
 	          <td class="tab_gray">固定资产</td>
-	          <td id="householdFixAssetAmt">￥{{householdFixAssetAmt}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
+	          <td id="householdFixAssetAmt">{{householdFixAssetAmt | number:2}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
 	          <td class="tab_gray">当年偿还债务总额</td>
-	          <td id="householdDebtAmt">￥{{householdDebtAmt}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
+	          <td id="householdDebtAmt">{{householdDebtAmt | number:2}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
 	        </tr>
 	      </table>
 	    </li>

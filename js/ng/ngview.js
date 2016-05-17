@@ -146,11 +146,11 @@ angular.module('viewApp',['ngRoute'])
 			ngHttp:$http,
 			success:function(response){
 				$scope.mtMaritalStsCdDscp = response.mtMaritalStsCdDscp;
-				$scope.monthlyIncAmt= response.monthlyIncAmt;
+				$scope.monthlyIncAmt= formatMoney(response.monthlyIncAmt);
 				$scope.mtGenderCdDscp= response.mtGenderCdDscp;
 				$scope.mtEduLvlCdDscp= response.mtEduLvlCdDscp;
-				$scope.householdFixAssetAmt= response.householdFixAssetAmt;
-				$scope.householdMonthlyIncAmt= response.householdMonthlyIncAmt;
+				$scope.householdFixAssetAmt= formatMoney(response.householdFixAssetAmt);
+				$scope.householdMonthlyIncAmt= formatMoney(response.householdMonthlyIncAmt);
 				
 				
 			},
@@ -187,8 +187,8 @@ angular.module('viewApp',['ngRoute'])
                     '<td  class="guarantee_types">'+ele.mtCollCatDscp+'</td>'+
                     '<td class="id_num">'+ele.colIdNo+'</td>'+
                     '<td class="guaranteed_discount">'+ele.safetyFactor+'%</td>'+
-                    '<td class="collateral_value">'+ele.collValue+'</td>'+
-                    '<td class="residual_value">'+ele.remainValue+'</td>'+
+                    '<td class="collateral_value">'+formatMoney(ele.collValue)+'</td>'+
+                    '<td class="residual_value">'+formatMoney(ele.remainValue)+'</td>'+
                     '<td class="owner">'+ele.ownerCifNm+'</td>'+
                 '</tr>';
 				});
@@ -259,7 +259,8 @@ angular.module('viewApp',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){	
-				$scope.resJson = response.facList;;
+
+				$scope.resJson = response.facList;
 				$scope.resColl = response.collList;
 				$scope.resAcct = response.acctList;
 				//信贷总额度
@@ -276,31 +277,31 @@ angular.module('viewApp',['ngRoute'])
 				angular.forEach($scope.resJson, function(data){
 				
 				summarylmtApprAllAmt += parseInt(data.lmtAppr);
-				$scope.summarylmtApprAllAmt = summarylmtApprAllAmt;
+				$scope.summarylmtApprAllAmt = formatMoney(summarylmtApprAllAmt);
 				
 				});
 				angular.forEach($scope.resAcct, function(data){
 				
 				summaryOutstdAmtAll += parseInt(data.outstdAmt);
-				$scope.summaryOutstdAmtAll = summaryOutstdAmtAll;
+				$scope.summaryOutstdAmtAll = formatMoney(summaryOutstdAmtAll);
 				
 				});
 				angular.forEach($scope.resColl, function(data){
 				
 				summaryChargeValue += parseInt(data.chargeValue);
-				$scope.summaryChargeValue = summaryChargeValue;
+				$scope.summaryChargeValue = formatMoney(summaryChargeValue);
 				
 				});
 				angular.forEach($scope.resColl, function(data){
 				
 				summaryCollValue += parseInt(data.collValue);
-				$scope.summaryCollValue = summaryCollValue;
+				$scope.summaryCollValue = formatMoney(summaryCollValue);
 				
 				});
 				angular.forEach($scope.resColl, function(data){
 				
 				summaryRemainValue += parseInt(data.remainValue);
-				$scope.summaryRemainValue = summaryRemainValue;
+				$scope.summaryRemainValue = formatMoney(summaryRemainValue);
 				
 				});
 				
