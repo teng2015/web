@@ -105,7 +105,7 @@
   /**                       
    * 监控登录按钮回车事件                   
    */
-  $(document).ready(function(){
+  /*$(document).ready(function(){
    // $("#divLogin").focus();
     $("#yzmimg").focus();
    // $("#loginPassWord").focus();
@@ -114,7 +114,7 @@
     onkeydowns($("#loginPassWord"));
     onkeydowns($("#yzmimg"));
     onkeydowns($("#divLogin"));
-  }); 
+  }); */
 
   function onkeydowns(obj){
     obj.keydown(function (e) { 
@@ -124,6 +124,11 @@
       } 
     }); 
   }
+
+   onkeydowns($("#loginname"));
+    onkeydowns($("#loginPassWord"));
+    onkeydowns($("#yzmimg"));
+    onkeydowns($("#divLogin"));
 
     //login
     function login(){
