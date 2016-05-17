@@ -1,0 +1,120 @@
+<!-- 业务信息 -->
+  <div class="busInfo">
+      <div class="cusTitle clearfix"> 
+         <p class="title fl">业务信息</p>
+         <p class="rates fl">
+          <span class="integrity_rate ">完整率&nbsp;：&nbsp</span><span class="rate factotalrate"></span>
+        </p>
+         <a class="more next" ng-click="next()">详情</a>
+      </div>
+      
+      <div class="business_title clearfix">
+      
+            <span class="credit_number" style="border-left:1px solid #d4d4d4">授信编号</span>
+            <span class="business">业务</span>
+            <span class="credit_line">信贷额度</span>
+            <span class="credit_maturity_date">授信到期日</span>
+            <span class="business_rate">业务利率</span>
+            <span class="interest_rate">罚息利率</span>
+            
+            <span class="guaranteed_amount ">担保连接金额</span>
+            <span class="account_balance">账户余额</span>
+            <span class="status">状态</span>
+        </div>
+        
+          <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display" >
+            <div class="business_line clearfix" ng-class-even="'evenLine'">
+               <span class="credit_number " style="border-left:1px solid #d4d4d4">{{item.no}}</span>
+                <span class="business" >{{item.mtFacCdDscp}}</span>
+                <span class="credit_line">{{item.lmtAppr | number:2}}</span>
+                <span class="credit_maturity_date">{{item.dtMaturity}}</span>
+                <span class="business_rate" >{{item.mtRateTypRate}}%</span>
+                <span class="interest_rate" >{{item.intRateInSuspense}}%</span>
+                
+                <span class="guaranteed_amount guaranteed_amount_val" >
+                  <div ng-show="{{item.marker}}== true">
+                    <div class="col"  ng-click="toggle(1*($index+1))" style="color:red;">
+                        {{item.chargeValue | number:2}}
+                    </div>
+                  </div>
+                  <div ng-show="{{item.marker}}== false">
+                    <div class="col"  ng-click="toggle(1*($index+1))">
+                        {{item.chargeValue | number:2}}
+                    </div>
+                  </div>
+                </span>
+                <span class="account_balance account_balance_val">
+                  <div ng-show="{{item.acctMarker}}== true">
+                    <div class="acc" ng-click="toggle(2*($index+2))"  style="color:red;">
+                      {{item.balance | number:2}}
+                    </div>
+                  </div>
+                  <div ng-show="{{item.acctMarker}}== false">
+                    <div class="acc" ng-click="toggle(2*($index+2))">
+                      {{item.balance | number:2}}
+                    </div>
+                  </div>
+                </span>
+                <span class="status" >     
+                      {{item.mtFacStsCdDscp}}
+                </span>
+            </div>
+            
+            <div class="this_div" ng-show="display==1*($index+1)" >
+              <table  class="info_list_son mb_10 mt_10" >
+                <tr>
+                  <th>担保编号</th>
+                  <th>担保种类</th>
+                  <th>担保品价值</th>
+                  <th>担保品可用价值</th>
+                  <th>担保连接金额</th>
+                  <th>所有者</th>
+                </tr>
+                <tr ng-repeat="coll in resColl" ng-show="coll.facId==item.id">
+                  <td>{{coll.colIdNo}}</td>
+                  <td>{{coll.mtCollCatDscp}}</td>
+                  <td>{{coll.collValue}}</td>
+                  <td>{{coll.remainValue}}</td>
+                  <td ng-show="{{item.marker}}== true" style="color:red;">{{coll.chargeValue}}</td>
+                  <td ng-show="{{item.marker}}== false" >{{coll.chargeValue}}</td>
+                  <td>{{coll.ownerCifNm}}</td>
+                </tr>
+
+                <!-- <tr ng-show="coll.facId==null || item.id==null">
+                  <td>无数据</td>
+                  
+                </tr> -->
+              </table>
+        
+            </div>
+            <div class="this_div2" ng-show="display==2*($index+2)">
+              <table class="info_list_son mb_10" >
+                <tr class="font_w">
+                  <th>账号</th>
+                  <th>还款周期</th>
+                  <th>还款方式</th>
+                  <th>到期日</th>
+                  <th>业务利率</th>
+                  <th>罚息利率</th>
+                  <th>账户余额（含拖欠）</th>
+                  <th>拖欠本金</th>
+                  <th>拖欠利息</th>
+                  <th>用途</th>
+                </tr>
+                <tr  ng-repeat="acct in resAcct" ng-show="acct.facId==item.id">
+                 <td>{{acct.acctNo}}</td>
+                  <td>{{acct.mtPymtTermCdDscp}}</td>
+                  <td>{{acct.mtRepymtTypCdDscp}}</td>
+                  <td>{{acct.dtMaturity}}</td>
+                  <td>{{acct.mtRateTypRate}}%</td>
+                  <td>{{acct.intRateInSuspense}}%</td>
+                  <td style="color:red;">{{acct.outstdAmt}}</td>
+                  <td style="color:red;">{{acct.tardyCapitalAmt}}</td>
+                  <td style="color:red;">{{acct.tardyInterestAmt}}</td>
+                  <td>{{acct.purpose}}</td>
+                </tr>
+              </table>
+            </div>
+        </div>
+     
+  </div> 

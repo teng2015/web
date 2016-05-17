@@ -8,6 +8,18 @@ angular.module('viewApp',['ngRoute'])
 			if (r!=null) return unescape(r[2]); return null; //返回参数值
 		} 
 
+		function formatMoney(num) {
+			var tail = ".00";
+		    var num = (num || 0).toString();
+			var result = '';
+		    while (num.length > 3) {
+		        result = ',' + num.slice(-3) + result;
+		        num = num.slice(0, num.length - 3);
+				  //循环末尾的三个数字，每匹配一次，就把逗号和匹配到的内容插入到结果字符串的开头
+		    }
+		    if (num) { result = num + result + tail; }    
+		    return result;
+		}
 		 
 
 		var id = getUrlParam('id');
@@ -134,11 +146,11 @@ angular.module('viewApp',['ngRoute'])
 			ngHttp:$http,
 			success:function(response){
 				$scope.mtMaritalStsCdDscp = response.mtMaritalStsCdDscp;
-				$scope.monthlyIncAmt= response.monthlyIncAmt;
+				$scope.monthlyIncAmt= formatMoney(response.monthlyIncAmt);
 				$scope.mtGenderCdDscp= response.mtGenderCdDscp;
 				$scope.mtEduLvlCdDscp= response.mtEduLvlCdDscp;
-				$scope.householdFixAssetAmt= response.householdFixAssetAmt;
-				$scope.householdMonthlyIncAmt= response.householdMonthlyIncAmt;
+				$scope.householdFixAssetAmt= formatMoney(response.householdFixAssetAmt);
+				$scope.householdMonthlyIncAmt= formatMoney(response.householdMonthlyIncAmt);
 				
 				
 			},
@@ -175,8 +187,8 @@ angular.module('viewApp',['ngRoute'])
                     '<td  class="guarantee_types">'+ele.mtCollCatDscp+'</td>'+
                     '<td class="id_num">'+ele.colIdNo+'</td>'+
                     '<td class="guaranteed_discount">'+ele.safetyFactor+'%</td>'+
-                    '<td class="collateral_value">'+ele.collValue+'</td>'+
-                    '<td class="residual_value">'+ele.remainValue+'</td>'+
+                    '<td class="collateral_value">'+formatMoney(ele.collValue)+'</td>'+
+                    '<td class="residual_value">'+formatMoney(ele.remainValue)+'</td>'+
                     '<td class="owner">'+ele.ownerCifNm+'</td>'+
                 '</tr>';
 				});
@@ -190,7 +202,7 @@ angular.module('viewApp',['ngRoute'])
 
                //隔行换色
 					
-			 /* var $tables = $('.collTbody').find('.colInfo_title_val'); //遍历文档中的所有table
+			  var $tables = $('.collTbody').find('.colInfo_title_val'); //遍历文档中的所有table
 			  for(var i=0; i<$tables.length; i++) {
 			   
 			    if(i%2) {
@@ -201,7 +213,7 @@ angular.module('viewApp',['ngRoute'])
 			    	
 		     		$tables.eq(i).addClass("oddLine");
 				} 
-			  }*/
+			  }
 				
 
 				
@@ -232,14 +244,14 @@ angular.module('viewApp',['ngRoute'])
 		
 		});
 		/*业务信息*/
-		
-		$('.next').click(function (){
+		$scope.next=function (){
 			if(isHistory == 'Y'){
 				window.open("infoBusiness.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y",'_blank');
 			}else{
 				window.open("infoBusiness.html?id="+id,'_blank');
 			}
-		});
+		}
+		
 		//业务信息
 		ngCom.ngAjax({
 			
@@ -247,7 +259,8 @@ angular.module('viewApp',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){	
-				$scope.resJson = response.facList;;
+
+				$scope.resJson = response.facList;
 				$scope.resColl = response.collList;
 				$scope.resAcct = response.acctList;
 				//信贷总额度
@@ -264,55 +277,33 @@ angular.module('viewApp',['ngRoute'])
 				angular.forEach($scope.resJson, function(data){
 				
 				summarylmtApprAllAmt += parseInt(data.lmtAppr);
-				$scope.summarylmtApprAllAmt = summarylmtApprAllAmt;
+				$scope.summarylmtApprAllAmt = formatMoney(summarylmtApprAllAmt);
 				
 				});
 				angular.forEach($scope.resAcct, function(data){
 				
 				summaryOutstdAmtAll += parseInt(data.outstdAmt);
-				$scope.summaryOutstdAmtAll = summaryOutstdAmtAll;
+				$scope.summaryOutstdAmtAll = formatMoney(summaryOutstdAmtAll);
 				
 				});
 				angular.forEach($scope.resColl, function(data){
 				
 				summaryChargeValue += parseInt(data.chargeValue);
-				$scope.summaryChargeValue = summaryChargeValue;
+				$scope.summaryChargeValue = formatMoney(summaryChargeValue);
 				
 				});
 				angular.forEach($scope.resColl, function(data){
 				
 				summaryCollValue += parseInt(data.collValue);
-				$scope.summaryCollValue = summaryCollValue;
+				$scope.summaryCollValue = formatMoney(summaryCollValue);
 				
 				});
 				angular.forEach($scope.resColl, function(data){
 				
 				summaryRemainValue += parseInt(data.remainValue);
-				$scope.summaryRemainValue = summaryRemainValue;
+				$scope.summaryRemainValue = formatMoney(summaryRemainValue);
 				
 				});
-
-				//隔行换色
-				/*console.log(222);
-				$scope.isActive=function (index){
-					console.log(index);
-					return $scope._index = index;
-					console.log($scope._index);
-				}*/
-					
-			  /*var $tables = $('.line_a'); //遍历文档中的所有table
-			  console.log($tables.length);
-			  for(var i=0; i<$tables.length; i++) {
-			   console.log(111);
-			    if(i%2) {
-					
-			     $tables.eq(i).find('.business_line').addClass("evenLine");
-			     
-			    }else { 
-			    	
-		     		$tables.eq(i).find('.business_line').addClass("oddLine");
-				} 
-			  }*/
 				
 			},
 			error:function (error_data){
@@ -340,10 +331,14 @@ angular.module('viewApp',['ngRoute'])
 							/*姓名 身份证*/
 									if(response.idNo == "goUp" || response.idNo == "goDown" || response.mtCifIdTypCdDscp == "textChange"){
 										$scope.idNoStatus = "textChange";
+									}else{
+										$scope.idNoStatus = response.idNo;
 									}
 									$scope.nmStatus= response.nm;
 									if(response.age == "goUp" || response.age == "goDown"){
 										$scope.ageStatus = "textChange";
+									}else{
+										$scope.ageStatus = response.age;
 									}
 
 							/*获取客户地址信息*/
@@ -396,10 +391,14 @@ angular.module('viewApp',['ngRoute'])
 							/*姓名 身份证*/
 									if(response.idNo == "goUp" || response.idNo == "goDown" || response.mtCifIdTypCdDscp == "textChange"){
 										$scope.idNoStatus = "textChange";
+									}else{
+										$scope.idNoStatus = response.idNo;
 									}
 									$scope.nmStatus= response.nm;
 									if(response.age == "goUp" || response.age == "goDown"){
 										$scope.ageStatus = "textChange";
+									}else{
+										$scope.ageStatus = response.age;
 									}
 
 							/*获取客户地址信息*/
@@ -463,14 +462,15 @@ angular.module('viewApp',['ngRoute'])
 		
 
 		/* 担保信息 详情5.9*/
-			$('.collMore').click(function (){
+		$scope.collMore=function (){
 			if(isHistory == 'Y'){
 				window.open("infoGuarantee.html?csCifId="+csCifId+"&appId="+appId+"&isHistory=Y",'_blank');
 			}else{
 				window.open("infoGuarantee.html?id="+id,'_blank');
 
 			}
-		});
+		}
+			
 		$scope.toggle = function(dis) {
 			  if ($scope.display!=dis) {
 				  $scope.display=dis;

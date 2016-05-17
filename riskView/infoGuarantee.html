@@ -38,8 +38,8 @@
     	<td>{{coll.mtCollTypDscp}}</td>
     	<td>{{coll.mtCollCatDscp}}</td>
     	<td>{{coll.colIdNo}}</td>
-        <td>{{coll.collValue}}</td>
-        <td>{{coll.remainValue}}</td>
+        <td>{{coll.collValue  | number:2}}</td>
+        <td>{{coll.remainValue  | number:2}}</td>
         <td>{{coll.ownerCifNm}}</td>     
     </tr>
 	  </table>
@@ -75,7 +75,7 @@
 		      <td>{{coll.addrLine}}</td>
 		      <td>{{coll.collValue}}</td>
 		      <td>{{coll.dtPurchased}}</td>
-		      <td>{{coll.purchasedPrc}}</td>
+		      <td>{{coll.purchasedPrc  | number:2}}</td>
 		      <td>{{coll.builtUpArea}}</td>
 		      <td>{{coll.mtLandAcquireMtdCd}}</td>
 		      <td>{{coll.mtLandUseCd}}</td>

@@ -66,6 +66,6 @@ body{ background:#eeeeee;}
 .detail_son_long i a:hover{ color:#fe6409;}
 /*  无缩进的子表格  */
 .yewu_list_son_long{ border:1px solid #d4d4d4; color:#666666; text-align:left; width:100%; background:#fefefe; }
-.yewu_list_son_long th{ background:#ecf3f7; font-weight:normal;}
+.yewu_list_son_long th{ background:#ecf3f7; font-weight:normal; text-align: left;}
 .yewu_list_son_long th{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4;}
 .yewu_list_son_long td{ padding:4px; border-right:0px solid #d4d4d4;border-bottom:0px solid #d4d4d4; }

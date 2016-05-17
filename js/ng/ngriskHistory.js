@@ -20,7 +20,15 @@ angular.module('riskHistory',['ngRoute'])
 					ngHttp:$http,
 					success:function(data,status){
 						$scope.dataList = data.list;
+					},
+
+					error:function (error_data){
+						console.log(error_data);
+					},
+					errfn:function (){
+						$scope.dataList = '';
 					}
+
 				});
 				
 			}
