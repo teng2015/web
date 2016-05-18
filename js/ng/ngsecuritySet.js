@@ -60,6 +60,8 @@ angular.module('securitySet',['ngRoute'])
 	}
 	$('.bind').click(function (){
 		$('.bindEmail').show();
+		$('#emailName').val('');
+		$('#yzmimg').val('');
 		$('.security').hide();
 	});
 	$('.yzm_a').click(function (){

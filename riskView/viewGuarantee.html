@@ -11,7 +11,7 @@
         </div>
         <table>
         	<tbody class="collTbody">
-            	<!-- <tr class="colInfo_title">
+            	 <tr class="colInfo_title">
                     <td class="guarantee_number">担保编号</td>
                     <td class="guarantee_type">担保类型</td>
                     <td class="guarantee_types">担保种类</td>
@@ -20,17 +20,17 @@
                     <td class="collateral_value">担保品价值</td>
                     <td class="residual_value">担保品可用价值</td>
                     <td class="owner">所有者</td>
-                </tr> -->
-                <!-- <tr class="colInfo_title_val" ng-repeat="coll in collList">
+                </tr>
+                 <tr class="colInfo_title_val" ng-repeat="coll in collList"  ng-class-even="'evenLine'">
                     <td class="guarantee_number">{{coll.no}}</td>
                     <td class="guarantee_type">{{coll.mtCollTypDscp}}</td>
                     <td  class="guarantee_types">{{coll.mtCollCatDscp}}</td>
                     <td class="id_num">{{coll.colIdNo}}</td>
                     <td class="guaranteed_discount">{{coll.safetyFactor}}%</td>
-                    <td class="collateral_value">{{coll.collValue}}</td>
-                    <td class="residual_value">{{coll.remainValue}}</td>
+                    <td class="collateral_value">{{coll.collValue  | number:2}}</td>
+                    <td class="residual_value">{{coll.remainValue  | number:2}}</td>
                     <td class="owner">{{coll.ownerCifNm}}</td>
-                </tr> -->
+                </tr>
             </tbody>
         </table>    
     </div>
