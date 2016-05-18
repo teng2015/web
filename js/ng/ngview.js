@@ -30,23 +30,23 @@ angular.module('viewApp',['ngRoute'])
 		var isHistory = getUrlParam('isHistory');
 		var nextCsCifId = getUrlParam('nextCsCifId');
 		var appId = getUrlParam("appId");
-	    var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl;
+	    var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl,collUrl,ratingUrl;
 		if (isHistory == 'Y') {
-			facUrl = "/col/csfac_chrg/list?csCifId="+csCifId+"&mtTenantId=1&appId="+appId;
-			cifUrl = "/cif/cs_cifs/"+csCifId+"?mtTenantId=1";
-			indvUrl = "/cif/cs_cif_indvs/?cs_cif_id="+csCifId+"&mtTenantId=1";
-			emplymtUrl = "/cif/cs_cif_emps/?cs_cif_Id="+csCifId+"&mtTenantId=1";
-			addrUrl = "/cif/cs_cif_addrs/?cs_cif_id="+csCifId+"&mtTenantId=1";
-			collUrl = "/col/cs_colls/cs_cif/"+appId+"?mtTenantId=1";
-			ratingUrl = "/cif/cs_cif_ratings/?cs_cif_id="+csCifId+"&mtTenantId=1";
+			facUrl = "/col/csfac_chrg/list?csCifId="+csCifId+"&appId="+appId;
+			cifUrl = "/cif/cs_cifs/cifSummary?id="+csCifId+"&appId="+appId+"&mtTenantId=1";
+			emplymtUrl = "/cif/cs_cif_emps/"+csCifId+"/"+appId;
+			addrUrl = "/cif/cs_cif_addrs/"+appId;
+			collUrl = "/col/cs_colls/cs_cif/"+appId;
+			indvUrl = "/cif/cs_cif_indvs/?cifId="+csCifId+"&appId="+appId;
+			ratingUrl = "/cif/cs_cif_ratings/?cifId="+csCifId+"&appId="+appId;
 		} else {
-			facUrl = "/col/facChrgs/list?cifId="+id+"&mtTenantId=1";
-			cifUrl = "/cif/cifs/"+id+"?mtTenantId=1";
-			indvUrl = "/cif/indvs/?cif_id="+id+"&mtTenantId=1";
-			emplymtUrl = "/cif/emps/?cif_id="+id+"&mtTenantId=1";
-			addrUrl = "/cif/addrs/"+id+"?mtTenantId=1";
-			collUrl = "/col/coll/list?cifId="+id+"&mtTenantId=1";
-			ratingUrl = "/cif/ratings/?cif_id="+id+"&mtTenantId=1";
+			facUrl = "/col/facChrgs/list?cifId="+id;
+			cifUrl = "/cif/cifs/cifSummary?id="+id;
+			emplymtUrl = "/cif/emps/"+id;
+			addrUrl = "/cif/addrs/"+id;
+			collUrl = "/col/coll/list?id="+id;
+			indvUrl = "/cif/indvs/?cifId="+id;
+			ratingUrl = "/cif/ratings/?cifId="+id;
 		}
 		/*姓名 身份证*/
 		ngCom.ngAjax({
@@ -178,9 +178,9 @@ angular.module('viewApp',['ngRoute'])
 			ngHttp:$http,
 			success:function(response){	
 				
-				/*$scope.collList = response;*/
+				$scope.collList = response;
 				
-				$.each(response,function (i,ele){
+				/*$.each(response,function (i,ele){
 					collTr+='<tr class="colInfo_title_val">'+
                     '<td class="guarantee_number">'+ele.no+'</td>'+
                     '<td class="guarantee_type">'+ele.mtCollTypDscp+'</td>'+
@@ -192,28 +192,19 @@ angular.module('viewApp',['ngRoute'])
                     '<td class="owner">'+ele.ownerCifNm+'</td>'+
                 '</tr>';
 				});
-				
-               
                 var trHtml=collTxtTr+collTr;
                 
-                $('.collTbody').html(trHtml);
-
-                
-
-               //隔行换色
+                $('.collTbody').html(trHtml);*/
+               //隔行换色遍历文档中的所有table
 					
-			  var $tables = $('.collTbody').find('.colInfo_title_val'); //遍历文档中的所有table
+			  /*var $tables = $('.collTbody').find('.colInfo_title_val');
 			  for(var i=0; i<$tables.length; i++) {
-			   
 			    if(i%2) {
-					
 			     $tables.eq(i).addClass("evenLine");
-			     
-			    }else { 
-			    	
+			    }else {
 		     		$tables.eq(i).addClass("oddLine");
 				} 
-			  }
+			  }*/
 				
 
 				
@@ -365,18 +356,15 @@ angular.module('viewApp',['ngRoute'])
 								});
 	}else{
 		//保存快照
-
-		
-		ngCom.ngAjax({
-			url:"/cif/cs_cifs/csCifs/",
-			data:{cifId:id,mtTenantId:"1",appId:"1"},
-			method:'POST',
-			ngHttp:$http,
-			success:function(response){
-			
 			ngCom.ngAjax({
-					url:"/col/cs_colls/csColls",
-					data:{cifId:response.cifId,mtTenantId:"1",appId:response.appId},
+				url:"/cif/cs_cifs/csCifs/",
+				data:{id:id,mtTenantId:"1",appId:"1"},
+				method:'POST',
+				ngHttp:$http,
+				success:function(response){
+					ngCom.ngAjax({
+						url:"/col/cs_colls/csColls",
+						data:{id:response.id,appId:response.appId},
 					method:'POST',
 					ngHttp:$http,
 					success:function(response){
