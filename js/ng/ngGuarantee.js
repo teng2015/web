@@ -44,6 +44,7 @@ angular.module('guarApp',['ngRoute'])
 			ngHttp:$http,
 			success:function(response){
 				$scope.collDetailList = response;
+
 			},
 			error:function (error_data){
 				console.log(error_data);
