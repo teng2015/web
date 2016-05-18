@@ -63,7 +63,9 @@ angular.module('infoApp',['ngRoute'])
 			method:'get',
 			ngHttp:$http,
 			success:function(response){
-				
+
+				$scope.loanFixedYear = response.loanFixedYear;
+
 				$scope.mtIndvMobileUsageStsCdDscp = response.mtIndvMobileUsageStsCdDscp;
 				
 				
@@ -83,8 +85,10 @@ angular.module('infoApp',['ngRoute'])
 				var v = response.isLegalRep;
 				if(v=='Y'){
 					$scope.isLegalRep = "是";
-				}else{
+				}else if(v=='N'){
 					$scope.isLegalRep = "否";
+				}else{
+					$scope.isLegalRep = "";
 				}
 				
 				$scope.mtBizCapitalCdDscp = response.mtBizCapitalCdDscp;
@@ -207,9 +211,9 @@ angular.module('infoApp',['ngRoute'])
 				$scope.mtIndCatCdDscpConflict = response.mtIndCatCdDscp;
 				$scope.mtIndCdDscpConflict= response.mtIndCdDscp;
 				$scope.mtIndDetailCdDscpConflict= response.mtIndDetailCdDscp;
-			
-			
-			
+
+
+				$scope.loanFixedYearConflict= response.loanFixedYear;
 			
 				$scope.mtIndvMobileUsageStsCdDscpConflict = response.mtIndvMobileUsageStsCdDscp;
 				$scope.mtIndvPaymentStsCdDscpConflict = response.mtIndvPaymentStsCdDscp;
