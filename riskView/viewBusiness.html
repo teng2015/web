@@ -73,10 +73,10 @@
                 <tr ng-repeat="coll in resColl" ng-show="coll.facId==item.id">
                   <td>{{coll.no}}</td>
                   <td>{{coll.mtCollCatDscp}}</td>
-                  <td>{{coll.collValue}}</td>
-                  <td>{{coll.remainValue}}</td>
-                  <td ng-show="{{item.marker}}== true" style="color:red;">{{coll.chargeValue}}</td>
-                  <td ng-show="{{item.marker}}== false" >{{coll.chargeValue}}</td>
+                  <td>{{coll.collValue | number:2}}</td>
+                  <td>{{coll.remainValue | number:2}}</td>
+                  <td ng-show="{{item.marker}}== true" style="color:red;">{{coll.chargeValue | number:2}}</td>
+                  <td ng-show="{{item.marker}}== false" >{{coll.chargeValue | number:2}}</td>
                   <td>{{coll.ownerCifNm}}</td>
                 </tr>
 
@@ -108,9 +108,9 @@
                   <td>{{acct.dtMaturity}}</td>
                   <td>{{acct.mtRateTypRate}}%</td>
                   <td>{{acct.intRateInSuspense}}%</td>
-                  <td style="color:red;">{{acct.outstdAmt}}</td>
-                  <td style="color:red;">{{acct.tardyCapitalAmt}}</td>
-                  <td style="color:red;">{{acct.tardyInterestAmt}}</td>
+                  <td style="color:red;">{{acct.outstdAmt | number:2}}</td>
+                  <td style="color:red;">{{acct.tardyCapitalAmt | number:2}}</td>
+                  <td style="color:red;">{{acct.tardyInterestAmt | number:2}}</td>
                   <td>{{acct.purpose}}</td>
                 </tr>
               </table>

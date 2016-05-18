@@ -11,7 +11,7 @@ angular.module('guarApp',['ngRoute'])
 			var id = getUrlParam('id');
 			var isHistory = getUrlParam('isHistory');
 			var appId = getUrlParam("appId");
-			//var csCifId = getUrlParam('csCifId');
+			var csCifId = getUrlParam('csCifId');
 			var cifId = getUrlParam("cifId");
 			var collUrl;
 			var collDetailUrl;

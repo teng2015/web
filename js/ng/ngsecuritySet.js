@@ -171,7 +171,7 @@ angular.module('securitySet',['ngRoute'])
 				},
 				errfn:function(data){
 					
-					
+					$('.showTxt').html('');
 					$('.errMsg').empty().html(data.message).show();
 					$('.yzm_a').click(function (){
 

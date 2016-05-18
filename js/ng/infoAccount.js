@@ -11,21 +11,21 @@ angular.module('infoApp',['ngRoute'])
 		var isHistory = getUrlParam('isHistory');
 		var appId = getUrlParam("appId");
 		var csCifId = getUrlParam("csCifId");
-		var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl,collUrl,ratingUrl;
+		var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl,collUrl,ratingUrl,conflictUrl;
 		if(isHistory == 'Y'){
 			cifUrl = "/cif/cs_cifs/detail/"+csCifId+"?mtTenantId=1";
 			emplymtUrl = "/cif/cs_cif_emps/"+ csCifId +"/"+appId;
 			addrUrl = "/cif/cs_cif_addrs/detail/"+ appId;
 			indvUrl = "/cif/cs_cif_indvs/detail?cifId="+ csCifId +"&appId="+appId;
 			ratingUrl = "/cif/cs_cif_ratings/?cifId="+ csCifId +"&appId="+appId;
-			conflictUrl = "/cif/conflict/cs_cif_detail?current_cs_cif_id="+csCifId+"&mtTenantId=1";
+			conflictUrl = "/cif/conflict/cs_cif_detail?id="+csCifId+"&appId="+appId+"&mtTenantId=1";
 		}else{
 			cifUrl = "/cif/cifs/detail/"+id+"?mtTenantId=1";
 			emplymtUrl = "/cif/emps/detail/"+id;
 			addrUrl = "/cif/addrs/detail/"+id;
 			indvUrl = "/cif/indvs/detail?cifId="+id;
 			ratingUrl = "/cif/ratings/?cifId="+id;
-			conflictUrl = "/cif/conflict/cif_detail?cifId="+id+"&mtTenantId=1";
+			conflictUrl = "/cif/conflict/cif_detail?id="+id+"&mtTenantId=1";
 		}
 
 
@@ -159,31 +159,7 @@ angular.module('infoApp',['ngRoute'])
 			}
 		
 		});
-		/*获取客户地址信息*/
-		/*mtTenantId都是1  暂时写死*/
-		ngCom.ngAjax({
-			
-			url:addrUrl,
-			method:'get',
-			ngHttp:$http,
-			success:function(response){
-				$scope.addResJson= response;
-				
-				$scope.mtCtryCdDscp= response[0].mtCtryCdDscp;
-				$scope.mtStateCdDscp= response[0].mtStateCdDscp;
-				$scope.mtCityCdDscp= response[0].mtCityCdDscp;
-				
-				//mtCityCdDscp + mtCountyCdDscp
-				//postcd
-				$scope.mtResidenceTypCdDscp = response[0].mtResidenceTypCdDscp;
-				$scope.postcd= response[0].postcd;
-				
-			},
-			error:function (error_data){
-				console.log(error_data);
-			}
-		
-		});
+
 		
 		
 		/*用户评级*/
@@ -266,25 +242,69 @@ angular.module('infoApp',['ngRoute'])
 				$scope.mtPosHeldCdDscpConflict= response.mtPosHeldCdDscp;
 				$scope.mtEmplymtTypCdDscpConflict= response.mtEmplymtTypCdDscp;
 				$scope.mtIndvCdtRatingCdDscpConflict= response.mtIndvCdtRatingCdDscp;
-				
-				
-				
-				
-				
-				
-				$scope.mtCtryCdDscpConflict= response.mtCtryCdDscp;
-				$scope.mtStateCdDscpConflict= response.mtStateCdDscp;
-				$scope.mtCityCdDscpConflict= response.mtCityCdDscp;
+
+
+				var addrs =eval(response.address);
+				$scope.mtCtryCdDscpConflict= addrs[0].mtCtryCdDscp;
+				$scope.mtStateCdDscpConflict= addrs[0].mtStateCdDscp;
+				$scope.mtCityCdDscpConflict= addrs[0].mtCityCdDscp;
 				//mtCityCdDscp + mtCountyCdDscp
 				//postcd
-				$scope.mtResidenceTypCdDscpConflict = response.mtResidenceTypCdDscp;
-				$scope.postcdConflict= response.postcd;
+				$scope.mtResidenceTypCdDscpConflict = addrs[0].mtResidenceTypCdDscp;
+				$scope.postcdConflict= addrs[0].postcd;
 				
-				
+
 				
 				$scope.scoreConflict= response.score;
 				$scope.dtRatedConflict= response.dtRated;
 				$scope.ratingConflict= response.rating;
+
+				var addressConflictJson = response.address;
+
+
+
+
+				/*获取客户地址信息*/
+				/*mtTenantId都是1  暂时写死*/
+				ngCom.ngAjax({
+
+					url:addrUrl,
+					method:'get',
+					ngHttp:$http,
+					success:function(response){
+						$scope.addResJson= response;
+
+						$scope.mtCtryCdDscp= response[0].mtCtryCdDscp;
+						$scope.mtStateCdDscp= response[0].mtStateCdDscp;
+						$scope.mtCityCdDscp= response[0].mtCityCdDscp;
+
+						//mtCityCdDscp + mtCountyCdDscp
+						//postcd
+						$scope.mtResidenceTypCdDscp = response[0].mtResidenceTypCdDscp;
+						$scope.postcd= response[0].postcd;
+
+						var addressObj =eval(response);
+						var addressConflictObj=eval(addressConflictJson);
+
+						for(var i=0;i<addressObj.length;i++){
+							addressObj[i].mtCityCdDscpConflict =  addressConflictObj[i].mtCityCdDscp;
+							addressObj[i].mtCountyCdDscpConflict =  addressConflictObj[i].mtCountyCdDscp;
+							addressObj[i].postcdConflict =  addressConflictObj[i].postcd;
+
+						}
+
+
+						$scope.addressMessageConflictJson = addressObj;
+
+
+
+					},
+					error:function (error_data){
+						console.log(error_data);
+					}
+
+				});
+
 			},
 			error:function (error_data){
 				console.log(error_data);

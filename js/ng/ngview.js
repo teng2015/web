@@ -30,7 +30,7 @@ angular.module('viewApp',['ngRoute'])
 		var isHistory = getUrlParam('isHistory');
 		var nextCsCifId = getUrlParam('nextCsCifId');
 		var appId = getUrlParam("appId");
-	    var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl,collUrl,ratingUrl;
+	    var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl,collUrl,ratingUrl,successRating;
 		if (isHistory == 'Y') {
 			facUrl = "/col/csfac_chrg/list?csCifId="+csCifId+"&appId="+appId;
 			cifUrl = "/cif/cs_cifs/cifSummary?id="+csCifId+"&appId="+appId+"&mtTenantId=1";
@@ -39,6 +39,7 @@ angular.module('viewApp',['ngRoute'])
 			collUrl = "/col/cs_colls/cs_cif/"+appId;
 			indvUrl = "/cif/cs_cif_indvs/?cifId="+csCifId+"&appId="+appId;
 			ratingUrl = "/cif/cs_cif_ratings/?cifId="+csCifId+"&appId="+appId;
+			successRating="/cif/cs_inteRates/"+csCifId+"/"+appId;
 		} else {
 			facUrl = "/col/facChrgs/list?cifId="+id;
 			cifUrl = "/cif/cifs/cifSummary?id="+id;
@@ -47,6 +48,7 @@ angular.module('viewApp',['ngRoute'])
 			collUrl = "/col/coll/list?id="+id;
 			indvUrl = "/cif/indvs/?cifId="+id;
 			ratingUrl = "/cif/ratings/?cifId="+id;
+			successRating="/cif/inteRates/"+id;
 		}
 		/*姓名 身份证*/
 		ngCom.ngAjax({
@@ -72,7 +74,7 @@ angular.module('viewApp',['ngRoute'])
 
 		ngCom.ngAjax({
 			
-			url:"/cif/inteRates/"+id+"/1",
+			url:successRating,
 			method:'get',
 			ngHttp:$http,
 			success:function(response){	
@@ -102,6 +104,7 @@ angular.module('viewApp',['ngRoute'])
 			ngHttp:$http,
 			success:function(response){
 				$scope.mtStateCdDscp = response.mtStateCdDscp;
+				$scope.mtCityCdDscp = response.mtCityCdDscp;
 				$scope.mtCountyCdDscp= response.mtCountyCdDscp;
 			
 				
@@ -161,7 +164,7 @@ angular.module('viewApp',['ngRoute'])
 		});
 
 		/*担保信息*/
-		var collTr = '';
+		/*var collTr = '';
 		var collTxtTr = '<tr class="colInfo_title">'+
                     '<td class="guarantee_number">担保编号</td>'+
                     '<td class="guarantee_type">担保类型</td>'+
@@ -171,7 +174,7 @@ angular.module('viewApp',['ngRoute'])
                     '<td class="collateral_value">担保品价值</td>'+
                     '<td class="residual_value">担保品可用价值</td>'+
                     '<td class="owner">所有者</td>'+
-                	'</tr>';
+                	'</tr>';*/
 		ngCom.ngAjax({
 			url:collUrl,
 			method:'get',
@@ -314,7 +317,7 @@ angular.module('viewApp',['ngRoute'])
 		
 		//获取风险冲突提示
 					ngCom.ngAjax({
-							url:"/cif/conflict/cs_cif_summary?current_cs_cif_id="+csCifId+"&next_cs_cif_id="+nextCsCifId+"&mtTenantId=1",
+							url:"/cif/conflict/cs_cif_summary?id="+csCifId+"&appId="+appId+"&mtTenantId=1",
 							method:'get',
 							ngHttp:$http,
 							success:function(response){
@@ -334,6 +337,7 @@ angular.module('viewApp',['ngRoute'])
 
 							/*获取客户地址信息*/
 									$scope.mtStateCdDscpStatus = response.mtStateCdDscp;
+									$scope.mtCityCdDscpStatus = response.mtCityCdDscp;
 									$scope.mtCountyCdDscpStatus= response.mtCountyCdDscp;
 				
 							/*客户信息*/
@@ -371,7 +375,7 @@ angular.module('viewApp',['ngRoute'])
 				
 					//获取风险冲突提示
 					ngCom.ngAjax({
-							url:"/cif/conflict/cif_summary?cifId="+id+"&mtTenantId=1",
+						url:"/cif/conflict/cif_summary?id="+id+"&mtTenantId=1",
 							method:'get',
 							ngHttp:$http,
 							success:function(response){
@@ -391,6 +395,7 @@ angular.module('viewApp',['ngRoute'])
 
 							/*获取客户地址信息*/
 									$scope.mtStateCdDscpStatus = response.mtStateCdDscp;
+									$scope.mtCityCdDscpStatus = response.mtCityCdDscp;
 									$scope.mtCountyCdDscpStatus= response.mtCountyCdDscp;
 				
 							/*客户信息*/
