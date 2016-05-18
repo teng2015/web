@@ -32,8 +32,8 @@
 	    <li class="content">
 	      <table class="info_account_con ">
 	        <tr>
-	          <td id="nm" class="tab_gray jobwidth">{{nm}} <img src="../images/{{nmConflict}}.png" style="vertical-align:middle;margin-left:20px;" />
-			  ({{mtCifIdTypCdDscp}})<img src="../images/{{mtCifIdTypCdDscpConflicthb}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
+	          <td id="nm" class="tab_gray jobwidth">{{nm}}
+			  ({{mtCifIdTypCdDscp}})</td>
 	          <td id="idNo">{{idNo}}<img src="../images/{{idNoConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
 	          <td class="tab_gray">性别</td>
 	          <td id="mtGenderCd">{{mtGenderCdDscp}}<img src="../images/{{mtGenderCdDscpConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
@@ -92,18 +92,19 @@
 	    <li class="name">地址信息</li>
 	    <li class="content">
 	      <table id="contentTable" class="info_account_con ">
-		  
-		  
-			<tr ng-repeat=" item in addResJson">
-	          <td width="120" class="tab_gray">通讯地址</td>
-	          <td>{{item.mtCityCdDscp}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" />-{{item.mtCountyCdDscp}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
-	          <td class="tab_gray">邮编</td>
-	          <td>{{item.postcd}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
-	        </tr>
-			<tr>
-	          <td width="120" class="tab_gray">现住房产权性质</td>
-	          <td>{{mtResidenceTypCdDscp}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
-	        </tr>
+
+
+			  <tr ng-repeat=" item in addressMessageConflictJson">
+				  <td width="120" class="tab_gray">通讯地址</td>
+				  <td>{{item.mtCityCdDscp}}<img src="../images/{{item.mtCityCdDscpConflict}}.png" style="vertical-align:middle;margin-left:20px;" />
+					  -{{item.mtCountyCdDscp}}<img src="../images/{{item.mtCountyCdDscpConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
+				  <td class="tab_gray">邮编</td>
+				  <td>{{item.postcd}}<img src="../images/{{item.postcdConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
+			  </tr>
+			  <tr>
+				  <td width="120" class="tab_gray">现住房产权性质</td>
+				  <td>{{mtResidenceTypCdDscp}}<img src="../images/{{dtRegisteredConflict}}.png" style="vertical-align:middle;margin-left:20px;" /></td>
+			  </tr>
 		  
 	        <!--<tr>
 	          <td width="120" class="tab_gray">通讯地址</td>
