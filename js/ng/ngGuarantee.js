@@ -17,10 +17,10 @@ angular.module('guarApp',['ngRoute'])
 			var collDetailUrl;
 
 			if (isHistory == 'Y') {
-				collUrl ="/col/cs_colls/cs_cif/"+appId+"?mtTenantId=1";
-				collDetailUrl = "/col/colls/detail?cifId="+cifId+"&mtTenantId=1";
+				collUrl = "/col/cs_colls/list?id="+appId;
+				collDetailUrl = "/col/csColls/detail/"+appId+"?csCifId="+csCifId+"";
 			} else {
-				collUrl ="/col/coll/list?cifId="+id+"&mtTenantId=1";
+				collUrl = "/col/coll/list?id="+id;
 				collDetailUrl = "/col/colls/detail?cifId="+id+"&mtTenantId=1";
 			}
 
