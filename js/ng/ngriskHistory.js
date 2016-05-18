@@ -16,7 +16,10 @@ angular.module('riskHistory',['ngRoute'])
 				ngCom.ngAjax({
 					url:'/cif/cs_cifs/?nm='+$.trim(encodeURI($scope.nm))+'&idNo='+$.trim($scope.idNo)+'&mtTenantId=1',
 					method:'get',
-					//data:{'qwe':1},
+					/*data:{
+						nm:$.trim(encodeURI($scope.nm)),
+						idNo:$.trim($scope.idNo)
+					},*/
 					ngHttp:$http,
 					success:function(data,status){
 						$scope.dataList = data.list;

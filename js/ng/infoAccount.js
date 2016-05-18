@@ -9,25 +9,26 @@ angular.module('infoApp',['ngRoute'])
 			} 
 		var id = getUrlParam('id');
 		var isHistory = getUrlParam('isHistory');
-		
+		var appId = getUrlParam("appId");
 		var csCifId = getUrlParam("csCifId");
-
+		var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl,collUrl,ratingUrl;
 		if(isHistory == 'Y'){
 			cifUrl = "/cif/cs_cifs/detail/"+csCifId+"?mtTenantId=1";
-			indvUrl = "/cif/cs_cif_indvs/detail?cs_cif_id="+ csCifId +"&mtTenantId=1";
-			emplymtUrl = "/cif/cs_cif_emps/detail?cs_cif_Id="+ csCifId +"&mtTenantId=1";
-			addrUrl = "/cif/cs_cif_addrs/detail?cs_cif_id="+ csCifId +"&mtTenantId=1";
-			ratingUrl = "/cif/cs_cif_ratings/?cs_cif_id="+ csCifId +"&mtTenantId=1";
+			emplymtUrl = "/cif/cs_cif_emps/"+ csCifId +"/"+appId;
+			addrUrl = "/cif/cs_cif_addrs/detail/"+ appId;
+			indvUrl = "/cif/cs_cif_indvs/detail?cifId="+ csCifId +"&appId="+appId;
+			ratingUrl = "/cif/cs_cif_ratings/?cifId="+ csCifId +"&appId="+appId;
 			conflictUrl = "/cif/conflict/cs_cif_detail?current_cs_cif_id="+csCifId+"&mtTenantId=1";
-	    }else{
-		    cifUrl = "/cif/cifs/detail/"+id+"?mtTenantId=1";
-			indvUrl = "/cif/indvs/detail?cif_id="+id+"&mtTenantId=1";
-			emplymtUrl = "/cif/emps/detail/"+id+"/1";
-			addrUrl = "/cif/addrs/detail/"+id+"?mtTenantId=1";
-			ratingUrl = "/cif/ratings/?cif_id="+id+"&mtTenantId=1";
+		}else{
+			cifUrl = "/cif/cifs/detail/"+id+"?mtTenantId=1";
+			emplymtUrl = "/cif/emps/detail/"+id;
+			addrUrl = "/cif/addrs/detail/"+id;
+			indvUrl = "/cif/indvs/detail?cifId="+id;
+			ratingUrl = "/cif/ratings/?cifId="+id;
 			conflictUrl = "/cif/conflict/cif_detail?cifId="+id+"&mtTenantId=1";
 		}
-		
+
+
 		/*姓名 身份证*/
 		ngCom.ngAjax({
 			url:cifUrl,
