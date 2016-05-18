@@ -14,7 +14,7 @@ angular.module('infoApp',['ngRoute'])
 		var cifUrl,indvUrl,emplymtUrl,addrUrl,facUrl,collUrl,ratingUrl,conflictUrl;
 		if(isHistory == 'Y'){
 			cifUrl = "/cif/cs_cifs/detail/"+csCifId+"?mtTenantId=1";
-			emplymtUrl = "/cif/cs_cif_emps/"+ csCifId +"/"+appId;
+			emplymtUrl = "/cif/cs_cif_emps/detail/"+ csCifId +"/"+appId;
 			addrUrl = "/cif/cs_cif_addrs/detail/"+ appId;
 			indvUrl = "/cif/cs_cif_indvs/detail?cifId="+ csCifId +"&appId="+appId;
 			ratingUrl = "/cif/cs_cif_ratings/?cifId="+ csCifId +"&appId="+appId;
