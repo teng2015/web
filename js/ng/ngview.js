@@ -21,7 +21,7 @@ angular.module('viewApp',['ngRoute'])
 		    return result;
 		}
 		 
-
+		$scope.title2='<b>11111</b><br/>2222';
 		var id = getUrlParam('id');
 		$scope.id =id;
 
@@ -472,6 +472,7 @@ angular.module('viewApp',['ngRoute'])
 			  }
 			};
 
+		
 		/*名词字典*/
 		var $explainLi =  $('.explainUl').find('.explainFirst');
 		var $explainCon=document.getElementById('explainCon');
