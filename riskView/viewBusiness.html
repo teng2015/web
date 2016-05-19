@@ -22,7 +22,7 @@
             <span class="status">状态</span>
         </div>
         
-          <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display" >
+          <div  class="line_a" ng-repeat="item in resJson " ng-init="ng-model"  ng-model="display">
             <div class="business_line clearfix" ng-class-even="'evenLine'">
                <span class="credit_number " style="border-left:1px solid #d4d4d4">{{item.no}}</span>
                 <span class="business" >{{item.mtFacCdDscp}}</span>
@@ -45,12 +45,12 @@
                 </span>
                 <span class="account_balance account_balance_val">
                   <div ng-show="{{item.acctMarker}}== true">
-                    <div class="acc" ng-click="toggle(2*($index+2))"  style="color:red;">
+                    <div class="acc" ng-click="toggle(100*($index+1))"  style="color:red;">
                       {{item.balance | number:2}}
                     </div>
                   </div>
                   <div ng-show="{{item.acctMarker}}== false">
-                    <div class="acc" ng-click="toggle(2*($index+2))">
+                    <div class="acc" ng-click="toggle(100*($index+1))">
                       {{item.balance | number:2}}
                     </div>
                   </div>
@@ -87,7 +87,7 @@
               </table>
         
             </div>
-            <div class="this_div2" ng-show="display==2*($index+2)">
+            <div class="this_div2" ng-show="display==100*($index+1)">
               <table class="info_list_son mb_10" >
                 <tr class="font_w">
                   <th>账号</th>
